@@ -3,7 +3,9 @@ Simple JavaScript and TypeScript algorithms realization
 
 # Install
 git clone https://github.com/ranux/algorithms-js
+
 npm install
+
 node dist/Main.js
 
 # VSCode
