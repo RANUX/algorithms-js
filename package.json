@@ -1,0 +1,16 @@
+{
+  "name": "jsalgorithms",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranux/jsalgorithms"
+  },
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-typescript": "latest",
+    "gulp-sourcemaps": "latest",
+    "merge2": "latest",
+    "del": "latest"
+  } 
+  
+}
