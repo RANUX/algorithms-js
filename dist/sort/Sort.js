@@ -21,6 +21,14 @@ var Sort;
         return BubbleSort;
     })();
     Sort.BubbleSort = BubbleSort;
+    var SelectSort = (function () {
+        function SelectSort() {
+        }
+        SelectSort.prototype.sort = function (a) {
+        };
+        return SelectSort;
+    })();
+    Sort.SelectSort = SelectSort;
 })(Sort = exports.Sort || (exports.Sort = {}));
 
 //# sourceMappingURL=Sort.js.map

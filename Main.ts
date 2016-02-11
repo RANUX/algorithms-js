@@ -5,7 +5,8 @@ class Startup {
     
     public static main(): number 
     {
-	    new m.Examples.BubbleSortExample().test(); 
+	    new m.Examples.Sort().logBubbleSort(); 
+        new m.Examples.Sort().logSelectSort(); 
 
         return 0;
     }

@@ -1,19 +1,25 @@
 var m = require("../sort/Sort");
 var Examples;
 (function (Examples) {
-    var BubbleSortExample = (function () {
-        function BubbleSortExample() {
+    var Sort = (function () {
+        function Sort() {
+            this.data = ["d", "csharp", "cpp", "python", "node", "js"];
         }
-        BubbleSortExample.prototype.test = function () {
+        Sort.prototype.logBubbleSort = function () {
             var bs = new m.Sort.BubbleSort();
-            var a = ["d", "csharp", "cpp", "python", "node", "js"];
-            console.log("before sort: [" + a + "]");
-            bs.sort(a);
-            console.log(a);
+            console.log("before sort: [" + this.data + "]");
+            bs.sort(this.data);
+            console.log(this.data);
         };
-        return BubbleSortExample;
+        Sort.prototype.logSelectSort = function () {
+            var ss = new m.Sort.SelectSort();
+            console.log("before sort: [" + this.data + "]");
+            ss.sort(this.data);
+            console.log(this.data);
+        };
+        return Sort;
     })();
-    Examples.BubbleSortExample = BubbleSortExample;
+    Examples.Sort = Sort;
 })(Examples = exports.Examples || (exports.Examples = {}));
 
 //# sourceMappingURL=Sort.js.map

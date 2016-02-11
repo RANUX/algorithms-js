@@ -1,9 +1,9 @@
 {
-  "name": "jsalgorithms",
+  "name": "algorithms-js",
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ranux/jsalgorithms"
+    "url": "https://github.com/ranux/algorithms-js"
   },
   "devDependencies": {
     "gulp": "latest",

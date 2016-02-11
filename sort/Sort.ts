@@ -18,4 +18,10 @@ export namespace Sort {
             }
         }
     }
+    
+    export class SelectSort {
+        sort(a: Object[]) {
+            
+        }
+    }
 }

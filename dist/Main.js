@@ -3,7 +3,8 @@ var Startup = (function () {
     function Startup() {
     }
     Startup.main = function () {
-        new m.Examples.BubbleSortExample().test();
+        new m.Examples.Sort().logBubbleSort();
+        new m.Examples.Sort().logSelectSort();
         return 0;
     };
     return Startup;
