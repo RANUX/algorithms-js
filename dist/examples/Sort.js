@@ -7,13 +7,13 @@ var Examples;
         }
         Sort.prototype.logBubbleSort = function () {
             var bs = new m.Sort.BubbleSort();
-            console.log("before sort: [" + this.data + "]");
+            console.log("before bubble sort: [" + this.data + "]");
             bs.sort(this.data);
             console.log(this.data);
         };
         Sort.prototype.logSelectSort = function () {
             var ss = new m.Sort.SelectSort();
-            console.log("before sort: [" + this.data + "]");
+            console.log("before select sort: [" + this.data + "]");
             ss.sort(this.data);
             console.log(this.data);
         };
