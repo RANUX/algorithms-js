@@ -1,19 +1,9 @@
-var CPoint = (function () {
-    function CPoint(x, y) {
-        this.x = x;
-        this.y = y;
-    }
-    CPoint.prototype.toString = function () {
-        return "(x" + this.x + ", y" + this.y + ")";
-    };
-    return CPoint;
-})();
+var m = require("./examples/Sort");
 var Startup = (function () {
     function Startup() {
     }
     Startup.main = function () {
-        var bs = new BubbleSort();
-        bs.sort([5, 2, 3, 6, 2, 0]);
+        new m.Examples.BubbleSortExample().test();
         return 0;
     };
     return Startup;
