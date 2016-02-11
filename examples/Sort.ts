@@ -3,20 +3,19 @@ import * as m from "../sort/Sort";
 export namespace Examples {
     export class Sort {
         
-        data : Object[] = ["d", "csharp", "cpp", "python", "node", "js"];
-        
+        data       : Object[] = ["d", "csharp", "cpp", "python", "node", "js"];
+        simpleSort :  m.Sort.SimpleSort = new m.Sort.SimpleSort();
+
         
         logBubbleSort() {
-            var bs = new m.Sort.BubbleSort();
             console.log("before bubble sort: [" + this.data + "]");
-            bs.sort(this.data);
+            this.simpleSort.bubbleSort(this.data);
             console.log(this.data);
         }
         
         logSelectSort() {
-            var ss = new m.Sort.SelectSort();
             console.log("before select sort: [" + this.data + "]");
-            ss.sort(this.data);
+            this.simpleSort.selectSort(this.data);
             console.log(this.data);
         }
         

@@ -2,9 +2,9 @@
  * BubbleSort
  */
 export namespace Sort {
-    export class BubbleSort {
+    export class SimpleSort {
 
-        sort(a: Object[]) {
+        bubbleSort(a: Object[]) {
             for (var out = a.length-1; out > 0; out--) {
                 for (var inn = 0; inn < out; inn++) {
                     if ( a[inn] > a[inn+1] ) {
@@ -18,10 +18,7 @@ export namespace Sort {
             }
         }
         
-    }
-    
-    export class SelectSort {
-        sort(a: Object[]) {
+        selectSort(a: Object[]) {
             var min, out;
             for( out = 0; out < a.length; out++) {
                 min = out;

@@ -3,10 +3,10 @@
  */
 var Sort;
 (function (Sort) {
-    var BubbleSort = (function () {
-        function BubbleSort() {
+    var SimpleSort = (function () {
+        function SimpleSort() {
         }
-        BubbleSort.prototype.sort = function (a) {
+        SimpleSort.prototype.bubbleSort = function (a) {
             for (var out = a.length - 1; out > 0; out--) {
                 for (var inn = 0; inn < out; inn++) {
                     if (a[inn] > a[inn + 1]) {
@@ -18,13 +18,7 @@ var Sort;
                 }
             }
         };
-        return BubbleSort;
-    })();
-    Sort.BubbleSort = BubbleSort;
-    var SelectSort = (function () {
-        function SelectSort() {
-        }
-        SelectSort.prototype.sort = function (a) {
+        SimpleSort.prototype.selectSort = function (a) {
             var min, out;
             for (out = 0; out < a.length; out++) {
                 min = out;
@@ -38,9 +32,9 @@ var Sort;
                 a[min] = tmp;
             }
         };
-        return SelectSort;
+        return SimpleSort;
     })();
-    Sort.SelectSort = SelectSort;
+    Sort.SimpleSort = SimpleSort;
 })(Sort = exports.Sort || (exports.Sort = {}));
 
 //# sourceMappingURL=Sort.js.map

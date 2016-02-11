@@ -4,17 +4,16 @@ var Examples;
     var Sort = (function () {
         function Sort() {
             this.data = ["d", "csharp", "cpp", "python", "node", "js"];
+            this.simpleSort = new m.Sort.SimpleSort();
         }
         Sort.prototype.logBubbleSort = function () {
-            var bs = new m.Sort.BubbleSort();
             console.log("before bubble sort: [" + this.data + "]");
-            bs.sort(this.data);
+            this.simpleSort.bubbleSort(this.data);
             console.log(this.data);
         };
         Sort.prototype.logSelectSort = function () {
-            var ss = new m.Sort.SelectSort();
             console.log("before select sort: [" + this.data + "]");
-            ss.sort(this.data);
+            this.simpleSort.selectSort(this.data);
             console.log(this.data);
         };
         return Sort;
