@@ -3,7 +3,7 @@ var Examples;
 (function (Examples) {
     var Sort = (function () {
         function Sort() {
-            this.data = ["d", "csharp", "cpp", "python", "node", "js"];
+            this.data = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
             this.simpleSort = new m.Sort.SimpleSort();
         }
         Sort.prototype.logBubbleSort = function () {
@@ -11,9 +11,14 @@ var Examples;
             this.simpleSort.bubbleSort(this.data);
             console.log(this.data);
         };
-        Sort.prototype.logSelectSort = function () {
+        Sort.prototype.logSelectionSort = function () {
             console.log("before select sort: [" + this.data + "]");
-            this.simpleSort.selectSort(this.data);
+            this.simpleSort.selectionSort(this.data);
+            console.log(this.data);
+        };
+        Sort.prototype.logInsertionSort = function () {
+            console.log("before insertion sort: [" + this.data + "]");
+            this.simpleSort.insertionSort(this.data);
             console.log(this.data);
         };
         return Sort;

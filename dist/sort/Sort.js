@@ -18,7 +18,7 @@ var Sort;
                 }
             }
         };
-        SimpleSort.prototype.selectSort = function (a) {
+        SimpleSort.prototype.selectionSort = function (a) {
             var min, out;
             for (out = 0; out < a.length; out++) {
                 min = out;
@@ -30,6 +30,18 @@ var Sort;
                 var tmp = a[out];
                 a[out] = a[min];
                 a[min] = tmp;
+            }
+        };
+        SimpleSort.prototype.insertionSort = function (a) {
+            var out, temp, inn;
+            for (out = 1; out < a.length; out++) {
+                temp = a[out];
+                inn = out;
+                while (inn > 0 && a[inn - 1] > temp) {
+                    a[inn] = a[inn - 1];
+                    --inn;
+                }
+                a[inn] = temp;
             }
         };
         return SimpleSort;

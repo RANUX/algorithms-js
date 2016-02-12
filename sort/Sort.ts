@@ -18,7 +18,7 @@ export namespace Sort {
             }
         }
         
-        selectSort(a: Object[]) {
+        selectionSort(a: Object[]) {
             var min, out;
             for( out = 0; out < a.length; out++) {
                 min = out;
@@ -30,6 +30,19 @@ export namespace Sort {
                 var tmp   = a[out];
                 a[out]    = a[min];
                 a[min]  = tmp;
+            }
+        }
+        
+        insertionSort(a: Object[]) {
+            var out, temp, inn;
+            for ( out = 1; out < a.length; out++) {
+                temp = a[out];
+                inn = out;
+                while (inn > 0 && a[inn-1] > temp) {
+                    a[inn] = a[inn-1];
+                    --inn;
+                }
+                a[inn] = temp;
             }
         }
     }

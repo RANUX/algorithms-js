@@ -3,7 +3,7 @@ import * as m from "../sort/Sort";
 export namespace Examples {
     export class Sort {
         
-        data       : Object[] = ["d", "csharp", "cpp", "python", "node", "js"];
+        data       : Object[] = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
         simpleSort :  m.Sort.SimpleSort = new m.Sort.SimpleSort();
 
         
@@ -13,9 +13,15 @@ export namespace Examples {
             console.log(this.data);
         }
         
-        logSelectSort() {
+        logSelectionSort() {
             console.log("before select sort: [" + this.data + "]");
-            this.simpleSort.selectSort(this.data);
+            this.simpleSort.selectionSort(this.data);
+            console.log(this.data);
+        }
+        
+        logInsertionSort() {
+            console.log("before insertion sort: [" + this.data + "]");
+            this.simpleSort.insertionSort(this.data);
             console.log(this.data);
         }
         

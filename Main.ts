@@ -5,8 +5,10 @@ class Startup {
     
     public static main(): number 
     {
-	    new m.Examples.Sort().logBubbleSort(); 
-        new m.Examples.Sort().logSelectSort(); 
+	    var sortExamples = new m.Examples.Sort();
+        sortExamples.logBubbleSort(); 
+        sortExamples.logSelectionSort(); 
+        sortExamples.logInsertionSort();
 
         return 0;
     }
