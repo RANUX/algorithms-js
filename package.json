@@ -10,7 +10,8 @@
     "gulp-typescript": "latest",
     "gulp-sourcemaps": "latest",
     "merge2": "latest",
-    "del": "latest"
+    "del": "latest",
+    "knuth-shuffle": "latest"
   } 
   
 }

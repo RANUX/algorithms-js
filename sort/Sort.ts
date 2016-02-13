@@ -4,7 +4,7 @@
 export namespace Sort {
     export class SimpleSort {
 
-        bubbleSort(a: Object[]) {
+        bubbleSort(a: any[]) {
             for (var out = a.length-1; out > 0; out--) {
                 for (var inn = 0; inn < out; inn++) {
                     if ( a[inn] > a[inn+1] ) {
@@ -18,7 +18,7 @@ export namespace Sort {
             }
         }
         
-        selectionSort(a: Object[]) {
+        selectionSort(a: any[]) {
             var min, out;
             for( out = 0; out < a.length; out++) {
                 min = out;
@@ -33,7 +33,7 @@ export namespace Sort {
             }
         }
         
-        insertionSort(a: Object[]) {
+        insertionSort(a: any[]) {
             var out, temp, inn;
             for ( out = 1; out < a.length; out++) {
                 temp = a[out];
@@ -45,5 +45,6 @@ export namespace Sort {
                 a[inn] = temp;
             }
         }
+        
     }
 }

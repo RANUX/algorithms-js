@@ -1,0 +1,1 @@
+/// <reference path="knuth-shuffle/knuth-shuffle.d.ts" />

@@ -3,7 +3,7 @@ import * as m from "../sort/Sort";
 export namespace Examples {
     export class Sort {
         
-        data       : Object[] = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
+        data       : any[] = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
         simpleSort :  m.Sort.SimpleSort = new m.Sort.SimpleSort();
 
         
