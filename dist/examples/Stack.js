@@ -8,15 +8,20 @@ var Examples;
             this.aStack = new m.Stack.ArrayStack();
         }
         Stack.prototype.logArrayStack = function () {
+            console.log("===== SIMPLE ARRAY STACK EXAMPLE =====");
             shuffle.knuthShuffle(this.data);
-            for (var e in this.data) {
-                this.aStack.push(e);
-                console.log("Stack size: " + this.aStack.length());
+            console.log("Data before insert into stack: " + this.data);
+            for (var i in this.data) {
+                this.aStack.push(this.data[i]);
             }
+            console.log("Full Stack: " + this.aStack.length() + " " + this.aStack.toString());
+            var popedItems = "";
             for (var e in this.data) {
-                this.aStack.pop();
-                console.log("Stack size: " + this.aStack.length());
+                popedItems += this.aStack.pop() + ", ";
             }
+            popedItems = popedItems.slice(0, popedItems.length - 2);
+            console.log("popedItems : [ " + popedItems + " ]");
+            console.log("Empty Stack: " + this.aStack.length() + " " + this.aStack.toString());
         };
         return Stack;
     })();

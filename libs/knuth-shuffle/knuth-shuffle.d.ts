@@ -1,6 +1,7 @@
 declare module "knuth-shuffle" {
     
-    var knuthShuffle;//function shuffle(array: any);
+
+    function knuthShuffle(array: any) :any;
 
         //;
     

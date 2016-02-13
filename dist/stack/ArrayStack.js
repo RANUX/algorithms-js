@@ -27,6 +27,15 @@ var Stack;
         ArrayStack.prototype.isEmpty = function () {
             return !this.a;
         };
+        ArrayStack.prototype.toString = function () {
+            var aStr = "[";
+            for (var i = 0; i <= this.top; i++) {
+                aStr += this.a[i] + ", ";
+            }
+            aStr = aStr.slice(0, aStr.length - 2);
+            aStr += "]";
+            return "Top: " + this.top + " Stack content: " + aStr;
+        };
         return ArrayStack;
     })();
     Stack.ArrayStack = ArrayStack;

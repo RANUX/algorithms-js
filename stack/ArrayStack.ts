@@ -39,5 +39,17 @@ export namespace Stack {
     isEmpty() : boolean {
         return !this.a;
     }
+    
+    toString() : string {
+        var aStr = "[";
+
+        for (var i = 0; i <= this.top; i++) {
+            aStr += this.a[i] + ", ";
+            
+        }
+        aStr = aStr.slice(0, aStr.length-2);
+        aStr += "]";
+        return "Top: " +this.top + " Stack content: " + aStr;
+    }
     }
 }
