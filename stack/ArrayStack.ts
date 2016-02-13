@@ -1,10 +1,10 @@
-import * as m from "../stack/IStack";
+import * as stack from "../stack/IStack";
 
 /**
  * ArrayStack implements IStack
  */
-export namespace Stack {
- export class ArrayStack implements m.Stack.IStack {
+
+export class ArrayStack implements stack.IStack {
     
     a   : any[];
     top : number;
@@ -50,6 +50,5 @@ export namespace Stack {
         aStr = aStr.slice(0, aStr.length-2);
         aStr += "]";
         return "Top: " +this.top + " Stack content: " + aStr;
-    }
     }
 }

@@ -4,11 +4,11 @@ var Startup = (function () {
     function Startup() {
     }
     Startup.main = function () {
-        var sortExamples = new srt.Examples.Sort();
+        var sortExamples = new srt.SortExample();
         sortExamples.logBubbleSort();
         sortExamples.logSelectionSort();
         sortExamples.logInsertionSort();
-        var stackExamples = new stk.Examples.Stack();
+        var stackExamples = new stk.StackExample();
         stackExamples.logArrayStack();
         return 0;
     };
