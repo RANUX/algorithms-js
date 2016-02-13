@@ -1,5 +1,5 @@
 /**
- * BubbleSort
+ * Simple sort algorithms. Complexity O(N^2)
  */
 
 export class SimpleSort {
@@ -18,6 +18,11 @@ export class SimpleSort {
         }
     }
     
+    /**
+     * Selection sort
+     * 
+     * @param {any[]} any array
+     */
     selectionSort(a: any[]) {
         var min, out;
         for( out = 0; out < a.length; out++) {
@@ -33,6 +38,11 @@ export class SimpleSort {
         }
     }
     
+    /**
+     * Insertion sort
+     * 
+     * @param {any[]} any array
+     */
     insertionSort(a: any[]) {
         var out, temp, inn;
         for ( out = 1; out < a.length; out++) {

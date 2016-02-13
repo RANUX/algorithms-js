@@ -24,3 +24,7 @@ gulp.task('build-debug', function() {
             .pipe(gulp.dest('dist'))
     ]);
 });
+
+gulp.task('watch', ['build-debug'], function() {
+    gulp.watch(['sort/*.ts', 'stack/*.ts', 'examples/*.ts', 'array/*.ts'], ['build-debug']);
+});

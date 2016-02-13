@@ -1,5 +1,5 @@
 /**
- * BubbleSort
+ * Simple sort algorithms. Complexity O(N^2)
  */
 var SimpleSort = (function () {
     function SimpleSort() {
@@ -16,6 +16,11 @@ var SimpleSort = (function () {
             }
         }
     };
+    /**
+     * Selection sort
+     *
+     * @param {any[]} any array
+     */
     SimpleSort.prototype.selectionSort = function (a) {
         var min, out;
         for (out = 0; out < a.length; out++) {
@@ -30,6 +35,11 @@ var SimpleSort = (function () {
             a[min] = tmp;
         }
     };
+    /**
+     * Insertion sort
+     *
+     * @param {any[]} any array
+     */
     SimpleSort.prototype.insertionSort = function (a) {
         var out, temp, inn;
         for (out = 1; out < a.length; out++) {
