@@ -13,6 +13,7 @@ var Startup = (function () {
         stackExamples.logArrayStack();
         var ahelpsers = new hm.ArrayHelpersExamples();
         ahelpsers.logMergeArrays();
+        ahelpsers.logRemoveDuplicates();
         return 0;
     };
     return Startup;

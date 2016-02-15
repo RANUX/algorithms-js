@@ -19,6 +19,7 @@ class Startup {
         
         var ahelpsers = new hm.ArrayHelpersExamples();
         ahelpsers.logMergeArrays();
+        ahelpsers.logRemoveDuplicates();
         
         
         return 0;
