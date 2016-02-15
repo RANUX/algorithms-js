@@ -1,6 +1,7 @@
 import * as srtm from "./examples/Sort";
 import * as stkm from "./examples/Stack";
-import * as qm  from "./examples/Queues";
+import * as qm   from "./examples/Queues";
+import * as hm   from "./examples/ArraysHelpers";
 
 class Startup {
     
@@ -16,8 +17,9 @@ class Startup {
         var stackExamples = new stkm.StackExample();
         stackExamples.logArrayStack();
         
-        var queueExamples = new qm.QueueExamples();
-        queueExamples.logCircularQueue();
+        var ahelpsers = new hm.ArrayHelpersExamples();
+        ahelpsers.logMergeArrays();
+        
         
         return 0;
     }

@@ -1,3 +1,4 @@
+
 /**
  * ArrayHelpers
  */
@@ -10,7 +11,11 @@ export class ArrayHelpers {
      * @param first  array
      * @param second seccond
      */
-    merge(first, second) {
-        
+    merge(first : any[], second : any[]) {
+        for (var i in second) 
+        {
+            first.push(second[i]);
+        }
+        return first;
     }
 }

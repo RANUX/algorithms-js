@@ -11,6 +11,10 @@ var ArrayHelpers = (function () {
      * @param second seccond
      */
     ArrayHelpers.prototype.merge = function (first, second) {
+        for (var i in second) {
+            first.push(second[i]);
+        }
+        return first;
     };
     return ArrayHelpers;
 })();

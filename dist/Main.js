@@ -1,6 +1,6 @@
 var srtm = require("./examples/Sort");
 var stkm = require("./examples/Stack");
-var qm = require("./examples/Queues");
+var hm = require("./examples/ArraysHelpers");
 var Startup = (function () {
     function Startup() {
     }
@@ -11,8 +11,8 @@ var Startup = (function () {
         sortExamples.logInsertionSort();
         var stackExamples = new stkm.StackExample();
         stackExamples.logArrayStack();
-        var queueExamples = new qm.QueueExamples();
-        queueExamples.logCircularQueue();
+        var ahelpsers = new hm.ArrayHelpersExamples();
+        ahelpsers.logMergeArrays();
         return 0;
     };
     return Startup;
