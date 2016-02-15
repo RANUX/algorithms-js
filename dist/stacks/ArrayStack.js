@@ -23,7 +23,7 @@ var ArrayStack = (function () {
         return this.top + 1;
     };
     ArrayStack.prototype.isEmpty = function () {
-        return !this.a;
+        return this.top == -1;
     };
     ArrayStack.prototype.toString = function () {
         var aStr = "[";

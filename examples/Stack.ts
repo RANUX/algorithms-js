@@ -1,4 +1,4 @@
-import * as stack from "../stack/ArrayStack";
+import * as stack from "../stacks/ArrayStack";
 import shuffle = require('knuth-shuffle');
 
 

@@ -1,4 +1,4 @@
-var stack = require("../stack/ArrayStack");
+var stack = require("../stacks/ArrayStack");
 var shuffle = require('knuth-shuffle');
 var StackExample = (function () {
     function StackExample() {

@@ -1,4 +1,4 @@
-import * as stack from "../stack/IStack";
+import * as stack from "../stacks/IStack";
 
 /**
  * ArrayStack implements IStack
@@ -37,8 +37,9 @@ export class ArrayStack implements stack.IStack {
     }
     
     isEmpty() : boolean {
-        return !this.a;
+        return this.top == -1;
     }
+    
     
     toString() : string {
         var aStr = "[";
