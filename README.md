@@ -15,3 +15,6 @@ node dist/Main.js          # run
 # VSCode
 Just open project in Visual Studio Code
 Press Shift+Cmd+B to build project
+
+# Run tests
+node dist/tests/testSuit.js

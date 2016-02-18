@@ -11,7 +11,9 @@
     "gulp-sourcemaps": "latest",
     "merge2": "latest",
     "del": "latest",
-    "knuth-shuffle": "latest"
+    "knuth-shuffle": "latest",
+    "tsunit.external": "latest",
+    "vinyl-fs": "latest"
   } 
   
 }
