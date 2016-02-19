@@ -22,5 +22,4 @@ var SortExample = (function () {
     return SortExample;
 })();
 exports.SortExample = SortExample;
-
 //# sourceMappingURL=Sort.js.map

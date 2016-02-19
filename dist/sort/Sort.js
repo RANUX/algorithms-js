@@ -55,5 +55,4 @@ var SimpleSort = (function () {
     return SimpleSort;
 })();
 exports.SimpleSort = SimpleSort;
-
 //# sourceMappingURL=Sort.js.map

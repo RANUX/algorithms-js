@@ -34,5 +34,4 @@ var ArrayHelpers = (function () {
     return ArrayHelpers;
 })();
 exports.ArrayHelpers = ArrayHelpers;
-
 //# sourceMappingURL=ArrayHelpers.js.map

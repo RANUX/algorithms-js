@@ -1,3 +1,1 @@
-
-
 //# sourceMappingURL=IStack.js.map

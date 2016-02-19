@@ -11,20 +11,43 @@ var Infix2PostfixTests = (function (_super) {
         _super.apply(this, arguments);
         this.inf2Pstfx = new i2p.Infix2Postfix();
     }
-    Infix2PostfixTests.prototype.testConvertEmpty = function () {
+    Infix2PostfixTests.prototype.testConvert_Empty = function () {
         var postfix = this.inf2Pstfx.convert("");
         this.areIdentical("", postfix);
     };
-    Infix2PostfixTests.prototype.testConvertSymbol = function () {
+    Infix2PostfixTests.prototype.testConvert_Symbol = function () {
         var postfix = this.inf2Pstfx.convert("A");
         this.areIdentical("a", postfix);
     };
-    Infix2PostfixTests.prototype.testConvertAplusB = function () {
+    Infix2PostfixTests.prototype.testConvert_AplusB = function () {
         var postfix = this.inf2Pstfx.convert("A+B");
         this.areIdentical("ab+", postfix);
+    };
+    Infix2PostfixTests.prototype.testConvert_AplusBminusC = function () {
+        var postfix = this.inf2Pstfx.convert("A+B-C");
+        this.areIdentical("ab+c-", postfix);
+    };
+    Infix2PostfixTests.prototype.testConvert_AplusBmulC = function () {
+        var postfix = this.inf2Pstfx.convert("A+B*C");
+        this.areIdentical("abc*+", postfix);
+    };
+    Infix2PostfixTests.prototype.testConvert_AmulBplusC = function () {
+        var postfix = this.inf2Pstfx.convert("A*B-C");
+        this.areIdentical("ab*c-", postfix);
+    };
+    Infix2PostfixTests.prototype.testConvert_A_mul_BRK_B_plus_C_BRK = function () {
+        var postfix = this.inf2Pstfx.convert("A*(B+C)");
+        this.areIdentical("abc+*", postfix);
+    };
+    Infix2PostfixTests.prototype.testConvertComplexExpression1 = function () {
+        var postfix = this.inf2Pstfx.convert("A*(B+C)-D/(E+F)");
+        this.areIdentical("abc+*def+/-", postfix);
+    };
+    Infix2PostfixTests.prototype.testConvertComplexExpression2 = function () {
+        var postfix = this.inf2Pstfx.convert("A*(B+C+D)-D/(D*E+F)");
+        this.areIdentical("abc+d+*dde*f+/-", postfix);
     };
     return Infix2PostfixTests;
 })(tsUnit.TestClass);
 exports.Infix2PostfixTests = Infix2PostfixTests;
-
 //# sourceMappingURL=Infix2PostfixTests.js.map

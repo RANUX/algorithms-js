@@ -17,5 +17,4 @@ var Infix2PostfixExample = (function () {
     return Infix2PostfixExample;
 })();
 exports.Infix2PostfixExample = Infix2PostfixExample;
-
 //# sourceMappingURL=Infix2PostfixExample.js.map
