@@ -1,7 +1,7 @@
 var srtm = require("./examples/Sort");
 var stkm = require("./examples/Stack");
 var hm = require("./examples/ArraysHelpers");
-var i2pm = require("./examples/Infix2PostfixExample");
+var eee = require("./examples/EvalExprExample");
 var Startup = (function () {
     function Startup() {
     }
@@ -15,8 +15,8 @@ var Startup = (function () {
         var ahelpsers = new hm.ArrayHelpersExamples();
         ahelpsers.logMergeArrays();
         ahelpsers.logRemoveDuplicates();
-        var inf2post = new i2pm.Infix2PostfixExample();
-        inf2post.logConvertExpr();
+        var evlExpr = new eee.EvalExprExample();
+        evlExpr.logEvalExpr();
         return 0;
     };
     return Startup;

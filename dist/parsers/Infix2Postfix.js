@@ -10,9 +10,12 @@ var Infix2Postfix = (function () {
             "-": 1
         };
     }
-    Infix2Postfix.prototype.convert = function (expr) {
-        this.output = [];
+    Infix2Postfix.prototype.convert = function (expr, separator) {
+        if (separator === void 0) { separator = ";"; }
+        this.output = '';
         this.stack = [];
+        this.separator = separator;
+        var wasClosingBracket = false;
         for (var i = 0; i < expr.length; i++) {
             var ch = expr.charAt(i).toLowerCase();
             //console.log("For "+ch+" Stack (bottom->top): " + this.stack); // *debug log*
@@ -21,6 +24,10 @@ var Infix2Postfix = (function () {
                 case "/":
                 case "-":
                 case "+":
+                    if (!wasClosingBracket)
+                        this.output += this.separator;
+                    else
+                        wasClosingBracket = false;
                     this.getOperator(ch);
                     break;
                 case "(":
@@ -28,14 +35,21 @@ var Infix2Postfix = (function () {
                     break;
                 case ")":
                     this.getCloseParen(ch);
+                    wasClosingBracket = true;
                     break;
                 default:
-                    this.output.push(ch);
+                    this.output += ch;
             }
         }
-        while (this.stack.length > 0)
-            this.output.push(this.stack.pop());
-        return this.output.join('');
+        var separatorAdded = false;
+        while (this.stack.length > 0) {
+            if (!separatorAdded) {
+                this.output += this.separator;
+                separatorAdded = true;
+            }
+            this.output += this.stack.pop();
+        }
+        return this.output;
     };
     Infix2Postfix.prototype.getOperator = function (opCur) {
         if (this.stack.length > 0) {
@@ -46,7 +60,7 @@ var Infix2Postfix = (function () {
             var opCurPrior = this.opPriority[opCur];
             if (opPrevPrior >= opCurPrior) {
                 // put previous operator to output string
-                this.output.push(opPrev);
+                this.output += opPrev;
             }
             else {
                 // put opPrev back to stack
@@ -56,12 +70,16 @@ var Infix2Postfix = (function () {
         this.stack.push(opCur); // put current operator to stack
     };
     Infix2Postfix.prototype.getCloseParen = function (ch) {
+        var separatorAdded = false;
         while (this.stack.length > 0) {
             var chx = this.stack.pop();
             if (chx == "(")
                 break; // we're done
-            else
-                this.output.push(chx); // output it
+            else if (!separatorAdded) {
+                this.output += this.separator;
+                separatorAdded = true;
+            }
+            this.output += chx; // output it
         } // end while
     };
     return Infix2Postfix;

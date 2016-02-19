@@ -10,12 +10,16 @@ export class Infix2Postfix {
         "-" : 1
     };
     
-    private output : string[];
+    private output : string;
     private stack  : string[];
+    private separator : string;
     
-    convert( expr : string ) : string {
-        this.output = [];
+    convert( expr : string, separator = ";" ) : string {
+        this.output = '';
         this.stack  = [];
+        this.separator = separator;
+        
+        var wasClosingBracket = false;
         for (var i = 0; i < expr.length; i++){                  // for each char
             var ch = expr.charAt(i).toLowerCase();
             //console.log("For "+ch+" Stack (bottom->top): " + this.stack); // *debug log*
@@ -24,6 +28,11 @@ export class Infix2Postfix {
                 case "/":
                 case "-":
                 case "+":
+                    if ( !wasClosingBracket )
+                        this.output += this.separator;
+                    else
+                        wasClosingBracket = false;
+                    
                     this.getOperator(ch);
                     break;
                 case "(":
@@ -31,16 +40,25 @@ export class Infix2Postfix {
                     break;
                 case ")":
                     this.getCloseParen(ch);
+                    wasClosingBracket = true;
                     break;
                 
                 default:
-                    this.output.push(ch);
+                    this.output += ch;
+                    
             }
         }
-        while ( this.stack.length > 0 )
-            this.output.push( this.stack.pop() );
         
-        return this.output.join('');
+        var separatorAdded = false;
+        while ( this.stack.length > 0 ) {
+            if ( !separatorAdded ) {
+                this.output += this.separator;
+                separatorAdded = true;
+            }
+            this.output +=  this.stack.pop();
+        }
+        
+        return this.output;
     }
     
     private getOperator(opCur : string) {
@@ -57,7 +75,7 @@ export class Infix2Postfix {
             if ( opPrevPrior >= opCurPrior ) 
             {
                 // put previous operator to output string
-                this.output.push(opPrev);
+                this.output += opPrev;
             } else {                       //if ( opPrevPrior < opCurPrior )  '+' < '*'
                 // put opPrev back to stack
                 this.stack.push(opPrev);   
@@ -69,6 +87,7 @@ export class Infix2Postfix {
     }
     
     private getCloseParen(ch: string) {
+        var separatorAdded = false;
         while( this.stack.length > 0) 
         {
             var chx = this.stack.pop();
@@ -76,7 +95,11 @@ export class Infix2Postfix {
             if( chx == "(" )           // if popped '('
                 break;                 // we're done
             else                       // if popped operator
-                this.output.push(chx);  // output it
+                if ( !separatorAdded ) {
+                    this.output += this.separator;
+                    separatorAdded = true;
+                }
+                this.output += chx;  // output it
          }  // end while
     }
 }

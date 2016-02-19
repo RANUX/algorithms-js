@@ -11,4 +11,8 @@ export declare class Infix2PostfixTests extends tsUnit.TestClass {
     testConvert_A_mul_BRK_B_plus_C_BRK(): void;
     testConvertComplexExpression1(): void;
     testConvertComplexExpression2(): void;
+    testConvertComplexExpression3(): void;
+    testConvertComplexExpression4(): void;
+    testConvertComplexExpression5(): void;
+    testConvertComplexExpression6(): void;
 }

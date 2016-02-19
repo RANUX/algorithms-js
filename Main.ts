@@ -2,7 +2,7 @@ import * as srtm from "./examples/Sort";
 import * as stkm from "./examples/Stack";
 import * as qm   from "./examples/Queues";
 import * as hm   from "./examples/ArraysHelpers";
-import * as i2pm   from "./examples/Infix2PostfixExample";
+import * as eee   from "./examples/EvalExprExample";
 
 class Startup {
     
@@ -22,8 +22,8 @@ class Startup {
         ahelpsers.logMergeArrays();
         ahelpsers.logRemoveDuplicates();
         
-        var inf2post  = new i2pm.Infix2PostfixExample();
-        inf2post.logConvertExpr();
+        var evlExpr  = new eee.EvalExprExample();
+        evlExpr.logEvalExpr();
         
         return 0;
     }
