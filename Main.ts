@@ -18,6 +18,10 @@ class Startup {
         var stackExamples = new stkm.StackExample();
         stackExamples.logArrayStack();
         
+        var queueExamples = new qm.QueueExamples();
+        queueExamples.logCircularQueue();
+        queueExamples.logPriorityQueue();
+        
         var ahelpsers = new hm.ArrayHelpersExamples();
         ahelpsers.logMergeArrays();
         ahelpsers.logRemoveDuplicates();

@@ -1,9 +1,12 @@
 var mq = require("../queues/CircularQueue");
+var mqp = require("../queues/PriorityQueue");
 var shuffle = require('knuth-shuffle');
 var QueueExamples = (function () {
     function QueueExamples() {
         this.data = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
+        this.dataNums = [6, 7, 2, 0, 1, 9, 5, 7, 10];
         this.cQueue = new mq.CircularQueue(8);
+        this.priorQ = new mqp.PriorityQueue();
     }
     QueueExamples.prototype.logCircularQueue = function () {
         var dequeuedItems = "";
@@ -24,6 +27,28 @@ var QueueExamples = (function () {
         }
         dequeuedItems = dequeuedItems.slice(0, dequeuedItems.length - 2);
         console.log("dequeuedItems : [ " + dequeuedItems + " ]");
+        console.log("is Queue Empty: " + this.cQueue.isEmpty());
+    };
+    QueueExamples.prototype.logPriorityQueue = function () {
+        var dequeuedItems = "";
+        console.log("===== Priority Queue EXAMPLE =====");
+        shuffle.knuthShuffle(this.dataNums);
+        console.log("Data before insert into circular queue: " + this.dataNums);
+        for (var i in this.dataNums) {
+            this.priorQ.enqueue(this.dataNums[i]);
+        }
+        dequeuedItems += this.priorQ.dequeue() + ", ";
+        dequeuedItems += this.priorQ.dequeue() + ", ";
+        console.log(" Queue size: " + this.priorQ.size() + " Dequeued several elements: " + dequeuedItems);
+        this.priorQ.enqueue("1");
+        this.priorQ.enqueue("2");
+        dequeuedItems = "";
+        for (var e in this.dataNums) {
+            dequeuedItems += this.priorQ.dequeue() + ", ";
+        }
+        dequeuedItems = dequeuedItems.slice(0, dequeuedItems.length - 2);
+        console.log("dequeuedItems : [ " + dequeuedItems + " ]");
+        console.log("is Queue Empty: " + this.priorQ.isEmpty());
     };
     return QueueExamples;
 })();

@@ -1,11 +1,14 @@
-import * as mq from "../queues/CircularQueue";
+import * as mq  from "../queues/CircularQueue";
+import * as mqp from "../queues/PriorityQueue";
 import shuffle = require('knuth-shuffle');
 
 
 export class QueueExamples {
     
-    data       : any[] = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
-    cQueue :   mq.CircularQueue = new mq.CircularQueue(8);
+    data           : any[] = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
+    dataNums       : any[] = [6, 7, 2, 0, 1, 9, 5, 7, 10];
+    cQueue         :   mq.CircularQueue = new mq.CircularQueue(8);
+    priorQ         :   mqp.PriorityQueue = new mqp.PriorityQueue();
     
     logCircularQueue () {
         var dequeuedItems = "";
@@ -31,6 +34,36 @@ export class QueueExamples {
         }
         dequeuedItems = dequeuedItems.slice(0, dequeuedItems.length-2);
         console.log( "dequeuedItems : [ " + dequeuedItems + " ]")
+        console.log( "is Queue Empty: " + this.cQueue.isEmpty());
+    }
+    
+    logPriorityQueue () {
+        var dequeuedItems = "";
+        console.log("===== Priority Queue EXAMPLE =====");
+        shuffle.knuthShuffle(this.dataNums);
+        
+        console.log("Data before insert into circular queue: " + this.dataNums);
+        
+        for(var i in this.dataNums) {
+            this.priorQ.enqueue(this.dataNums[i]);
+        }
+        
+        dequeuedItems += this.priorQ.dequeue() + ", ";
+        dequeuedItems += this.priorQ.dequeue() + ", ";
+        console.log( " Queue size: " + this.priorQ.size() + " Dequeued several elements: " + dequeuedItems)
+        
+        this.priorQ.enqueue("1");
+        this.priorQ.enqueue("2");
+        dequeuedItems ="";
+        
+        for(var e in this.dataNums) {
+            
+            dequeuedItems += this.priorQ.dequeue() + ", ";
+        }
+        
+        dequeuedItems = dequeuedItems.slice(0, dequeuedItems.length-2);
+        console.log( "dequeuedItems : [ " + dequeuedItems + " ]");
+        console.log( "is Queue Empty: " + this.priorQ.isEmpty());
         
     }
     
