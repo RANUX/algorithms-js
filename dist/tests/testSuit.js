@@ -23,4 +23,5 @@ function getTapResults(result) {
     }
     return template;
 }
+
 //# sourceMappingURL=testSuit.js.map

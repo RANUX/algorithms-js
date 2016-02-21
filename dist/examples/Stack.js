@@ -24,4 +24,5 @@ var StackExample = (function () {
     return StackExample;
 })();
 exports.StackExample = StackExample;
+
 //# sourceMappingURL=Stack.js.map

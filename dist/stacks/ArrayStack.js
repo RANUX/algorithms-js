@@ -37,4 +37,5 @@ var ArrayStack = (function () {
     return ArrayStack;
 })();
 exports.ArrayStack = ArrayStack;
+
 //# sourceMappingURL=ArrayStack.js.map

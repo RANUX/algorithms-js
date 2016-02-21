@@ -85,4 +85,5 @@ var Infix2Postfix = (function () {
     return Infix2Postfix;
 })();
 exports.Infix2Postfix = Infix2Postfix;
+
 //# sourceMappingURL=Infix2Postfix.js.map

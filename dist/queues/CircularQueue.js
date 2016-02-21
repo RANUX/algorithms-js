@@ -51,4 +51,5 @@ var CircularQueue = (function () {
     return CircularQueue;
 })();
 exports.CircularQueue = CircularQueue;
+
 //# sourceMappingURL=CircularQueue.js.map

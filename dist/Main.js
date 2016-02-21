@@ -26,4 +26,5 @@ var Startup = (function () {
     return Startup;
 })();
 Startup.main();
+
 //# sourceMappingURL=Main.js.map
