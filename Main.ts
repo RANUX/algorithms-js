@@ -21,6 +21,7 @@ class Startup {
         var queueExamples = new qm.QueueExamples();
         queueExamples.logCircularQueue();
         queueExamples.logPriorityQueue();
+        queueExamples.logLinkedQueue();
         
         var ahelpsers = new hm.ArrayHelpersExamples();
         ahelpsers.logMergeArrays();

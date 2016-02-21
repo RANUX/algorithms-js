@@ -1,12 +1,14 @@
 var mq = require("../queues/CircularQueue");
-var mqp = require("../queues/PriorityQueue");
+var qp = require("../queues/PriorityQueue");
+var lq = require("../queues/LinkedQueue");
 var shuffle = require('knuth-shuffle');
 var QueueExamples = (function () {
     function QueueExamples() {
         this.data = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
         this.dataNums = [6, 7, 2, 0, 1, 9, 5, 7, 10];
         this.cQueue = new mq.CircularQueue(8);
-        this.priorQ = new mqp.PriorityQueue();
+        this.priorQ = new qp.PriorityQueue();
+        this.lQueue = new lq.LinkedQueue();
     }
     QueueExamples.prototype.logCircularQueue = function () {
         var dequeuedItems = "";
@@ -16,6 +18,8 @@ var QueueExamples = (function () {
         for (var i in this.data) {
             this.cQueue.enqueue(this.data[i]);
         }
+        console.log('Peek Front: ' + this.cQueue.peekFront());
+        console.log('Peek Rear: ' + this.cQueue.peekRear());
         dequeuedItems += this.cQueue.dequeue() + ", ";
         dequeuedItems += this.cQueue.dequeue() + ", ";
         console.log(" Queue size: " + this.cQueue.size() + " Dequeued several elements: " + dequeuedItems);
@@ -49,6 +53,29 @@ var QueueExamples = (function () {
         dequeuedItems = dequeuedItems.slice(0, dequeuedItems.length - 2);
         console.log("dequeuedItems : [ " + dequeuedItems + " ]");
         console.log("is Queue Empty: " + this.priorQ.isEmpty());
+    };
+    QueueExamples.prototype.logLinkedQueue = function () {
+        var dequeuedItems = "";
+        console.log("===== LinkedQueue EXAMPLE =====");
+        shuffle.knuthShuffle(this.data);
+        console.log("Data before insert into circular queue: " + this.data);
+        for (var i in this.data) {
+            this.lQueue.enqueue(this.data[i]);
+        }
+        console.log('Peek Front: ' + this.lQueue.peekFront());
+        console.log('Peek Rear: ' + this.lQueue.peekRear());
+        dequeuedItems += this.lQueue.dequeue() + ", ";
+        dequeuedItems += this.lQueue.dequeue() + ", ";
+        console.log(" Queue size: " + this.lQueue.size() + " Dequeued several elements: " + dequeuedItems);
+        this.lQueue.enqueue("1");
+        this.lQueue.enqueue("2");
+        dequeuedItems = "";
+        for (var e in this.data) {
+            dequeuedItems += this.lQueue.dequeue() + ", ";
+        }
+        dequeuedItems = dequeuedItems.slice(0, dequeuedItems.length - 2);
+        console.log("dequeuedItems : [ " + dequeuedItems + " ]");
+        console.log("is Queue Empty: " + this.lQueue.isEmpty());
     };
     return QueueExamples;
 })();

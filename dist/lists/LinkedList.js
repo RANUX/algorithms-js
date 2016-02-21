@@ -1,12 +1,11 @@
 ////////////////////////////////////////////////////////////////
 var Element = (function () {
-    // -------------------------------------------------------------
-    /**
-     *
-     */
-    function Element(data) {
-        this.data = data;
+    function Element() {
     }
+    // -------------------------------------------------------------
+    Element.prototype.Element = function (data) {
+        this.data = data;
+    };
     return Element;
 })(); // end class Element
 ////////////////////////////////////////////////////////////////
@@ -26,22 +25,6 @@ var LinkedList = (function () {
     *                                   (index &lt; 0 || index &gt;= size()).
     */
     LinkedList.prototype.insert = function (index, value) {
-        var newItem = new Element(value);
-        if (this.isEmpty()) {
-            this.first = newItem;
-            this.last = newItem;
-        }
-        var item = this.find(index);
-        if (item) {
-        }
-    };
-    /**
-     * Insert at the begining of LinkedList
-     *
-     * @param {*} value (description)
-     */
-    LinkedList.prototype.unshift = function (value) {
-        this;
     };
     /**
      * Adds a value to the end of the list. The size of the list will increase by one.
@@ -64,9 +47,6 @@ var LinkedList = (function () {
      * Deletes all elements from the list. The size of the list will be reset to zero (0).
      */
     LinkedList.prototype.clear = function () {
-        this.first = null;
-        this.last = null;
-        this.nElems = 0;
     };
     /**
      * Sets the value at a specified position in the List.
@@ -121,24 +101,47 @@ var LinkedList = (function () {
      * @return <code>true</code> if the list is empty (<code>size() == 0</code>); otherwise returns <code>false</code>.
      */
     LinkedList.prototype.isEmpty = function () {
-        return this.first == null;
+        return false;
     };
-    LinkedList.prototype.attacheBefore = function (item) {
-    };
-    LinkedList.prototype.attacheAfter = function (item) {
-    };
-    LinkedList.prototype.find = function (index) {
-        console.log("List (first-->last): ");
-        var current = this.first; // start at beginning of list
-        var i = 0;
-        while (current != null) {
-            if (i == index) {
-                return current;
-            }
-            i++;
-            current = current.next; // move to next link
+    /**
+     * Obtains the element for a specified position.
+     *
+     * @param index The position (0, 1, 2...) for the desired element.
+     * @return The element corresponding to the specified position.
+     */
+    LinkedList.prototype.getElement = function (index) {
+        if (index < this.nElems / 2) {
+            return this.getElementForwards(index);
         }
-        return null;
+        else {
+            return this.getElementBackwards(index);
+        }
+    };
+    /**
+     * Obtains the element for a specified position starting at the first element and working forwards.
+     *
+     * @param index The position (0, 1, 2...) for the desired element.
+     * @return The element corresponding to the specified position.
+     */
+    LinkedList.prototype.getElementForwards = function (index) {
+        var element = this._headAndTail.next;
+        for (var i = index; i > 0; --i) {
+            element = element.next;
+        }
+        return element;
+    };
+    /**
+     * Obtains the element for a specified position starting at the last element and working backwards.
+     *
+     * @param index The position (0, 1, 2...) for the desired element.
+     * @return The element corresponding to the specified position.
+     */
+    LinkedList.prototype.getElementBackwards = function (index) {
+        var element = this._headAndTail;
+        for (var i = this.nElems - index; i > 0; --i) {
+            element = element.previous;
+        }
+        return element;
     };
     return LinkedList;
 })();

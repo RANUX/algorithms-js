@@ -59,7 +59,7 @@ class FirstLastList
 // -------------------------------------------------------------
    displayList()
    {
-      var current = this.first;          // start at beginning
+      var current = this.first;      // start at beginning
       while(current != null)         // until end of list,
       {
          console.log(current);      // print data
@@ -92,39 +92,38 @@ class FirstLastList
  */
 export class LinkedQueue implements iqm.IQueue {
     
-    private _list : FirstLastList;
+    private list : FirstLastList;
     
     constructor() {
-        this._list = new FirstLastList();
+        this.list = new FirstLastList();
     }
     
     enqueue(value : any) {
-        this._list.insertLast(value);
+        this.list.insertLast(value);
     }
     
     dequeue() : any {
-        return this._list.deleteFirst();
+        return this.list.deleteFirst();
     }
     
     clear() {
-        this._list.clear();
+        this.list.clear();
     }
     
     size() : number {
-        return this._list.size();
+        return this.list.size();
     }
     
     isEmpty() : boolean {
-        return (this._list.size() == 0);
+        return (this.list.size() == 0);
     }
 
     peekFront() : any {
-        return this._list.peekFirst();
+        return this.list.peekFirst().data;
     }
     
-
     peekRear()  : any {
-        return this._list.peekLast();
+        return this.list.peekLast().data;
     }
     
     
