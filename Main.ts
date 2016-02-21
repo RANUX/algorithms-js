@@ -15,8 +15,7 @@ class Startup {
         sortExamples.logInsertionSort();
 
 
-        var stackExamples = new stkm.StackExample();
-        stackExamples.logArrayStack();
+        new stkm.StackExample().logStacks();
         
         var queueExamples = new qm.QueueExamples();
         queueExamples.logCircularQueue();

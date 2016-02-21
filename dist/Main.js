@@ -11,8 +11,7 @@ var Startup = (function () {
         sortExamples.logBubbleSort();
         sortExamples.logSelectionSort();
         sortExamples.logInsertionSort();
-        var stackExamples = new stkm.StackExample();
-        stackExamples.logArrayStack();
+        new stkm.StackExample().logStacks();
         var queueExamples = new qm.QueueExamples();
         queueExamples.logCircularQueue();
         queueExamples.logPriorityQueue();

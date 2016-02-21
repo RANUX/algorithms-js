@@ -92,7 +92,6 @@ export class QueueExamples {
         console.log( " Queue size: " + this.lQueue.size() + " Dequeued several elements: " + dequeuedItems)
         
         
-        
         this.lQueue.enqueue("1");
         this.lQueue.enqueue("2");
         dequeuedItems ="";
