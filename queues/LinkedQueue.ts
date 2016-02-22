@@ -12,11 +12,11 @@ export class LinkedQueue implements iqm.IQueue {
     }
     
     enqueue(value : any) {
-        this.list.insertLast(value);
+        this.list.push(value);
     }
     
     dequeue() : any {
-        return this.list.deleteFirst();
+        return this.list.shift();
     }
     
     clear() {

@@ -7,10 +7,10 @@ var LinkedQueue = (function () {
         this.list = new ffl.FirstLastList();
     }
     LinkedQueue.prototype.enqueue = function (value) {
-        this.list.insertLast(value);
+        this.list.push(value);
     };
     LinkedQueue.prototype.dequeue = function () {
-        return this.list.deleteFirst();
+        return this.list.shift();
     };
     LinkedQueue.prototype.clear = function () {
         this.list.clear();

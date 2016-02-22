@@ -11,11 +11,42 @@ export interface IList
      insert(index : number, value : any);
 
     /**
+     * Retrieve and delete first element of the list
+     * 
+     * @returns {*} (description)
+     */
+    shift() : any;
+    
+    /**
      * Adds a value to the end of the list. The size of the list will increase by one.
      *
      * @param value The value to be added.
      */
      push(value : any);
+     
+     /**
+     * Insert value at start of the list
+     * 
+     * @param {*} value any
+     * @return new list size
+     */
+    unshift(value: any) : number;
+    
+    /**
+     * Remove value at start of the list
+     * 
+     * @param {*} value any
+     * @return removed item
+     */
+    shift() : any;
+    
+    /**
+     * Remove value at end of the list
+     * 
+     * @param {*} value any
+     * @return removed item
+     */
+    pop() : any;
 
     /**
      * Deletes the value from a specified position in the list. The size of the list will decrease by one.
@@ -26,15 +57,6 @@ export interface IList
      *                                   (index &lt; 0 || index &gt;= size()).
      */
     delete(index: number) : any;
-
-    /**
-     * Deletes the first ocurrence of a specified value. The size of the list will decrease by one if the value is
-     * found.
-     *
-     * @param value The value to be deleted.
-     * @return <code>true</code> if removed; otherwise <code>false</code> if not found.
-     */
-    delete(value : any) : boolean;
 
     /**
      * Deletes all elements from the list. The size of the list will be reset to zero (0).
@@ -68,7 +90,7 @@ export interface IList
      * @param value The value for which the index is required.
      * @return The position (0, 1, 2...) of the first occurrence of value; otherwise -1.
      */
-    indexOf(value : any) : number;
+    //indexOf(value : any) : number;
 
     /**
      * Determines if the list contains a specified value.
@@ -76,7 +98,7 @@ export interface IList
      * @param value The value for which to search.
      * @return <code>true</code> if the value is found; otherwise <code>false</code>.
      */
-    contains(value : any) : boolean;
+    //contains(value : any) : boolean;
 
     /**
      * Obtains the number of elements in the list.

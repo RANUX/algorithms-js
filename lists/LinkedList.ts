@@ -50,7 +50,35 @@ export class LinkedList implements ilst.IList {
      push(value : any) {
          
      }
+     
+    /**
+     * Remove value at end of the list
+     * 
+     * @param {*} value any
+     * @return removed item
+     */
+    pop() : any {
+        
+    }
+     
+    /**
+     * Retrieve and delete first element of the list
+     * 
+     * @returns {*} (description)
+     */
+    shift() : any {
+        return null;
+    }
 
+     /**
+     * Insert value at start of the list
+     * 
+     * @param {*} value any
+     * @return new list size
+     */
+    unshift(value: any) : number {
+        return 0;
+    }
     /**
      * Deletes the value from a specified position in the list. The size of the list will decrease by one.
      *

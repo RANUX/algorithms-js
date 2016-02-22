@@ -34,6 +34,31 @@ var LinkedList = (function () {
     LinkedList.prototype.push = function (value) {
     };
     /**
+     * Remove value at end of the list
+     *
+     * @param {*} value any
+     * @return removed item
+     */
+    LinkedList.prototype.pop = function () {
+    };
+    /**
+     * Retrieve and delete first element of the list
+     *
+     * @returns {*} (description)
+     */
+    LinkedList.prototype.shift = function () {
+        return null;
+    };
+    /**
+    * Insert value at start of the list
+    *
+    * @param {*} value any
+    * @return new list size
+    */
+    LinkedList.prototype.unshift = function (value) {
+        return 0;
+    };
+    /**
      * Deletes the first ocurrence of a specified value. The size of the list will decrease by one if the value is
      * found.
      *
