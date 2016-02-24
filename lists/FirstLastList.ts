@@ -10,7 +10,7 @@ export class LinkElem
    toString() {
        return JSON.stringify(this);
    }
-// -------------------------------------------------------------
+
    /**
     *
     */
@@ -28,12 +28,12 @@ export class FirstLastList implements ilist.IList
    protected first : LinkElem;               // ref to first item
    protected last  : LinkElem;                // ref to last item
    protected _size : number; 
-// -------------------------------------------------------------
+
    constructor() {
        this.clear();
    }
        
-// -------------------------------------------------------------
+
    isEmpty() : boolean         // true if no links
    { 
        return this.first==null; 
@@ -123,11 +123,11 @@ export class FirstLastList implements ilist.IList
        return current.data;
    }
    
-// -------------------------------------------------------------
+
    pop() : any {
        return this.delete( this.size()-1 );
    }
-// -------------------------------------------------------------
+
    insertLast(value: any) // insert at end of list
    {
       var newLink = new LinkElem(value);  // make new link
@@ -140,7 +140,7 @@ export class FirstLastList implements ilist.IList
       this.last = newLink;                // newLink <-- last
       this._size++;
    }
-// -------------------------------------------------------------
+
     /**
      * Adds a value to the end of the list. The size of the list will increase by one.
      *
@@ -150,7 +150,7 @@ export class FirstLastList implements ilist.IList
          this.insertLast(value);
          return this.size();
      }
-// -------------------------------------------------------------
+
     insertFirst(value: any) // insert at start of list
     {                           // make new link
       var newLink  = new LinkElem(value);
@@ -163,7 +163,7 @@ export class FirstLastList implements ilist.IList
       this._size++;
       
     }
-// -------------------------------------------------------------
+
     /**
      * Insert value at start of the list
      * 
@@ -174,7 +174,7 @@ export class FirstLastList implements ilist.IList
         this.insertFirst(value)
         return this.size();
     }
-// -------------------------------------------------------------
+
     /**
      * Retrieve and delete first element of the list
      * 
@@ -183,7 +183,7 @@ export class FirstLastList implements ilist.IList
     shift() : any {
         return this.deleteFirst();
     }
-// -------------------------------------------------------------
+
    deleteFirst() : any            // delete first link
    {                              // (assumes non-empty list)
       var temp = this.first.data;
@@ -195,7 +195,7 @@ export class FirstLastList implements ilist.IList
       this._size--;
       return temp;
     }
-// -------------------------------------------------------------
+
    toString()
    {
       var current = this.first;      // start at beginning
@@ -207,24 +207,44 @@ export class FirstLastList implements ilist.IList
       }
       console.log("["+str.join(', ')+"]");
    }
-// -------------------------------------------------------------
+
    size() {
        return this._size;
    }
-// -------------------------------------------------------------
+
     clear() {
        this.first = null;
        this.last  = null;
        this._size = 0;
     }
-// -------------------------------------------------------------
+
     peekFirst() {
         return this.first;
     }
-// -------------------------------------------------------------
+
     peekLast() {
         return this.last;
     }
+    
+    contains(value : any) : boolean
+    {
+        return this.indexOf(value) != -1;
+    }
+
+    indexOf(value : any) : number
+    {
+       var current = this.first;      // start at beginning
+       
+       var i = 0;
+       while(current != null && current.data != value)         // until end of list,
+       {
+         current = current.next;     // move to next link
+         i++;
+       }
+       
+       return (current != null) ? i : -1;
+    }
+
     
 }  // end class FirstLastList
 ////////////////////////////////////////////////////////////////
@@ -255,5 +275,7 @@ export class SortedFirstLastList extends FirstLastList
        newElem.next = current;
        this._size++;
    }
+   
+   
 }  // end class FirstLastList
 ////////////////////////////////////////////////////////////////

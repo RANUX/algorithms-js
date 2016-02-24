@@ -6,7 +6,7 @@ export interface IList
      * @param index The position (0, 1, 2...) at which the value should be inserted.
      * @param value The value to add.
      * @throws RangeError if the specified position falls outside the range
-     *                                   (index &lt; 0 || index &gt;= size()).
+     *                                   (index < 0 || index >= size()).
      */
      insert(index : number, value : any);
 
@@ -54,7 +54,7 @@ export interface IList
      * @param index The position (0, 1, 2...) from which the value should be deleted.
      * @return The value that was contained at the specified position.
      * @throws RangeError if the specified position falls outside the range
-     *                                   (index &lt; 0 || index &gt;= size()).
+     *                                   (index < 0 || index >= size()).
      */
     delete(index: number) : any;
 
@@ -70,7 +70,7 @@ export interface IList
      * @param value The value to set at the specified position.
      * @return The value originally at the specified position.
      * @throws RangeError if the specified position falls outside the range
-     *                                   (index &lt; 0 || index &gt;= size()).
+     *                                   (index < 0 || index >= size()).
      */
     set(index : number, value : any) : any;
 
@@ -80,7 +80,7 @@ export interface IList
      * @param index The position (0, 1, 2...) from which the value should be obtained.
      * @return The value at the specified position.
      * @throws RangeError if the specified position falls outside the range
-     *                                   (index &lt; 0 || index &gt;= size()).
+     *                                   (index < 0 || index >= size()).
      */
     get(index : number) : any;
 
@@ -90,7 +90,7 @@ export interface IList
      * @param value The value for which the index is required.
      * @return The position (0, 1, 2...) of the first occurrence of value; otherwise -1.
      */
-    //indexOf(value : any) : number;
+    indexOf(value : any) : number;
 
     /**
      * Determines if the list contains a specified value.
@@ -98,7 +98,7 @@ export interface IList
      * @param value The value for which to search.
      * @return <code>true</code> if the value is found; otherwise <code>false</code>.
      */
-    //contains(value : any) : boolean;
+    contains(value : any) : boolean;
 
     /**
      * Obtains the number of elements in the list.

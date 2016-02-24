@@ -28,4 +28,5 @@ export class SortedFirstLastListTests extends absListTests.AbstractListTestsTest
         
         this.isTrue( this.list.isEmpty() );
     }
+
 }

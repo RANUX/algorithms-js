@@ -3,27 +3,48 @@ import ilst = require('./Ilist');
 ////////////////////////////////////////////////////////////////
 class Element
 {
-   public data : any;              // data item (key)
+   public value : any;              // data item (key)
    public next : Element;          // next link to element in list
    public previous : Element;
    
 // -------------------------------------------------------------
-   public Element(data : any) // constructor
-   {
-      this.data = data;
+   constructor(value : any) {
+       this.value = value;
    }
+   
+    attachBefore(current : Element)
+    {
+        console.assert(current != null, "next can't be null");
+        
+        this.next = current;
+        this.previous = current.previous;
+
+        current.previous = this;
+        this.previous.next = this;
+
+    }
+
+    detach()
+    {
+        this.previous.next = this.next;
+        this.next.previous = this.previous;
+    }
+    
+    toString() {
+        return JSON.stringify(this);
+    }
 }  // end class Element
 ////////////////////////////////////////////////////////////////
 
 /**
- * Simple LinkedList
+ * Doubly LinkedList
  */
 export class LinkedList implements ilst.IList {
      
-     private _headAndTail : Element;
+     private _headAndTail : Element = new Element(null);
      
      /** The size of the list. */
-     private nElems : number;
+     private _size : number;
      
      
      constructor() {
@@ -36,11 +57,20 @@ export class LinkedList implements ilst.IList {
      * @param index The position (0, 1, 2...) at which the value should be inserted.
      * @param value The value to add.
      * @throws RangeError if the specified position falls outside the range
-     *                                   (index &lt; 0 || index &gt;= size()).
+     *                                   (index < 0 || index >= size()).
      */
      insert(index : number, value : any) {
+         console.assert((value != null), "value can't be null");
          
+         if (index < 0 || index > this._size) {
+            throw new RangeError();
+         }
+
+        var element = new Element(value);
+        element.attachBefore(this.getElement(index));
+        ++this._size;
      }
+     
      
     /**
      * Adds a value to the end of the list. The size of the list will increase by one.
@@ -48,7 +78,17 @@ export class LinkedList implements ilst.IList {
      * @param value The value to be added.
      */
      push(value : any) {
+        var element = new Element(value);  // make new link
+        
+        if( this.isEmpty() ) 
+        {
+            element.attachBefore(this._headAndTail.next);
+        } else {
+            element.attachBefore(this._headAndTail);
+        }
+         ++this._size;
          
+        return this.size();
      }
      
     /**
@@ -58,7 +98,14 @@ export class LinkedList implements ilst.IList {
      * @return removed item
      */
     pop() : any {
+        if ( this.isEmpty()) 
+            return null;
+            
+        var element = this._headAndTail.previous;
+        element.detach();
         
+        --this._size;
+        return element.value;
     }
      
     /**
@@ -67,7 +114,12 @@ export class LinkedList implements ilst.IList {
      * @returns {*} (description)
      */
     shift() : any {
-        return null;
+        if ( this.isEmpty()) 
+            return null;
+        
+        var value = this.get(0);
+        this.delete(0);
+        return value;
     }
 
      /**
@@ -77,7 +129,8 @@ export class LinkedList implements ilst.IList {
      * @return new list size
      */
     unshift(value: any) : number {
-        return 0;
+        this.insert(0, value);
+        return this.size();
     }
     /**
      * Deletes the value from a specified position in the list. The size of the list will decrease by one.
@@ -85,26 +138,25 @@ export class LinkedList implements ilst.IList {
      * @param index The position (0, 1, 2...) from which the value should be deleted.
      * @return The value that was contained at the specified position.
      * @throws RangeError if the specified position falls outside the range
-     *                                   (index &lt; 0 || index &gt;= size()).
+     *                                   (index < 0 || index >= size()).
      */
-    delete(index: number) : any;
-
-    /**
-     * Deletes the first ocurrence of a specified value. The size of the list will decrease by one if the value is
-     * found.
-     *
-     * @param value The value to be deleted.
-     * @return <code>true</code> if removed; otherwise <code>false</code> if not found.
-     */
-    delete(value : any) : boolean {
-        return false;
+    delete(index: number) : any {
+        this.checkOutOfBounds(index);
+        
+        var element = this.getElement(index);
+        element.detach();
+        
+        --this._size;
+        return element.value;
     }
 
     /**
      * Deletes all elements from the list. The size of the list will be reset to zero (0).
      */
      clear() {
-         
+        this._headAndTail.previous = this._headAndTail;
+        this._headAndTail.next = this._headAndTail;
+        this._size = 0;
      }
 
     /**
@@ -114,10 +166,16 @@ export class LinkedList implements ilst.IList {
      * @param value The value to set at the specified position.
      * @return The value originally at the specified position.
      * @throws RangeError if the specified position falls outside the range
-     *                                   (index &lt; 0 || index &gt;= size()).
+     *                                   (index < 0 || index >= size()).
      */
     set(index : number, value : any) : any {
+        console.assert( value != null,  "value can't be null");
+        this.checkOutOfBounds(index);
         
+        var element  = this.getElement(index);
+        var oldValue = element.value;
+        element.value = value;
+        return oldValue;
     }
 
     /**
@@ -126,10 +184,12 @@ export class LinkedList implements ilst.IList {
      * @param index The position (0, 1, 2...) from which the value should be obtained.
      * @return The value at the specified position.
      * @throws RangeError if the specified position falls outside the range
-     *                                   (index &lt; 0 || index &gt;= size()).
+     *                                   (index < 0 || index >= size()).
      */
     get(index : number) : any {
-        
+        this.checkOutOfBounds(index);
+        var t = this.getElement(index).value;
+        return t;
     }
 
     /**
@@ -139,7 +199,18 @@ export class LinkedList implements ilst.IList {
      * @return The position (0, 1, 2...) of the first occurrence of value; otherwise -1.
      */
     indexOf(value : any) : number {
-        return 0;
+        console.assert( value != null,  "value can't be null");
+
+        var index = 0;
+
+        for (var e = this._headAndTail.next; e != this._headAndTail; e = e.next) {
+            if (value == e.value) {
+                return index;
+            }
+            ++index;
+        }
+
+        return -1;
     }
 
     /**
@@ -149,7 +220,7 @@ export class LinkedList implements ilst.IList {
      * @return <code>true</code> if the value is found; otherwise <code>false</code>.
      */
     contains(value : any) : boolean {
-        return false;
+        return this.indexOf(value) != -1;
     }
 
     /**
@@ -158,8 +229,9 @@ export class LinkedList implements ilst.IList {
      * @return The number of elements in the list.
      */
     size() : number {
-        return 0;
+        return this._size;
     }
+
 
     /**
      * Determines if the list is empty or not.
@@ -167,7 +239,7 @@ export class LinkedList implements ilst.IList {
      * @return <code>true</code> if the list is empty (<code>size() == 0</code>); otherwise returns <code>false</code>.
      */
     isEmpty() : boolean {
-        return false;
+        return this.size() == 0;
     }
     
     /**
@@ -178,7 +250,7 @@ export class LinkedList implements ilst.IList {
      */
     private getElement(index : number) : Element
     {
-        if (index < this.nElems / 2) {
+        if (index < this._size / 2) {
             return this.getElementForwards(index);
         } else {
             return this.getElementBackwards(index);
@@ -210,10 +282,39 @@ export class LinkedList implements ilst.IList {
     private getElementBackwards(index : number) : Element{
         var element = this._headAndTail;
 
-        for (var i = this.nElems - index; i > 0; --i) {
+        for (var i = this._size - index; i > 0; --i) {
             element = element.previous;
         }
 
         return element;
     }
+    
+     /**
+     * Checks if a specified position is outside the bounds of the list.
+     *
+     * @param index The index to check.
+     * @throws IndexOutOfBoundsException if the specified index is outside the bounds of the list.
+     */
+    private checkOutOfBounds(index : number) {
+        if (this.isOutOfBounds(index)) {
+            throw new RangeError();
+        }
+    }
+    
+    /**
+     * Determines if the specified index is outside the bounds of the list.
+     *
+     * @param index The index to check.
+     * @return <code>true</code> if outside the bounds; otherwise <code>false</code>.
+     */
+    private isOutOfBounds(index : number) : boolean {
+        return index < 0 || index >= this.size();
+    }
+    
+    
+    toString()
+    {
+        return JSON.stringify(this);
+    }
+    
 }

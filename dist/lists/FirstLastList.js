@@ -5,7 +5,6 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 ////////////////////////////////////////////////////////////////
 var LinkElem = (function () {
-    // -------------------------------------------------------------
     /**
      *
      */
@@ -24,11 +23,9 @@ exports.LinkElem = LinkElem; // end class Element
  * FirstLastList linked list realization.
  */
 var FirstLastList = (function () {
-    // -------------------------------------------------------------
     function FirstLastList() {
         this.clear();
     }
-    // -------------------------------------------------------------
     FirstLastList.prototype.isEmpty = function () {
         return this.first == null;
     };
@@ -93,11 +90,9 @@ var FirstLastList = (function () {
         }
         return current.data;
     };
-    // -------------------------------------------------------------
     FirstLastList.prototype.pop = function () {
         return this.delete(this.size() - 1);
     };
-    // -------------------------------------------------------------
     FirstLastList.prototype.insertLast = function (value) {
         var newLink = new LinkElem(value); // make new link
         if (this.isEmpty())
@@ -107,7 +102,6 @@ var FirstLastList = (function () {
         this.last = newLink; // newLink <-- last
         this._size++;
     };
-    // -------------------------------------------------------------
     /**
      * Adds a value to the end of the list. The size of the list will increase by one.
      *
@@ -117,7 +111,6 @@ var FirstLastList = (function () {
         this.insertLast(value);
         return this.size();
     };
-    // -------------------------------------------------------------
     FirstLastList.prototype.insertFirst = function (value) {
         var newLink = new LinkElem(value);
         if (this.isEmpty())
@@ -126,7 +119,6 @@ var FirstLastList = (function () {
         this.first = newLink; // first --> newLink
         this._size++;
     };
-    // -------------------------------------------------------------
     /**
      * Insert value at start of the list
      *
@@ -137,7 +129,6 @@ var FirstLastList = (function () {
         this.insertFirst(value);
         return this.size();
     };
-    // -------------------------------------------------------------
     /**
      * Retrieve and delete first element of the list
      *
@@ -146,7 +137,6 @@ var FirstLastList = (function () {
     FirstLastList.prototype.shift = function () {
         return this.deleteFirst();
     };
-    // -------------------------------------------------------------
     FirstLastList.prototype.deleteFirst = function () {
         var temp = this.first.data;
         if (this.first.next == null)
@@ -155,7 +145,6 @@ var FirstLastList = (function () {
         this._size--;
         return temp;
     };
-    // -------------------------------------------------------------
     FirstLastList.prototype.toString = function () {
         var current = this.first; // start at beginning
         var str = [];
@@ -165,23 +154,31 @@ var FirstLastList = (function () {
         }
         console.log("[" + str.join(', ') + "]");
     };
-    // -------------------------------------------------------------
     FirstLastList.prototype.size = function () {
         return this._size;
     };
-    // -------------------------------------------------------------
     FirstLastList.prototype.clear = function () {
         this.first = null;
         this.last = null;
         this._size = 0;
     };
-    // -------------------------------------------------------------
     FirstLastList.prototype.peekFirst = function () {
         return this.first;
     };
-    // -------------------------------------------------------------
     FirstLastList.prototype.peekLast = function () {
         return this.last;
+    };
+    FirstLastList.prototype.contains = function (value) {
+        return this.indexOf(value) != -1;
+    };
+    FirstLastList.prototype.indexOf = function (value) {
+        var current = this.first; // start at beginning
+        var i = 0;
+        while (current != null && current.data != value) {
+            current = current.next; // move to next link
+            i++;
+        }
+        return (current != null) ? i : -1;
     };
     return FirstLastList;
 })();

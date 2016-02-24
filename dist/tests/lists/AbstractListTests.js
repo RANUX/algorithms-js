@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
+var shuffle = require('knuth-shuffle');
 var AbstractListTestsTests = (function (_super) {
     __extends(AbstractListTestsTests, _super);
     function AbstractListTestsTests() {
@@ -12,6 +13,8 @@ var AbstractListTestsTests = (function (_super) {
     }
     AbstractListTestsTests.prototype.setUp = function () {
         this.list = this.createList();
+        // randomize data
+        shuffle.knuthShuffle(this.data);
     };
     AbstractListTestsTests.prototype.testInsertIntoEmptyList = function () {
         this.areIdentical(0, this.list.size());
@@ -52,6 +55,7 @@ var AbstractListTestsTests = (function (_super) {
     };
     AbstractListTestsTests.prototype.testPushPopElement = function () {
         this.list.insert(0, this.data[0]);
+        // size shoud increase
         this.areIdentical(2, this.list.push(this.data[1]));
         this.areIdentical(this.data[1], this.list.pop());
         this.areIdentical(1, this.list.size());
@@ -98,13 +102,41 @@ var AbstractListTestsTests = (function (_super) {
         }
     };
     AbstractListTestsTests.prototype.testClear = function () {
-        this.list.push(this.data[0]);
-        this.list.push(this.data[1]);
-        this.list.push(this.data[2]);
-        this.isFalse(this.list.isEmpty());
+        this.pushElemsToList();
         this.list.clear();
         this.isTrue(this.list.isEmpty());
         this.isTrue(this.list.size() == 0);
+    };
+    AbstractListTestsTests.prototype.testIndexOf = function () {
+        this.pushElemsToList();
+        this.areIdentical(0, this.list.indexOf(this.data[0]));
+        this.areIdentical(1, this.list.indexOf(this.data[1]));
+        this.areIdentical(2, this.list.indexOf(this.data[2]));
+        this.areIdentical(-1, this.list.indexOf(Number.MAX_VALUE));
+    };
+    AbstractListTestsTests.prototype.testContainsValue = function () {
+        this.pushElemsToList();
+        this.isTrue(this.list.contains(this.data[0]));
+        this.isTrue(this.list.contains(this.data[1]));
+        this.isTrue(this.list.contains(this.data[2]));
+        this.isFalse(this.list.contains(Number.MAX_VALUE));
+    };
+    AbstractListTestsTests.prototype.pushElemsToList = function (otherData) {
+        if (otherData === void 0) { otherData = []; }
+        var dLength = otherData.length;
+        if (dLength > 0) {
+            for (var i in otherData) {
+                this.list.push(otherData[i]);
+            }
+        }
+        else {
+            for (var i in this.data) {
+                this.list.push(this.data[i]);
+            }
+            dLength = this.data.length;
+        }
+        this.isFalse(this.list.isEmpty());
+        this.areIdentical(dLength, this.list.size());
     };
     return AbstractListTestsTests;
 })(tsUnit.TestClass);
