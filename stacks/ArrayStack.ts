@@ -36,12 +36,20 @@ export class ArrayStack implements stack.IStack {
         return this.top+1;
     }
     
+    size() : number  {
+        return this.length();
+    }
+    
     isEmpty() : boolean {
         return this.top == -1;
     }
     
     
-    toString() : string {
+    toString() {
+        
+        if ( this.isEmpty() )
+            return "Top: -1: Stack content: []";
+            
         var aStr = "[";
 
         for (var i = 0; i <= this.top; i++) {

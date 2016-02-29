@@ -6,6 +6,9 @@ export interface IStack {
     peek()    : any;
     clear()   : void;
     length()  : number;
+    size()    : number;
     isEmpty() : boolean;
+    
+    
 
 }

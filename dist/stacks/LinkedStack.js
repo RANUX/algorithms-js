@@ -22,6 +22,9 @@ var LinkedStack = (function () {
     LinkedStack.prototype.length = function () {
         return this.list.size();
     };
+    LinkedStack.prototype.size = function () {
+        return this.length();
+    };
     LinkedStack.prototype.isEmpty = function () {
         return (this.list.size() == 0);
     };

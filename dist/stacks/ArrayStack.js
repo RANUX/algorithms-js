@@ -22,10 +22,15 @@ var ArrayStack = (function () {
     ArrayStack.prototype.length = function () {
         return this.top + 1;
     };
+    ArrayStack.prototype.size = function () {
+        return this.length();
+    };
     ArrayStack.prototype.isEmpty = function () {
         return this.top == -1;
     };
     ArrayStack.prototype.toString = function () {
+        if (this.isEmpty())
+            return "Top: -1: Stack content: []";
         var aStr = "[";
         for (var i = 0; i <= this.top; i++) {
             aStr += this.a[i] + ", ";

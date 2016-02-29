@@ -77,6 +77,18 @@ var LinkedList = (function () {
         return element.value;
     };
     /**
+     * Peek a value from end of the list without remove
+     *
+     * @param value.
+     */
+    LinkedList.prototype.peek = function () {
+        if (this.isEmpty())
+            return null;
+        var temp = this.pop();
+        this.push(temp);
+        return temp;
+    };
+    /**
      * Retrieve and delete first element of the list
      *
      * @returns {*} (description)

@@ -3,7 +3,7 @@ import * as ilist from './IList';
 ////////////////////////////////////////////////////////////////
 export class LinkElem
 {
-   public data : any;              // data item (key)
+   public value : any;              // data item (key)
    public next : LinkElem;          // next link to element in list
    public previous : LinkElem;
    
@@ -15,7 +15,7 @@ export class LinkElem
     *
     */
    constructor(data : any) {
-       this.data = data;
+       this.value = data;
        this.next = null;
    }
 }  // end class Element
@@ -77,8 +77,8 @@ export class FirstLastList implements ilist.IList
          i++;
        }
        
-       oldVal = current.data;
-       current.data = value;
+       oldVal = current.value;
+       current.value = value;
        return oldVal;
    }
    
@@ -92,7 +92,7 @@ export class FirstLastList implements ilist.IList
          i++;
        }
        
-       return current.data;
+       return current.value;
    }
    
    delete( index : number ) {
@@ -120,7 +120,7 @@ export class FirstLastList implements ilist.IList
            this.first = null;
            this.last  = null;
        }
-       return current.data;
+       return current.value;
    }
    
 
@@ -186,7 +186,7 @@ export class FirstLastList implements ilist.IList
 
    deleteFirst() : any            // delete first link
    {                              // (assumes non-empty list)
-      var temp = this.first.data;
+      var temp = this.first.value;
       
       if(this.first.next == null)         // if only one item
          this.last = null;                // null <-- last
@@ -219,11 +219,21 @@ export class FirstLastList implements ilist.IList
     }
 
     peekFirst() {
-        return this.first;
+        return this.first.value;
     }
 
     peekLast() {
-        return this.last;
+        return this.last.value;
+    }
+    
+        /**
+     * Peek a value from end of the list without remove
+     *
+     * @param value.
+     */
+    peek() : any {
+        
+        return this.peekLast();
     }
     
     contains(value : any) : boolean
@@ -236,7 +246,7 @@ export class FirstLastList implements ilist.IList
        var current = this.first;      // start at beginning
        
        var i = 0;
-       while(current != null && current.data != value)         // until end of list,
+       while(current != null && current.value != value)         // until end of list,
        {
          current = current.next;     // move to next link
          i++;
@@ -260,7 +270,7 @@ export class SortedFirstLastList extends FirstLastList
        var previous:LinkElem  = null;
        var current  = this.first;
        
-       while ( current != null && value > current.data ) 
+       while ( current != null && value > current.value ) 
        {
            previous = current;
            current  = current.next;  // go to next element

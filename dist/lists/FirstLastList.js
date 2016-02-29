@@ -9,7 +9,7 @@ var LinkElem = (function () {
      *
      */
     function LinkElem(data) {
-        this.data = data;
+        this.value = data;
         this.next = null;
     }
     LinkElem.prototype.toString = function () {
@@ -57,8 +57,8 @@ var FirstLastList = (function () {
             current = current.next; // move to next link
             i++;
         }
-        oldVal = current.data;
-        current.data = value;
+        oldVal = current.value;
+        current.value = value;
         return oldVal;
     };
     FirstLastList.prototype.get = function (index) {
@@ -68,7 +68,7 @@ var FirstLastList = (function () {
             current = current.next; // move to next link
             i++;
         }
-        return current.data;
+        return current.value;
     };
     FirstLastList.prototype.delete = function (index) {
         var previous = null;
@@ -88,7 +88,7 @@ var FirstLastList = (function () {
             this.first = null;
             this.last = null;
         }
-        return current.data;
+        return current.value;
     };
     FirstLastList.prototype.pop = function () {
         return this.delete(this.size() - 1);
@@ -138,7 +138,7 @@ var FirstLastList = (function () {
         return this.deleteFirst();
     };
     FirstLastList.prototype.deleteFirst = function () {
-        var temp = this.first.data;
+        var temp = this.first.value;
         if (this.first.next == null)
             this.last = null; // null <-- last
         this.first = this.first.next; // first --> old next
@@ -163,10 +163,18 @@ var FirstLastList = (function () {
         this._size = 0;
     };
     FirstLastList.prototype.peekFirst = function () {
-        return this.first;
+        return this.first.value;
     };
     FirstLastList.prototype.peekLast = function () {
-        return this.last;
+        return this.last.value;
+    };
+    /**
+ * Peek a value from end of the list without remove
+ *
+ * @param value.
+ */
+    FirstLastList.prototype.peek = function () {
+        return this.peekLast();
     };
     FirstLastList.prototype.contains = function (value) {
         return this.indexOf(value) != -1;
@@ -174,7 +182,7 @@ var FirstLastList = (function () {
     FirstLastList.prototype.indexOf = function (value) {
         var current = this.first; // start at beginning
         var i = 0;
-        while (current != null && current.data != value) {
+        while (current != null && current.value != value) {
             current = current.next; // move to next link
             i++;
         }
@@ -196,7 +204,7 @@ var SortedFirstLastList = (function (_super) {
         var newElem = new LinkElem(value);
         var previous = null;
         var current = this.first;
-        while (current != null && value > current.data) {
+        while (current != null && value > current.value) {
             previous = current;
             current = current.next; // go to next element
         }

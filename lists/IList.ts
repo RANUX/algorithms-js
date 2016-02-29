@@ -47,6 +47,14 @@ export interface IList
      * @return removed item
      */
     pop() : any;
+    
+    
+    /**
+     * Peek a value from end of the list without remove
+     *
+     * @param value.
+     */
+    peek() : any;
 
     /**
      * Deletes the value from a specified position in the list. The size of the list will decrease by one.

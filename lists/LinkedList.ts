@@ -107,6 +107,21 @@ export class LinkedList implements ilst.IList {
         --this._size;
         return element.value;
     }
+    
+    /**
+     * Peek a value from end of the list without remove
+     *
+     * @param value.
+     */
+    peek() : any {
+        
+        if ( this.isEmpty()) 
+            return null;
+            
+        var temp = this.pop();
+        this.push(temp);
+        return temp;
+    }
      
     /**
      * Retrieve and delete first element of the list

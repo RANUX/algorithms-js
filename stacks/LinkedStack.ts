@@ -34,6 +34,10 @@ export class LinkedStack implements istack.IStack {
     {
         return this.list.size();
     }
+    size() : number 
+    {
+        return this.length();
+    }
     isEmpty() : boolean 
     {
         return (this.list.size() == 0);
