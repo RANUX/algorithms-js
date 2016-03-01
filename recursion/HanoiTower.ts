@@ -3,29 +3,42 @@
  */
 export default class HanoiTower {
     
-    public solution : any[] = [];
+    public solution : any[];
     
-    private towers = {
-        1 : [], // src
-        2 : [], // tmp 
-        3 : []  // dst
-    }
+    private disks   : any;
 
+    /**
+     *
+     */
+    constructor() {
+        this.clearSolution();
+    }
     
     saveSolution() 
     {
-        var strcopy = JSON.parse(JSON.stringify([ this.towers[1], this.towers[2], this.towers[3] ] ));
+        var strcopy = JSON.parse(JSON.stringify([ this.disks[1], this.disks[2], this.disks[3] ] ));
   
         this.solution.push(
                     strcopy
         );
     }
     
+    clearSolution()
+    {
+        this.solution = [];
+        this.disks = {
+            1 : [], // src
+            2 : [], // tmp 
+            3 : []  // dst
+        }
+    }
+    
     solve(nTowers : number)
     {
+        this.clearSolution();
         var n = nTowers;
         while ( n > 0) {
-            this.towers[1].unshift ( n );
+            this.disks[1].unshift ( n );
             n--;
         }
 
@@ -38,7 +51,7 @@ export default class HanoiTower {
     {
         
         if ( nTowers == 1) {
-            this.towers[dst].unshift( this.towers[src].shift() );
+            this.disks[dst].unshift( this.disks[src].shift() );
             
             this.saveSolution();
             
@@ -46,13 +59,13 @@ export default class HanoiTower {
             return;
         }
         
-        this.solveRecursive( nTowers-1, src, dst, tmp);
+        this.solveRecursive( nTowers-1, src, dst, tmp);        // move src disk to tmp
         
-        this.towers[dst].unshift( this.towers[src].shift() );
+        this.disks[dst].unshift( this.disks[src].shift() );    
         this.saveSolution();
         
         //console.log("Disk " + nTowers +  " from " + src + " to "+ dst);
-        this.solveRecursive( nTowers-1, tmp, src, dst)
+        this.solveRecursive( nTowers-1, tmp, src, dst);       // move tmp disk to dst
 
     }
 }

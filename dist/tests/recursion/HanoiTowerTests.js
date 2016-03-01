@@ -47,6 +47,8 @@ var HanoiTowerTests = (function (_super) {
             [[1], [], [2, 3]],
             [[], [], [1, 2, 3]],
         ], this.towers.solution);
+        this.towers.clearSolution();
+        this.areCollectionsIdentical([], this.towers.solution);
     };
     return HanoiTowerTests;
 })(tsUnit.TestClass);

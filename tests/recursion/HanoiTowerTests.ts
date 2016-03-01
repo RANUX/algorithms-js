@@ -51,6 +51,11 @@ export class HanoiTowerTests extends tsUnit.TestClass {
             ], 
             this.towers.solution);
         
+        this.towers.clearSolution();
+        this.areCollectionsIdentical([], this.towers.solution);
+
     }
+    
+    
     
 }
