@@ -21,6 +21,12 @@ var AnagramTests = (function (_super) {
         var word = "ab";
         this.areCollectionsIdentical(["ab", "ba"], this.anagram.getAnagrams(word));
     };
+    // testAnagrams()
+    // {
+    //     console.log('================');
+    //     this.anagram.anagrams();
+    //     console.log('================');
+    // }
     AnagramTests.prototype.testThreeLetters = function () {
         var word = "cat";
         this.areCollectionsIdentical(["cat", "cta", "atc", "act", "tca", "tac"], this.anagram.getAnagrams(word));

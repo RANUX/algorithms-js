@@ -28,6 +28,22 @@ export default class Anagram {
        
     }
     
+    public anagrams()
+    {
+        var size  = 4;
+        var stack = [];
+        
+        for (var i = 0; i < size-1; i++) {
+            stack.push([ size-i, 0 ]);
+        }
+        console.log(stack);
+        
+        while( stack.length > 0 )
+        {
+            var step = stack.pop();
+            
+        }
+    }
 
     
     getAnagrams(word : string) : string[]

@@ -15,6 +15,17 @@ var Anagram = (function () {
             this.rotateChars(newSize);
         }
     };
+    Anagram.prototype.anagrams = function () {
+        var size = 4;
+        var stack = [];
+        for (var i = 0; i < size - 1; i++) {
+            stack.push([size - i, 0]);
+        }
+        console.log(stack);
+        while (stack.length > 0) {
+            var step = stack.pop();
+        }
+    };
     Anagram.prototype.getAnagrams = function (word) {
         this.chars = [];
         this.result = [];

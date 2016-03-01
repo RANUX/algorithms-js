@@ -21,6 +21,13 @@ export class AnagramTests extends tsUnit.TestClass {
         this.areCollectionsIdentical(["ab", "ba"], this.anagram.getAnagrams(word));
     }
     
+    // testAnagrams()
+    // {
+    //     console.log('================');
+    //     this.anagram.anagrams();
+    //     console.log('================');
+    // }
+    
     testThreeLetters() {
          var word = "cat";
          this.areCollectionsIdentical(["cat", "cta", "atc", "act", "tca", "tac"], this.anagram.getAnagrams(word));
