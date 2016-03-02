@@ -1,11 +1,13 @@
-console.log('======== ListsTestSuit =========');
-import listSuit = require('./ListsTestSuit')
-listSuit
+import fs   = require("fs");
+import path = require("path");
 
-console.log('======== ParsersTestSuit =========');
-import parssuit = require('./ParsersTestSuit')
-parssuit
+var suits = [];
 
-console.log('======== RecursionTestSuit =========');
-import recursSuit = require('./RecursionTestSuit')
-recursSuit
+var files = fs.readdirSync(__dirname).forEach(function (fileName) {
+
+    if ( /.*Suit.js$/.test(fileName) ) {
+        console.log('================= '+ fileName +' =================');
+        require(path.join(__dirname, fileName));
+    }
+});
+

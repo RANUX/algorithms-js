@@ -8,6 +8,8 @@ git clone https://github.com/ranux/algorithms-js
 ```
 npm install                # set up all dependencies
 npm install -g typescript  # Only if you dont have tsc!
+npm install tsd -g
+tsd install                # install tsd files ( see tsd.json )
 tsc                        # build
 node dist/Main.js          # run
 ```
