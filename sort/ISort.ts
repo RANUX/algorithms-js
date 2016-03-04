@@ -2,6 +2,6 @@
 
 export interface ISort {
     
-    sort( list : any[],  compareFn?: any ) : any[];
+    sort( array : any[],  compareFn?: any ) : any[];
     
 }

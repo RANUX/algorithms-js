@@ -20,7 +20,6 @@ var MergeSortSimpleTests = (function (_super) {
         var l = [22, 57, 71, 95];
         var r = [5, 13, 49, 63, 78, 89];
         var m = [5, 13, 22, 49, 57, 63, 71, 78, 89, 95];
-        //      [ 5, 13, 49, 63, 78, 89 ]
         var sorter = new MergeSortSimple_1.default();
         this.areCollectionsIdentical(m, sorter.merge(l, r));
     };

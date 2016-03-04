@@ -5,23 +5,23 @@ import * as h from "../arrays/ArrayHelpers";
  */
 export default class MergeSortSimple implements isort.ISort {
     
-    sort( list :any[], compareFn ) :any[]
+    sort( array :any[], compareFn ) :any[]
     {
-        return this.mergeSort( list, 0, list.length-1, compareFn);
+        return this.mergeSort( array, 0, array.length-1, compareFn);
     }
     
-    mergeSort( list :any[], startIndex :number, endIndex :number,  compareFn :any) :any[]
+    mergeSort( array :any[], startIndex :number, endIndex :number,  compareFn :any) :any[]
     {
 
         if ( startIndex == endIndex ) {
             var result = [];
-            result.push( list[ startIndex ] );
+            result.push( array[ startIndex ] );
             return result;
         }
         var splitIndex =  startIndex + Math.floor( (endIndex - startIndex) / 2 );
         
-        var left = this.mergeSort( list, startIndex, splitIndex, compareFn);
-        var right = this.mergeSort( list, splitIndex+1, endIndex, compareFn);
+        var left = this.mergeSort( array, startIndex, splitIndex, compareFn);
+        var right = this.mergeSort( array, splitIndex+1, endIndex, compareFn);
         
         return this.merge(left, right, compareFn);
         
@@ -30,7 +30,7 @@ export default class MergeSortSimple implements isort.ISort {
     merge( left : any[], right : any[], compareFn = (a,b) => {return a < b } ) : any[]
     {
         
-        var result = []; // <- this is ineffective for memory usage, but algorithm musch simplier
+        var result = []; // <- this is ineffective for memory usage, but algorithm much simplier
 
         var l = h.makeIterator(left);
         var r = h.makeIterator(right);

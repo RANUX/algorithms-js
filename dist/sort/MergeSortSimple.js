@@ -5,23 +5,23 @@ var h = require("../arrays/ArrayHelpers");
 var MergeSortSimple = (function () {
     function MergeSortSimple() {
     }
-    MergeSortSimple.prototype.sort = function (list, compareFn) {
-        return this.mergeSort(list, 0, list.length - 1, compareFn);
+    MergeSortSimple.prototype.sort = function (array, compareFn) {
+        return this.mergeSort(array, 0, array.length - 1, compareFn);
     };
-    MergeSortSimple.prototype.mergeSort = function (list, startIndex, endIndex, compareFn) {
+    MergeSortSimple.prototype.mergeSort = function (array, startIndex, endIndex, compareFn) {
         if (startIndex == endIndex) {
             var result = [];
-            result.push(list[startIndex]);
+            result.push(array[startIndex]);
             return result;
         }
         var splitIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
-        var left = this.mergeSort(list, startIndex, splitIndex, compareFn);
-        var right = this.mergeSort(list, splitIndex + 1, endIndex, compareFn);
+        var left = this.mergeSort(array, startIndex, splitIndex, compareFn);
+        var right = this.mergeSort(array, splitIndex + 1, endIndex, compareFn);
         return this.merge(left, right, compareFn);
     };
     MergeSortSimple.prototype.merge = function (left, right, compareFn) {
         if (compareFn === void 0) { compareFn = function (a, b) { return a < b; }; }
-        var result = [];
+        var result = []; // <- this is ineffective for memory usage, but algorithm much simplier
         var l = h.makeIterator(left);
         var r = h.makeIterator(right);
         while (!l.done() || !r.done()) {
