@@ -1,7 +1,7 @@
 import * as isort from "./ISort"
 
 /**
- * MergeSortSimple unoptimized version of Merge Sort Algorithm
+ * MergeSort optimized
  */
 export default class MergeSort implements isort.ISort {
     
