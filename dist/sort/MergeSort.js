@@ -1,5 +1,5 @@
 /**
- * MergeSortSimple unoptimized version of Merge Sort Algorithm
+ * MergeSort optimized
  */
 var MergeSort = (function () {
     function MergeSort() {
@@ -26,7 +26,7 @@ var MergeSort = (function () {
         var mid = r - 1;
         var n = upBound - lowBound + 1; // # of items
         while (l <= mid && r <= upBound)
-            if (this.array[l] < this.array[r])
+            if (compareFn(this.array[l], this.array[r]))
                 resultArray[j++] = this.array[l++];
             else
                 resultArray[j++] = this.array[r++];

@@ -40,7 +40,7 @@ export default class MergeSort implements isort.ISort {
         
         
         while(l <= mid && r <= upBound)             // left an right array is not empty
-            if( this.array[l] < this.array[r] )
+            if( compareFn( this.array[l], this.array[r] ) )
                 resultArray[j++] = this.array[l++];
             else
                 resultArray[j++] = this.array[r++];
