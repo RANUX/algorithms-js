@@ -30,7 +30,7 @@ export default class MergeSortSimple implements isort.ISort {
     merge( left : any[], right : any[], compareFn = (a,b) => {return a < b } ) : any[]
     {
         
-        var result = [];
+        var result = []; // <- this is ineffective for memory usage, but algorithm musch simplier
 
         var l = h.makeIterator(left);
         var r = h.makeIterator(right);
