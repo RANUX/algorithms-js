@@ -1,10 +1,10 @@
 import tsUnit = require('../node_modules/tsunit.external/tsUnit');
-import MergeSortTests = require('./sort/MergeSortTests');
+import MergeSortSimpleTests = require('./sort/MergeSortSimpleTests');
 
 
 import utils = require("./utils");
 
 // Instantiate tsUnit and pass in modules that contain tests
 
-var result = new tsUnit.Test(MergeSortTests).run();
+var result = new tsUnit.Test(MergeSortSimpleTests).run();
 console.log(utils.getTapResults(result));

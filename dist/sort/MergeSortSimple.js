@@ -1,14 +1,14 @@
 var h = require("../arrays/ArrayHelpers");
 /**
- * MergeSort
+ * MergeSortSimple unoptimized version of Merge Sort Algorithm
  */
-var MergeSort = (function () {
-    function MergeSort() {
+var MergeSortSimple = (function () {
+    function MergeSortSimple() {
     }
-    MergeSort.prototype.sort = function (list, compareFn) {
+    MergeSortSimple.prototype.sort = function (list, compareFn) {
         return this.mergeSort(list, 0, list.length - 1, compareFn);
     };
-    MergeSort.prototype.mergeSort = function (list, startIndex, endIndex, compareFn) {
+    MergeSortSimple.prototype.mergeSort = function (list, startIndex, endIndex, compareFn) {
         if (startIndex == endIndex) {
             var result = [];
             result.push(list[startIndex]);
@@ -19,7 +19,7 @@ var MergeSort = (function () {
         var right = this.mergeSort(list, splitIndex + 1, endIndex, compareFn);
         return this.merge(left, right, compareFn);
     };
-    MergeSort.prototype.merge = function (left, right, compareFn) {
+    MergeSortSimple.prototype.merge = function (left, right, compareFn) {
         if (compareFn === void 0) { compareFn = function (a, b) { return a < b; }; }
         var result = [];
         var l = h.makeIterator(left);
@@ -44,9 +44,9 @@ var MergeSort = (function () {
         }
         return result;
     };
-    return MergeSort;
+    return MergeSortSimple;
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = MergeSort;
+exports.default = MergeSortSimple;
 
-//# sourceMappingURL=MergeSort.js.map
+//# sourceMappingURL=MergeSortSimple.js.map

@@ -1,9 +1,9 @@
 import * as isort from "./ISort"
 import * as h from "../arrays/ArrayHelpers";
 /**
- * MergeSort
+ * MergeSortSimple unoptimized version of Merge Sort Algorithm
  */
-export default class MergeSort implements isort.ISort {
+export default class MergeSortSimple implements isort.ISort {
     
     sort( list :any[], compareFn ) :any[]
     {

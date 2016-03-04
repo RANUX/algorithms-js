@@ -4,28 +4,28 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var absSortTests = require('./AbstractSortTests');
-var MergeSort_1 = require("../../sort/MergeSort");
+var MergeSortSimple_1 = require("../../sort/MergeSortSimple");
 /**
  * MergeSortTests
  */
-var MergeSortTests = (function (_super) {
-    __extends(MergeSortTests, _super);
-    function MergeSortTests() {
+var MergeSortSimpleTests = (function (_super) {
+    __extends(MergeSortSimpleTests, _super);
+    function MergeSortSimpleTests() {
         _super.apply(this, arguments);
     }
-    MergeSortTests.prototype.createSorting = function () {
-        return new MergeSort_1.default();
+    MergeSortSimpleTests.prototype.createSorting = function () {
+        return new MergeSortSimple_1.default();
     };
-    MergeSortTests.prototype.testMergeSortedArrays = function () {
+    MergeSortSimpleTests.prototype.testMergeSortedArrays = function () {
         var l = [22, 57, 71, 95];
         var r = [5, 13, 49, 63, 78, 89];
         var m = [5, 13, 22, 49, 57, 63, 71, 78, 89, 95];
         //      [ 5, 13, 49, 63, 78, 89 ]
-        var sorter = new MergeSort_1.default();
+        var sorter = new MergeSortSimple_1.default();
         this.areCollectionsIdentical(m, sorter.merge(l, r));
     };
-    return MergeSortTests;
+    return MergeSortSimpleTests;
 })(absSortTests.AbstractSortTestsTests);
-exports.MergeSortTests = MergeSortTests;
+exports.MergeSortSimpleTests = MergeSortSimpleTests;
 
-//# sourceMappingURL=MergeSortTests.js.map
+//# sourceMappingURL=MergeSortSimpleTests.js.map
