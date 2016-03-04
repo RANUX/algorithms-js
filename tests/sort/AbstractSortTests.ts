@@ -16,7 +16,7 @@ export abstract class AbstractSortTestsTests extends tsUnit.TestClass {
         
         // randomize unsorted
         shuffle.knuthShuffle(this.unsorted);
-        this.sorted = this.unsorted.sort( (a, b) => b - a );
+        this.sorted = this.unsorted.sort( );
         
     }
     

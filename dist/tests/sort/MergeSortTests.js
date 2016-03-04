@@ -16,6 +16,14 @@ var MergeSortTests = (function (_super) {
     MergeSortTests.prototype.createSorting = function () {
         return new MergeSort_1.default();
     };
+    MergeSortTests.prototype.testMergeSortedArrays = function () {
+        var l = [22, 57, 71, 95];
+        var r = [5, 13, 49, 63, 78, 89];
+        var m = [5, 13, 22, 49, 57, 63, 71, 78, 89, 95];
+        //      [ 5, 13, 49, 63, 78, 89 ]
+        var sorter = new MergeSort_1.default();
+        this.areCollectionsIdentical(m, sorter.merge(l, r));
+    };
     return MergeSortTests;
 })(absSortTests.AbstractSortTestsTests);
 exports.MergeSortTests = MergeSortTests;

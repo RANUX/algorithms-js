@@ -15,7 +15,7 @@ var AbstractSortTestsTests = (function (_super) {
         this.sorting = this.createSorting();
         // randomize unsorted
         shuffle.knuthShuffle(this.unsorted);
-        this.sorted = this.unsorted.sort(function (a, b) { return b - a; });
+        this.sorted = this.unsorted.sort();
     };
     AbstractSortTestsTests.prototype.testSortSimpleArray = function () {
         this.areCollectionsIdentical(this.sorted, this.sorting.sort(this.unsorted));

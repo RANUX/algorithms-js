@@ -1,4 +1,4 @@
-import * as ahm from "../arrays/ArrayHelpers";
+import * as helpers from "../arrays/ArrayHelpers";
 import shuffle = require('knuth-shuffle');
 
 
@@ -6,12 +6,10 @@ export class ArrayHelpersExamples {
 	    data1       : any[] = ["a", "b", "c", "d"];
         data2       : any[] = ["e", "f", "g", "h"];
         
-        helpers     :   ahm.ArrayHelpers = new ahm.ArrayHelpers();
-        
         logMergeArrays () {
             console.log("======= ARRAY HELPERS: merge two arrays =========");
             console.log("Merge two arrays: " + this.data1 + " and " + this.data2);
-            var result = this.helpers.merge(this.data1, this.data2);
+            var result = helpers.merge(this.data1, this.data2);
             console.log("Merged: " + result);
         }
         
@@ -21,7 +19,7 @@ export class ArrayHelpersExamples {
             data = shuffle.knuthShuffle(data);
             
             console.log("Array before rm duplicates: " + data);
-            this.helpers.removeDuplicates(data);
+            helpers.removeDuplicates(data);
             console.log("Array after rm duplicates: " + data);
             
         }

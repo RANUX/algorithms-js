@@ -18,5 +18,5 @@ node dist/Main.js          # run
 Just open project in Visual Studio Code
 Press Shift+Cmd+B to build project
 
-# Run tests
-node dist/tests/testSuit.js
+# Run all tests
+node dist/tests/RunAllTestSuits.js
