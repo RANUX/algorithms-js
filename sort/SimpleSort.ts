@@ -1,10 +1,16 @@
+import * as isort from "./ISort"
+
 /**
  * Simple sort algorithms. Complexity O(N^2)
  */
 
-export class SimpleSort {
-
-    bubbleSort(a: any[]) {
+/**
+ * BubbleSort
+ */
+export class BubbleSort implements isort.ISort {
+    
+    sort( a : any[],  compareFn?: any ) : any[]
+    {
         for (var out = a.length-1; out > 0; out--) {
             for (var inn = 0; inn < out; inn++) {
                 if ( a[inn] > a[inn+1] ) {
@@ -16,14 +22,17 @@ export class SimpleSort {
                 
             }
         }
+        return a;
     }
+}
+
+/**
+ * SelectionSort
+ */
+export class SelectionSort implements isort.ISort {
     
-    /**
-     * Selection sort
-     * 
-     * @param {any[]} any array
-     */
-    selectionSort(a: any[]) {
+    sort( a : any[],  compareFn?: any ) : any[]
+    {
         var min, out;
         for( out = 0; out < a.length; out++) {
             min = out;
@@ -36,14 +45,17 @@ export class SimpleSort {
             a[out]    = a[min];
             a[min]  = tmp;
         }
+        return a;
     }
+}
+
+/**
+ * InsertionSort
+ */
+export class InsertionSort implements isort.ISort {
     
-    /**
-     * Insertion sort
-     * 
-     * @param {any[]} any array
-     */
-    insertionSort(a: any[]) {
+    sort( a : any[],  compareFn?: any ) : any[]
+    {
         var out, temp, inn;
         for ( out = 1; out < a.length; out++) {
             temp = a[out];
@@ -54,7 +66,6 @@ export class SimpleSort {
             }
             a[inn] = temp;
         }
+        return a;
     }
-    
 }
-

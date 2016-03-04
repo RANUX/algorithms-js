@@ -1,20 +1,17 @@
-import * as srtm from "./examples/Sort";
 import * as stkm from "./examples/Stack";
 import * as qm   from "./examples/Queues";
 import * as hm   from "./examples/ArraysHelpers";
 import * as eee   from "./examples/EvalExprExample";
 
+/*
+* DEPRICATED! Watch tests for examples
+*/
 class Startup {
     
     
     public static main(): number 
     {
-	    var sortExamples = new srtm.SortExample();
-        sortExamples.logBubbleSort(); 
-        sortExamples.logSelectionSort(); 
-        sortExamples.logInsertionSort();
-
-
+        
         new stkm.StackExample().logStacks();
         
         var queueExamples = new qm.QueueExamples();

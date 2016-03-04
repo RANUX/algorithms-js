@@ -1,5 +1,5 @@
 import * as isort from "./ISort"
-import * as h from "../arrays/ArrayHelpers";
+
 /**
  * MergeSortSimple unoptimized version of Merge Sort Algorithm
  */
@@ -21,9 +21,6 @@ export default class MergeSort implements isort.ISort {
 
         if ( startIndex == endIndex ) {
             return;
-            //var result = [];
-            //result.push( list[ startIndex ] );
-            //return result;
         }
         var mid =  startIndex + Math.floor( (endIndex - startIndex) / 2 );
         

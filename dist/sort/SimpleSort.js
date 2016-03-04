@@ -1,10 +1,13 @@
 /**
  * Simple sort algorithms. Complexity O(N^2)
  */
-var SimpleSort = (function () {
-    function SimpleSort() {
+/**
+ * BubbleSort
+ */
+var BubbleSort = (function () {
+    function BubbleSort() {
     }
-    SimpleSort.prototype.bubbleSort = function (a) {
+    BubbleSort.prototype.sort = function (a, compareFn) {
         for (var out = a.length - 1; out > 0; out--) {
             for (var inn = 0; inn < out; inn++) {
                 if (a[inn] > a[inn + 1]) {
@@ -15,13 +18,18 @@ var SimpleSort = (function () {
                 }
             }
         }
+        return a;
     };
-    /**
-     * Selection sort
-     *
-     * @param {any[]} any array
-     */
-    SimpleSort.prototype.selectionSort = function (a) {
+    return BubbleSort;
+})();
+exports.BubbleSort = BubbleSort;
+/**
+ * SelectionSort
+ */
+var SelectionSort = (function () {
+    function SelectionSort() {
+    }
+    SelectionSort.prototype.sort = function (a, compareFn) {
         var min, out;
         for (out = 0; out < a.length; out++) {
             min = out;
@@ -34,13 +42,18 @@ var SimpleSort = (function () {
             a[out] = a[min];
             a[min] = tmp;
         }
+        return a;
     };
-    /**
-     * Insertion sort
-     *
-     * @param {any[]} any array
-     */
-    SimpleSort.prototype.insertionSort = function (a) {
+    return SelectionSort;
+})();
+exports.SelectionSort = SelectionSort;
+/**
+ * InsertionSort
+ */
+var InsertionSort = (function () {
+    function InsertionSort() {
+    }
+    InsertionSort.prototype.sort = function (a, compareFn) {
         var out, temp, inn;
         for (out = 1; out < a.length; out++) {
             temp = a[out];
@@ -51,9 +64,10 @@ var SimpleSort = (function () {
             }
             a[inn] = temp;
         }
+        return a;
     };
-    return SimpleSort;
+    return InsertionSort;
 })();
-exports.SimpleSort = SimpleSort;
+exports.InsertionSort = InsertionSort;
 
-//# sourceMappingURL=Sort.js.map
+//# sourceMappingURL=SimpleSort.js.map

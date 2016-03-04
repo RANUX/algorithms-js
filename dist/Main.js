@@ -1,16 +1,14 @@
-var srtm = require("./examples/Sort");
 var stkm = require("./examples/Stack");
 var qm = require("./examples/Queues");
 var hm = require("./examples/ArraysHelpers");
 var eee = require("./examples/EvalExprExample");
+/*
+* DEPRICATED! Watch tests for examples
+*/
 var Startup = (function () {
     function Startup() {
     }
     Startup.main = function () {
-        var sortExamples = new srtm.SortExample();
-        sortExamples.logBubbleSort();
-        sortExamples.logSelectionSort();
-        sortExamples.logInsertionSort();
         new stkm.StackExample().logStacks();
         var queueExamples = new qm.QueueExamples();
         queueExamples.logCircularQueue();
