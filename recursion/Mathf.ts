@@ -13,13 +13,13 @@ export default class Mathf {
      */
     static pow(base :number, exp:number) : number {
         if ( exp < 0 )
-            throw "Only for positive power";
+            throw "Only for positive exponent";
             
         if ( exp == 0 )
             return 1;
-        else if ( exp === 1) {
+        else if ( exp === 1)
             return base;
-        }
+        
         
         var r =  this.pow( base*base, Math.floor( exp/2 ));
         

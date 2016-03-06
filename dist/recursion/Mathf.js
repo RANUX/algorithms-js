@@ -4,17 +4,24 @@
 var Mathf = (function () {
     function Mathf() {
     }
-    Mathf.pow = function (x, y) {
-        if (y < 0)
-            throw "Only for positive power";
-        if (y == 0)
+    /**
+     *  The Math.pow() function returns the base to the exponent power, that is, base^exponent
+     *
+     * @static
+     * @param {number} base (description)
+     * @param {number} exp (description)
+     * @returns {number} (description)
+     */
+    Mathf.pow = function (base, exp) {
+        if (exp < 0)
+            throw "Only for positive exponent";
+        if (exp == 0)
             return 1;
-        else if (y === 1) {
-            return x;
-        }
-        var r = this.pow(x * x, Math.floor(y / 2));
-        if (y % 2 == 1)
-            r = x * r;
+        else if (exp === 1)
+            return base;
+        var r = this.pow(base * base, Math.floor(exp / 2));
+        if (exp % 2 == 1)
+            r = base * r;
         return r;
     };
     return Mathf;
