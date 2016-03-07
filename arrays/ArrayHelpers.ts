@@ -24,7 +24,7 @@ export function merge(first : any[], second : any[]) {
  * @param {any[]} any array with data
  */
 export function removeDuplicates(a : any[]) {
-    var result;
+
     for (var i = 0; i < a.length; i++) 
     {
         var lastIndex = a.lastIndexOf(a[i]);

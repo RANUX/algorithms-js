@@ -20,7 +20,6 @@ exports.merge = merge;
  * @param {any[]} any array with data
  */
 function removeDuplicates(a) {
-    var result;
     for (var i = 0; i < a.length; i++) {
         var lastIndex = a.lastIndexOf(a[i]);
         while (lastIndex > i) {
