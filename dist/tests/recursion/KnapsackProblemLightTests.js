@@ -20,7 +20,7 @@ var KnapsackProblemLightTests = (function (_super) {
         this.areCollectionsIdentical([20], knapasack.solve(20));
     };
     KnapsackProblemLightTests.prototype.testSolve1ItemNotExists = function () {
-        var knapasack = new KnapsackProblemLight_1.default([20]);
+        var knapasack = new KnapsackProblemLight_1.default([9, 7]);
         this.areCollectionsIdentical([], knapasack.solve(22));
     };
     KnapsackProblemLightTests.prototype.testSolve2ItemExists = function () {
@@ -30,8 +30,10 @@ var KnapsackProblemLightTests = (function (_super) {
     KnapsackProblemLightTests.prototype.testSolve = function () {
         var knapasack = new KnapsackProblemLight_1.default([11, 8, 7, 6, 5]);
         this.areCollectionsIdentical([8, 7, 5], knapasack.solve(20));
-        knapasack.setWeights([5, 10, 2, 6, 28]);
-        this.areCollectionsIdentical([], knapasack.solve(40));
+        var knapasack = new KnapsackProblemLight_1.default([28, 10, 6, 5, 2]);
+        this.areCollectionsIdentical([28, 10, 2], knapasack.solve(40));
+        var knapasack = new KnapsackProblemLight_1.default([50, 10, 6, 5, 2]);
+        this.areCollectionsIdentical([10, 6], knapasack.solve(16));
     };
     return KnapsackProblemLightTests;
 })(tsUnit.TestClass);

@@ -15,7 +15,7 @@ export class KnapsackProblemLightTests extends tsUnit.TestClass {
     }
     
     testSolve1ItemNotExists() {
-        var knapasack = new Knapsack([20]);
+        var knapasack = new Knapsack([9, 7]);
         this.areCollectionsIdentical( [], knapasack.solve(22) );
     }
     
@@ -28,8 +28,11 @@ export class KnapsackProblemLightTests extends tsUnit.TestClass {
         var knapasack = new Knapsack([11, 8, 7, 6, 5]);
         this.areCollectionsIdentical( [8, 7, 5], knapasack.solve(20) );
         
-        knapasack.setWeights( [5, 10, 2, 6, 28] );
-        this.areCollectionsIdentical( [], knapasack.solve(40) );
+        var knapasack = new Knapsack( [28, 10, 6, 5, 2] );
+        this.areCollectionsIdentical( [28, 10, 2], knapasack.solve(40) );
+        
+        var knapasack = new Knapsack( [50, 10, 6, 5, 2] );
+        this.areCollectionsIdentical( [10, 6], knapasack.solve(16) );
     }
     
     
