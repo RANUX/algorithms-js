@@ -15,6 +15,11 @@ export abstract class AbstractSearchTestsTests extends tsUnit.TestClass {
         this.search = this.createSearch();
     }
     
+    testSearchInEmptyArray()
+    {
+        this.areIdentical( -1, this.search.indexOf(1, []));
+    }
+    
     testIndexOfStrArray()
     {
         for (var i = 0; i < this.sortedStr.length; i++) {
@@ -29,6 +34,16 @@ export abstract class AbstractSearchTestsTests extends tsUnit.TestClass {
             var element = this.sortedNum[i];
             this.areIdentical( i, this.search.indexOf(element, this.sortedNum));
         }
+    }
+    
+    testStrNotFound()
+    {
+        this.areIdentical( -1, this.search.indexOf("test", this.sortedStr));
+    }
+    
+    testNumNotFound()
+    {
+        this.areIdentical( -1, this.search.indexOf(100, this.sortedNum));
     }
     
 }

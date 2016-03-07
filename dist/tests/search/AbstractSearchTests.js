@@ -14,6 +14,9 @@ var AbstractSearchTestsTests = (function (_super) {
     AbstractSearchTestsTests.prototype.setUp = function () {
         this.search = this.createSearch();
     };
+    AbstractSearchTestsTests.prototype.testSearchInEmptyArray = function () {
+        this.areIdentical(-1, this.search.indexOf(1, []));
+    };
     AbstractSearchTestsTests.prototype.testIndexOfStrArray = function () {
         for (var i = 0; i < this.sortedStr.length; i++) {
             var element = this.sortedStr[i];
@@ -25,6 +28,12 @@ var AbstractSearchTestsTests = (function (_super) {
             var element = this.sortedNum[i];
             this.areIdentical(i, this.search.indexOf(element, this.sortedNum));
         }
+    };
+    AbstractSearchTestsTests.prototype.testStrNotFound = function () {
+        this.areIdentical(-1, this.search.indexOf("test", this.sortedStr));
+    };
+    AbstractSearchTestsTests.prototype.testNumNotFound = function () {
+        this.areIdentical(-1, this.search.indexOf(100, this.sortedNum));
     };
     return AbstractSearchTestsTests;
 })(tsUnit.TestClass);
