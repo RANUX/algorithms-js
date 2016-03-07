@@ -33,24 +33,24 @@ export default class HanoiTower {
         }
     }
     
-    solve(nTowers : number)
+    solve(nDisks : number)
     {
         this.clearSolution();
-        var n = nTowers;
+        var n = nDisks;
         while ( n > 0) {
             this.disks[1].unshift ( n );
             n--;
         }
 
         this.saveSolution();
-        this.solveRecursive( nTowers, 1, 2, 3);
+        this.solveRecursive( nDisks, 1, 2, 3);
         //console.log(this.solution);
     }
     
-    private solveRecursive( nTowers : number, src : number, tmp : number, dst : number)
+    private solveRecursive( nDisks : number, src : number, tmp : number, dst : number)
     {
         
-        if ( nTowers == 1) {
+        if ( nDisks == 1) {
             this.disks[dst].unshift( this.disks[src].shift() );
             
             this.saveSolution();
@@ -59,13 +59,13 @@ export default class HanoiTower {
             return;
         }
         
-        this.solveRecursive( nTowers-1, src, dst, tmp);        // move src disk to tmp
+        this.solveRecursive( nDisks-1, src, dst, tmp);        // move src disk to tmp
         
         this.disks[dst].unshift( this.disks[src].shift() );    
         this.saveSolution();
         
         //console.log("Disk " + nTowers +  " from " + src + " to "+ dst);
-        this.solveRecursive( nTowers-1, tmp, src, dst);       // move tmp disk to dst
+        this.solveRecursive( nDisks-1, tmp, src, dst);       // move tmp disk to dst
 
     }
 }

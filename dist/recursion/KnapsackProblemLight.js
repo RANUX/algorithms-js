@@ -16,7 +16,6 @@ var KnapsackProblemLight = (function () {
      */
     function KnapsackProblemLight(weights) {
         this.setWeights(weights);
-        this.stack = [];
     }
     /**
      * Solve Knapsack Problem with weights only
@@ -26,6 +25,7 @@ var KnapsackProblemLight = (function () {
      */
     KnapsackProblemLight.prototype.solve = function (goalW) {
         this.result = [];
+        this.stack = [];
         for (var i = 0; i < this.weights.length; i++) {
             this.solveRecursive(goalW, i);
             if (this.stack.length > 0)

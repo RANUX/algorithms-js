@@ -20,29 +20,29 @@ var HanoiTower = (function () {
             3: [] // dst
         };
     };
-    HanoiTower.prototype.solve = function (nTowers) {
+    HanoiTower.prototype.solve = function (nDisks) {
         this.clearSolution();
-        var n = nTowers;
+        var n = nDisks;
         while (n > 0) {
             this.disks[1].unshift(n);
             n--;
         }
         this.saveSolution();
-        this.solveRecursive(nTowers, 1, 2, 3);
+        this.solveRecursive(nDisks, 1, 2, 3);
         //console.log(this.solution);
     };
-    HanoiTower.prototype.solveRecursive = function (nTowers, src, tmp, dst) {
-        if (nTowers == 1) {
+    HanoiTower.prototype.solveRecursive = function (nDisks, src, tmp, dst) {
+        if (nDisks == 1) {
             this.disks[dst].unshift(this.disks[src].shift());
             this.saveSolution();
             //console.log("Disk 1 from " + src + " to "+ dst);
             return;
         }
-        this.solveRecursive(nTowers - 1, src, dst, tmp); // move src disk to tmp
+        this.solveRecursive(nDisks - 1, src, dst, tmp); // move src disk to tmp
         this.disks[dst].unshift(this.disks[src].shift());
         this.saveSolution();
         //console.log("Disk " + nTowers +  " from " + src + " to "+ dst);
-        this.solveRecursive(nTowers - 1, tmp, src, dst); // move tmp disk to dst
+        this.solveRecursive(nDisks - 1, tmp, src, dst); // move tmp disk to dst
     };
     return HanoiTower;
 })();

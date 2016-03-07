@@ -22,7 +22,6 @@ export default class KnapsackProblemLight {
      */
     constructor(weights :number[]) {
         this.setWeights(weights);
-        this.stack   = [];
     }
     
    /**
@@ -33,6 +32,7 @@ export default class KnapsackProblemLight {
     */
    solve (goalW :number) {
        this.result  = [];
+       this.stack   = [];
        
        for (var i = 0; i < this.weights.length; i++) {
            
