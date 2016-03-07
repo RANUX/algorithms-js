@@ -38,6 +38,7 @@ export function removeDuplicates(a : any[]) {
     
 }
 
+
 export function isEmpty(array : any[])
 {
     return (array.length === 0);
@@ -47,6 +48,21 @@ export function isNotEmpty(array : any[])
 {
     return (array.length !== 0);
 }
+
+export function shallowCopy(a :any[]) :any[]
+{
+    var result = [];
+    
+    if ( a.length == 0 )
+        return result;
+    
+    for (var index = 0; index < a.length; index++) {
+        result.push( a[index] );
+    }
+    
+    return result;
+}
+
 
 export function makeIterator(array){
     var first   = 0;

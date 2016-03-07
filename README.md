@@ -20,3 +20,17 @@ Press Shift+Cmd+B to build project
 
 # Run all tests
 node dist/tests/RunAllTestSuits.js
+
+# Translate to ES6
+In tsconfig.json change
+```
+{
+    "target": "es5",
+}
+```
+to
+```
+{
+    "target": "es6",
+}
+```

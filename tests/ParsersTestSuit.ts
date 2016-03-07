@@ -10,12 +10,3 @@ console.log(utils.getTapResults(result));
 
 result = new tsUnit.Test(PostfixEvalTests).run();
 console.log(utils.getTapResults(result));
-// Run the tests
-//var result = test.run();
-
-// Show the test results (TAP output)
-//console.log(tsUnitTest.getTapResults());
-
-// Show the test results (Your own custom version)
-//console.log('Errors: ' + result.errors.length);
-

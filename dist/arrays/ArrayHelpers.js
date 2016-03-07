@@ -38,6 +38,16 @@ function isNotEmpty(array) {
     return (array.length !== 0);
 }
 exports.isNotEmpty = isNotEmpty;
+function shallowCopy(a) {
+    var result = [];
+    if (a.length == 0)
+        return result;
+    for (var index = 0; index < a.length; index++) {
+        result.push(a[index]);
+    }
+    return result;
+}
+exports.shallowCopy = shallowCopy;
 function makeIterator(array) {
     var first = 0;
     var last = array.length - 1;

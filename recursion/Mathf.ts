@@ -11,7 +11,7 @@ export default class Mathf {
      * @param {number} exp (description)
      * @returns {number} (description)
      */
-    static pow(base :number, exp:number) : number {
+    static pow(base :number, exp :number) :number {
         if ( exp < 0 )
             throw "Only for positive exponent";
             
