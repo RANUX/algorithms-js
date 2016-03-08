@@ -1,11 +1,5 @@
-var tsUnit = require('../node_modules/tsunit.external/tsUnit');
-var Infix2PostfixTests = require('./parsers/Infix2PostfixTests');
-var PostfixEvalTests = require('./parsers/PostfixEvalTests');
 var utils = require("./utils");
-// Instantiate tsUnit and pass in modules that contain tests
-var result = new tsUnit.Test(Infix2PostfixTests).run();
-console.log(utils.getTapResults(result));
-result = new tsUnit.Test(PostfixEvalTests).run();
-console.log(utils.getTapResults(result));
+var path = require("path");
+utils.runTests(path.join(__dirname, "parsers"));
 
 //# sourceMappingURL=ParsersTestSuit.js.map

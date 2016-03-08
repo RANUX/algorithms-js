@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var absSortTests = require('./AbstractSortTests');
+var AbstractSortTests_1 = require('./AbstractSortTests');
 var MergeSort_1 = require("../../sort/MergeSort");
 /**
  * MergeSortTests
@@ -30,7 +30,7 @@ var MergeSortTests = (function (_super) {
         //console.log('--------- end Merge -------');
     };
     return MergeSortTests;
-})(absSortTests.AbstractSortTestsTests);
+})(AbstractSortTests_1.AbstractSortTests);
 exports.MergeSortTests = MergeSortTests;
 
 //# sourceMappingURL=MergeSortTests.js.map

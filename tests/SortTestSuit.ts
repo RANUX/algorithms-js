@@ -1,18 +1,24 @@
 import tsUnit = require('../node_modules/tsunit.external/tsUnit');
-import MergeSortSimpleTests = require('./sort/MergeSortSimpleTests');
-import MergeSortTests = require('./sort/MergeSortTests');
-import SimpleSortTests = require('./sort/SimpleSortTests');
-
 import utils = require("./utils");
+import fs   = require("fs");
+import path = require("path");
 
-// Instantiate tsUnit and pass in modules that contain tests
+var testsDir = path.join(__dirname, "sort");
 
-var result = new tsUnit.Test(MergeSortSimpleTests).run();
-console.log(utils.getTapResults(result));
+export default function runTests() {
+    var files = fs.readdirSync(testsDir).forEach(function (fileName) {
 
-var result = new tsUnit.Test(MergeSortTests).run();
-console.log(utils.getTapResults(result));
+    if ( /^(?!Abstract).*Tests.js$/ig.test(fileName) ) {
+        console.log('================= '+ fileName +' =================');
+        var test = require(path.join(testsDir, fileName));
+        
+        //console.log(test);
+            var result = new tsUnit.Test( test ).run();
+            console.log(utils.getTapResults(result));
 
+        
+    }
+});
 
-var result = new tsUnit.Test(SimpleSortTests).run();
-console.log(utils.getTapResults(result));
+}
+runTests();

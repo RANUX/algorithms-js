@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var absSortTests = require('./AbstractSortTests');
+var AbstractSortTests_1 = require('./AbstractSortTests');
 var simpsort = require("../../sort/SimpleSort");
 var BubbleSortTests = (function (_super) {
     __extends(BubbleSortTests, _super);
@@ -14,7 +14,7 @@ var BubbleSortTests = (function (_super) {
         return new simpsort.BubbleSort();
     };
     return BubbleSortTests;
-})(absSortTests.AbstractSortTestsTests);
+})(AbstractSortTests_1.AbstractSortTests);
 exports.BubbleSortTests = BubbleSortTests;
 var SelectionSortTests = (function (_super) {
     __extends(SelectionSortTests, _super);
@@ -25,7 +25,7 @@ var SelectionSortTests = (function (_super) {
         return new simpsort.SelectionSort();
     };
     return SelectionSortTests;
-})(absSortTests.AbstractSortTestsTests);
+})(AbstractSortTests_1.AbstractSortTests);
 exports.SelectionSortTests = SelectionSortTests;
 var InsertionSortTests = (function (_super) {
     __extends(InsertionSortTests, _super);
@@ -36,7 +36,7 @@ var InsertionSortTests = (function (_super) {
         return new simpsort.InsertionSort();
     };
     return InsertionSortTests;
-})(absSortTests.AbstractSortTestsTests);
+})(AbstractSortTests_1.AbstractSortTests);
 exports.InsertionSortTests = InsertionSortTests;
 
 //# sourceMappingURL=SimpleSortTests.js.map

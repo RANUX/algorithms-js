@@ -5,28 +5,28 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
 var shuffle = require('knuth-shuffle');
-var AbstractSortTestsTests = (function (_super) {
-    __extends(AbstractSortTestsTests, _super);
-    function AbstractSortTestsTests() {
+var AbstractSortTests = (function (_super) {
+    __extends(AbstractSortTests, _super);
+    function AbstractSortTests() {
         _super.apply(this, arguments);
         this.unsortedStr = ["d", "ada", "csharp", "cpp", "db", "python", "cpp", "node", "js", "php"];
         this.unsortedNum = [3, 4, 10, 1, 6, 8, 9];
         this.sortedNum = [1, 3, 4, 6, 8, 9, 10];
     }
-    AbstractSortTestsTests.prototype.setUp = function () {
+    AbstractSortTests.prototype.setUp = function () {
         this.sorting = this.createSorting();
         // randomize unsorted
         shuffle.knuthShuffle(this.unsortedStr);
         this.sortedStr = this.unsortedStr.sort();
     };
-    AbstractSortTestsTests.prototype.testSortStringArray = function () {
+    AbstractSortTests.prototype.testSortStringArray = function () {
         this.areCollectionsIdentical(this.sortedStr, this.sorting.sort(this.unsortedStr));
     };
-    AbstractSortTestsTests.prototype.testSortNumArray = function () {
+    AbstractSortTests.prototype.testSortNumArray = function () {
         this.areCollectionsIdentical(this.sortedNum, this.sorting.sort(this.unsortedNum));
     };
-    return AbstractSortTestsTests;
+    return AbstractSortTests;
 })(tsUnit.TestClass);
-exports.AbstractSortTestsTests = AbstractSortTestsTests;
+exports.AbstractSortTests = AbstractSortTests;
 
 //# sourceMappingURL=AbstractSortTests.js.map

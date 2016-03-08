@@ -1,10 +1,10 @@
-import absSortTests = require('./AbstractSortTests')
+import { AbstractSortTests } from './AbstractSortTests';
 import * as isort  from "../../sort/ISort";
 import MergeSortSimple  from "../../sort/MergeSortSimple";
 /**
  * MergeSortTests
  */
-export class MergeSortSimpleTests extends absSortTests.AbstractSortTestsTests {
+export class MergeSortSimpleTests extends AbstractSortTests {
     
     protected createSorting() : isort.ISort {
         return new MergeSortSimple();

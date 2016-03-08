@@ -1,3 +1,7 @@
+import fs   = require("fs");
+import path = require("path");
+import tsUnit = require('../node_modules/tsunit.external/tsUnit');
+
 export function getTapResults(result) {
     var newLine = '\r\n';
     var template = '1..' + (result.passes.length + result.errors.length).toString() + newLine;
@@ -11,4 +15,20 @@ export function getTapResults(result) {
     }
 
     return template;
+}
+
+export function runTests(testsDir) 
+{
+    var files = fs.readdirSync(testsDir).forEach(function (fileName) {
+
+    if ( /^(?!Abstract).*Tests.js$/ig.test(fileName) ) {
+        console.log('================= '+ fileName +' =================');
+        var test = require(path.join(testsDir, fileName));
+        
+        //console.log(test);
+            var result = new tsUnit.Test( test ).run();
+            console.log(getTapResults(result));
+
+        
+    }});
 }

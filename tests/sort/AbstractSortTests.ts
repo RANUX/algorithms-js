@@ -2,7 +2,7 @@ import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
 import * as isort  from "../../sort/ISort";
 import shuffle = require('knuth-shuffle');
 
-export abstract class AbstractSortTestsTests extends tsUnit.TestClass {
+export abstract class AbstractSortTests extends tsUnit.TestClass {
     
     unsortedStr       : any[] = [ "d", "ada", "csharp", "cpp", "db", "python", "cpp", "node", "js", "php"];
     unsortedNum       : any[] = [ 3, 4, 10, 1, 6, 8, 9];
