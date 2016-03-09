@@ -21,15 +21,15 @@ export default class MergeSort implements isort.ISort {
         if ( startIndex >= endIndex  ) {
             return;
         }
-        var mid =  startIndex + Math.floor( (endIndex - startIndex) / 2 );
+        var mid = Math.floor( ( startIndex + endIndex ) / 2 );
         
         this.mergeSort( resultArray, startIndex, mid, compareFn);
         this.mergeSort( resultArray, mid+1, endIndex, compareFn);
         
-        this.merge(startIndex, mid, endIndex, resultArray, compareFn);
+        this.merge(startIndex, mid+1, endIndex, resultArray, compareFn);
     }
     
-    merge( l, r, upBound, resultArray, compareFn = (a,b) => {return a < b } )
+    merge( l, r, upBound, resultArray, compareFn = (a,b) => { return a < b } )
     {
         
         var j = 0;                        // resultArray index

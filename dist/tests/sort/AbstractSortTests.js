@@ -18,9 +18,9 @@ var AbstractSortTests = (function (_super) {
         // randomize unsorted
         shuffle.knuthShuffle(this.unsortedStr);
         shuffle.knuthShuffle(this.unsortedNum);
-        this.sortedStr = this.unsortedStr.sort(ahelp.compareStrDesc);
+        this.sortedStr = ahelp.shallowCopy(this.unsortedStr).sort(ahelp.compareStrDesc);
         this.sortedStrReversed = this.sortedStr.reverse();
-        this.sortedNum = this.unsortedNum.sort(function (a, b) { return b - a; });
+        this.sortedNum = ahelp.shallowCopy(this.unsortedNum).sort(function (a, b) { return b - a; });
         this.sortedNumReversed = this.sortedNum.reverse();
     };
     AbstractSortTests.prototype.testSortRandomStringArray = function () {

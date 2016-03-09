@@ -25,10 +25,10 @@ export abstract class AbstractSortTests extends tsUnit.TestClass {
         shuffle.knuthShuffle(this.unsortedNum);
         
 
-        this.sortedStr         = this.unsortedStr.sort( ahelp.compareStrDesc );
+        this.sortedStr         = ahelp.shallowCopy( this.unsortedStr ).sort( ahelp.compareStrDesc );
         this.sortedStrReversed = this.sortedStr.reverse();
         
-        this.sortedNum          = this.unsortedNum.sort( (a,b) =>  b-a );
+        this.sortedNum          = ahelp.shallowCopy( this.unsortedNum ).sort( (a,b) =>  b-a );
         this.sortedNumReversed  = this.sortedNum.reverse();
         
     }
