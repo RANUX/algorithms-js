@@ -5,25 +5,44 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
 var shuffle = require('knuth-shuffle');
+var ahelp = require('../../helpers/ArrayHelpers');
 var AbstractSortTests = (function (_super) {
     __extends(AbstractSortTests, _super);
     function AbstractSortTests() {
         _super.apply(this, arguments);
         this.unsortedStr = ["d", "ada", "csharp", "cpp", "db", "python", "cpp", "node", "js", "php"];
         this.unsortedNum = [3, 4, 10, 1, 6, 8, 9];
-        this.sortedNum = [1, 3, 4, 6, 8, 9, 10];
     }
     AbstractSortTests.prototype.setUp = function () {
         this.sorting = this.createSorting();
         // randomize unsorted
         shuffle.knuthShuffle(this.unsortedStr);
-        this.sortedStr = this.unsortedStr.sort();
+        shuffle.knuthShuffle(this.unsortedNum);
+        this.sortedStr = this.unsortedStr.sort(ahelp.compareStrDesc);
+        this.sortedStrReversed = this.sortedStr.reverse();
+        this.sortedNum = this.unsortedNum.sort(function (a, b) { return b - a; });
+        this.sortedNumReversed = this.sortedNum.reverse();
     };
-    AbstractSortTests.prototype.testSortStringArray = function () {
+    AbstractSortTests.prototype.testSortRandomStringArray = function () {
         this.areCollectionsIdentical(this.sortedStr, this.sorting.sort(this.unsortedStr));
     };
-    AbstractSortTests.prototype.testSortNumArray = function () {
+    AbstractSortTests.prototype.testSortRandomNumArray = function () {
         this.areCollectionsIdentical(this.sortedNum, this.sorting.sort(this.unsortedNum));
+    };
+    AbstractSortTests.prototype.testSortReversedStringArray = function () {
+        this.areCollectionsIdentical(this.sortedStr, this.sorting.sort(this.sortedStrReversed));
+    };
+    AbstractSortTests.prototype.testSortReversedNumArray = function () {
+        this.areCollectionsIdentical(this.sortedNum, this.sorting.sort(this.sortedNumReversed));
+    };
+    AbstractSortTests.prototype.testSortEmptyArray = function () {
+        this.areCollectionsIdentical([], this.sorting.sort([]));
+    };
+    AbstractSortTests.prototype.testSortSortedNumArray = function () {
+        this.areCollectionsIdentical(this.sortedStr, this.sorting.sort(this.sortedStr));
+    };
+    AbstractSortTests.prototype.testSortSortedStrArray = function () {
+        this.areCollectionsIdentical(this.sortedNum, this.sorting.sort(this.sortedNum));
     };
     return AbstractSortTests;
 })(tsUnit.TestClass);

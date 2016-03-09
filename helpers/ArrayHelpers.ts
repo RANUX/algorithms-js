@@ -83,3 +83,25 @@ export function makeIterator(array){
        
     }
 }
+
+export function swap(i :number, j :number, array :any[])
+{
+    var t = array[i];
+    array[i] = array[j];
+    array[j] = t;
+}
+
+
+/**
+ * Compare string in descending order
+ * 
+ * @export
+ * @param a (description)
+ * @param b (description)
+ * @returns {number} (description)
+ */
+export function compareStrDesc(a, b) : number {
+    if (a>b) return -1;
+    else if (a<b) return 1;
+    else return 0;
+}

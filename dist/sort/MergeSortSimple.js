@@ -1,4 +1,4 @@
-var h = require("../arrays/ArrayHelpers");
+var h = require("../helpers/ArrayHelpers");
 /**
  * MergeSortSimple unoptimized version of Merge Sort Algorithm
  */
@@ -9,7 +9,9 @@ var MergeSortSimple = (function () {
         return this.mergeSort(array, 0, array.length - 1, compareFn);
     };
     MergeSortSimple.prototype.mergeSort = function (array, startIndex, endIndex, compareFn) {
-        if (startIndex == endIndex) {
+        if (startIndex > endIndex)
+            return [];
+        else if (startIndex == endIndex) {
             var result = [];
             result.push(array[startIndex]);
             return result;

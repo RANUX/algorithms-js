@@ -1,4 +1,4 @@
-var ahelp = require("../arrays/ArrayHelpers");
+var ahelp = require("../helpers/ArrayHelpers");
 /**
  * KnapsackProblemLight only weights without prices.
  */

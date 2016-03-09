@@ -11,7 +11,7 @@ var MergeSort = (function () {
         return result;
     };
     MergeSort.prototype.mergeSort = function (resultArray, startIndex, endIndex, compareFn) {
-        if (startIndex == endIndex) {
+        if (startIndex >= endIndex) {
             return;
         }
         var mid = startIndex + Math.floor((endIndex - startIndex) / 2);

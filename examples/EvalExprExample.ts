@@ -1,4 +1,4 @@
-import * as ahm from "../arrays/ArrayHelpers";
+import * as ahm from "../helpers/ArrayHelpers";
 import * as i2p  from "../parsers/Infix2Postfix"
 import * as epm  from "../parsers/PostfixEval"
 

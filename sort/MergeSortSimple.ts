@@ -1,5 +1,5 @@
 import * as isort from "./ISort"
-import * as h from "../arrays/ArrayHelpers";
+import * as h from "../helpers/ArrayHelpers";
 /**
  * MergeSortSimple unoptimized version of Merge Sort Algorithm
  */
@@ -13,7 +13,8 @@ export default class MergeSortSimple implements isort.ISort {
     mergeSort( array :any[], startIndex :number, endIndex :number,  compareFn :any) :any[]
     {
 
-        if ( startIndex == endIndex ) {
+        if ( startIndex > endIndex ) return [];
+        else if ( startIndex == endIndex ) {
             var result = [];
             result.push( array[ startIndex ] );
             return result;

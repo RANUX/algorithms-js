@@ -18,8 +18,7 @@ export default class MergeSort implements isort.ISort {
     
     mergeSort( resultArray :any[], startIndex :number, endIndex :number,  compareFn :any) :any[]
     {
-
-        if ( startIndex == endIndex ) {
+        if ( startIndex >= endIndex  ) {
             return;
         }
         var mid =  startIndex + Math.floor( (endIndex - startIndex) / 2 );

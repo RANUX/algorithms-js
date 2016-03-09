@@ -1,35 +1,68 @@
 import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
 import * as isort  from "../../sort/ISort";
 import shuffle = require('knuth-shuffle');
+import ahelp  = require('../../helpers/ArrayHelpers')
 
 export abstract class AbstractSortTests extends tsUnit.TestClass {
     
-    unsortedStr       : any[] = [ "d", "ada", "csharp", "cpp", "db", "python", "cpp", "node", "js", "php"];
-    unsortedNum       : any[] = [ 3, 4, 10, 1, 6, 8, 9];
-    sorting        : isort.ISort;
-    sortedStr         : any[];
-    sortedNum         : any[] = [ 1, 3, 4, 6, 8, 9, 10 ];
+    protected unsortedStr       : any[] = [ "d", "ada", "csharp", "cpp", "db", "python", "cpp", "node", "js", "php"];
+    protected unsortedNum       : any[] = [ 3, 4, 10, 1, 6, 8, 9];
+    protected sorting           : isort.ISort;
+    protected sortedStr         : any[];
+    protected sortedStrReversed : any[];
+    protected sortedNum         : any[];
+    protected sortedNumReversed : any[];
     
+
     
     protected abstract createSorting() : isort.ISort;
     
     setUp() {
         this.sorting = this.createSorting();
-        
+
         // randomize unsorted
         shuffle.knuthShuffle(this.unsortedStr);
-        this.sortedStr = this.unsortedStr.sort( );
+        shuffle.knuthShuffle(this.unsortedNum);
+        
+
+        this.sortedStr         = this.unsortedStr.sort( ahelp.compareStrDesc );
+        this.sortedStrReversed = this.sortedStr.reverse();
+        
+        this.sortedNum          = this.unsortedNum.sort( (a,b) =>  b-a );
+        this.sortedNumReversed  = this.sortedNum.reverse();
         
     }
     
-    testSortStringArray()
+    testSortRandomStringArray()
     {
         this.areCollectionsIdentical( this.sortedStr, this.sorting.sort(this.unsortedStr));
     }
     
-    testSortNumArray()
+    testSortRandomNumArray()
     {
         this.areCollectionsIdentical( this.sortedNum, this.sorting.sort(this.unsortedNum));
     }
     
+    testSortReversedStringArray()
+    {
+        this.areCollectionsIdentical( this.sortedStr, this.sorting.sort(this.sortedStrReversed));
+    }
+    
+    testSortReversedNumArray()
+    {
+        this.areCollectionsIdentical( this.sortedNum, this.sorting.sort(this.sortedNumReversed));
+    }
+    
+    testSortEmptyArray() {
+        this.areCollectionsIdentical( [], this.sorting.sort([]));
+    }
+    
+    testSortSortedNumArray() {
+        this.areCollectionsIdentical( this.sortedStr, this.sorting.sort(this.sortedStr));
+    }
+    
+    testSortSortedStrArray() {
+        this.areCollectionsIdentical( this.sortedNum, this.sorting.sort(this.sortedNum));
+        
+    }
 }

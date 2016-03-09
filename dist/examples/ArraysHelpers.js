@@ -1,4 +1,4 @@
-var helpers = require("../arrays/ArrayHelpers");
+var helpers = require("../helpers/ArrayHelpers");
 var shuffle = require('knuth-shuffle');
 var ArrayHelpersExamples = (function () {
     function ArrayHelpersExamples() {

@@ -1,4 +1,4 @@
-import * as helpers from "../arrays/ArrayHelpers";
+import * as helpers from "../helpers/ArrayHelpers";
 import shuffle = require('knuth-shuffle');
 
 

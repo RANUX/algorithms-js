@@ -64,5 +64,28 @@ function makeIterator(array) {
     };
 }
 exports.makeIterator = makeIterator;
+function swap(i, j, array) {
+    var t = array[i];
+    array[i] = array[j];
+    array[j] = t;
+}
+exports.swap = swap;
+/**
+ * Compare string in descending order
+ *
+ * @export
+ * @param a (description)
+ * @param b (description)
+ * @returns {number} (description)
+ */
+function compareStrDesc(a, b) {
+    if (a > b)
+        return -1;
+    else if (a < b)
+        return 1;
+    else
+        return 0;
+}
+exports.compareStrDesc = compareStrDesc;
 
 //# sourceMappingURL=ArrayHelpers.js.map
