@@ -1,11 +1,11 @@
 import { AbstractSortTests } from './AbstractSortTests';
 import * as isort  from "../../sort/ISort";
-import QuickSort from '../../sort/QuickSort';
+import QuickSort from '../../sort/QuickSortRMP';
 import * as ahelp from '../../helpers/ArrayHelpers'
 /**
 * QuickSortTests
 */
-export class QuickSortTests extends AbstractSortTests {
+export class QuickSortRMPTests extends AbstractSortTests {
 
     protected createSorting() : isort.ISort {
         return new QuickSort();

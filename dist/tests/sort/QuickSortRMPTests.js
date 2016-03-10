@@ -4,20 +4,20 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var AbstractSortTests_1 = require('./AbstractSortTests');
-var QuickSort_1 = require('../../sort/QuickSort');
+var QuickSortRMP_1 = require('../../sort/QuickSortRMP');
 var ahelp = require('../../helpers/ArrayHelpers');
 /**
 * QuickSortTests
 */
-var QuickSortTests = (function (_super) {
-    __extends(QuickSortTests, _super);
-    function QuickSortTests() {
+var QuickSortRMPTests = (function (_super) {
+    __extends(QuickSortRMPTests, _super);
+    function QuickSortRMPTests() {
         _super.apply(this, arguments);
     }
-    QuickSortTests.prototype.createSorting = function () {
-        return new QuickSort_1.default();
+    QuickSortRMPTests.prototype.createSorting = function () {
+        return new QuickSortRMP_1.default();
     };
-    QuickSortTests.prototype.testSplitToParts = function () {
+    QuickSortRMPTests.prototype.testSplitToParts = function () {
         var sorting = this.sorting;
         var array = sorting.array = [3, 2, 5, 4, 6, 10, 1, 11, 9, 7];
         sorting.splitToParts(0, array.length - 1, array[array.length - 1]);
@@ -27,8 +27,8 @@ var QuickSortTests = (function (_super) {
         sorting.splitToParts(0, array.length - 1, 1);
         this.areCollectionsIdentical([1], sorting.array);
     };
-    return QuickSortTests;
+    return QuickSortRMPTests;
 })(AbstractSortTests_1.AbstractSortTests);
-exports.QuickSortTests = QuickSortTests;
+exports.QuickSortRMPTests = QuickSortRMPTests;
 
-//# sourceMappingURL=QuickSortTests.js.map
+//# sourceMappingURL=QuickSortRMPTests.js.map

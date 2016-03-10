@@ -10,8 +10,8 @@ var AbstractSortTests = (function (_super) {
     __extends(AbstractSortTests, _super);
     function AbstractSortTests() {
         _super.apply(this, arguments);
-        this.unsortedStr = ["d", "ada", "csharp", "cpp", "db", "python", "cpp", "node", "js", "php"];
-        this.unsortedNum = [3, 4, 10, 1, 6, 8, 9];
+        this.unsortedStr = ["d", "ada", "csharp", "cpp", "db", "code", "smalltalk", "python", "cpp", "node", "js", "php", "z"];
+        this.unsortedNum = [3, 4, 10, 1, 6, 8, 9, 39, 20, 18, 34, 11, 34];
     }
     AbstractSortTests.prototype.setUp = function () {
         this.sorting = this.createSorting();
@@ -27,7 +27,8 @@ var AbstractSortTests = (function (_super) {
         this.areCollectionsIdentical(this.sortedStr, this.sorting.sort(this.unsortedStr));
     };
     AbstractSortTests.prototype.testSortRandomNumArray = function () {
-        this.areCollectionsIdentical(this.sortedNum, this.sorting.sort(this.unsortedNum));
+        var r = this.sorting.sort(this.unsortedNum);
+        this.areCollectionsIdentical(this.sortedNum, r);
     };
     AbstractSortTests.prototype.testSortReversedStringArray = function () {
         this.areCollectionsIdentical(this.sortedStr, this.sorting.sort(this.sortedStrReversed));

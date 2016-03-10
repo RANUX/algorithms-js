@@ -1,7 +1,16 @@
 import { ISort } from './ISort';
 import { swap }  from '../helpers/ArrayHelpers'
 
-export default class QuickSort implements ISort {
+
+/**
+ * QuickSortRMP (QuickSort Rightmost Pivot) good for random items in array. 
+ * ( Best  N(logN) - random, worse O(N^2) - sorted arrays)
+ * 
+ * @export
+ * @class QuickSort
+ * @implements {ISort}
+ */
+export default class QuickSortRMP implements ISort {
     
     array : any[];
     

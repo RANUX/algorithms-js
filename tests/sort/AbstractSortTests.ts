@@ -5,8 +5,8 @@ import ahelp  = require('../../helpers/ArrayHelpers')
 
 export abstract class AbstractSortTests extends tsUnit.TestClass {
     
-    protected unsortedStr       : any[] = [ "d", "ada", "csharp", "cpp", "db", "python", "cpp", "node", "js", "php"];
-    protected unsortedNum       : any[] = [ 3, 4, 10, 1, 6, 8, 9];
+    protected unsortedStr       : any[] = [ "d", "ada", "csharp", "cpp", "db", "code", "smalltalk", "python", "cpp", "node", "js", "php", "z"];
+    protected unsortedNum       : any[] = [ 3, 4, 10, 1, 6, 8, 9, 39, 20, 18, 34, 11, 34];
     protected sorting           : isort.ISort;
     protected sortedStr         : any[];
     protected sortedStrReversed : any[];
@@ -40,7 +40,9 @@ export abstract class AbstractSortTests extends tsUnit.TestClass {
     
     testSortRandomNumArray()
     {
-        this.areCollectionsIdentical( this.sortedNum, this.sorting.sort(this.unsortedNum));
+        var r = this.sorting.sort(this.unsortedNum);
+        this.areCollectionsIdentical( this.sortedNum, r);
+        
     }
     
     testSortReversedStringArray()

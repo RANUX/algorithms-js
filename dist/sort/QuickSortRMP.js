@@ -1,13 +1,21 @@
 var ArrayHelpers_1 = require('../helpers/ArrayHelpers');
-var QuickSort = (function () {
-    function QuickSort() {
+/**
+ * QuickSortRMP (QuickSort Rightmost Pivot) good for random items in array.
+ * ( Best  N(logN) - random, worse O(N^2) - sorted arrays)
+ *
+ * @export
+ * @class QuickSort
+ * @implements {ISort}
+ */
+var QuickSortRMP = (function () {
+    function QuickSortRMP() {
     }
-    QuickSort.prototype.sort = function (array, compareFn) {
+    QuickSortRMP.prototype.sort = function (array, compareFn) {
         this.array = array;
         this.quickSortRightmostPivot(0, this.array.length - 1);
         return this.array;
     };
-    QuickSort.prototype.quickSortRightmostPivot = function (left, right) {
+    QuickSortRMP.prototype.quickSortRightmostPivot = function (left, right) {
         if (left >= right)
             return;
         else {
@@ -17,7 +25,7 @@ var QuickSort = (function () {
             this.quickSortRightmostPivot(randeIndex + 1, right); // sort right side
         }
     };
-    QuickSort.prototype.splitToParts = function (left, right, pivot) {
+    QuickSortRMP.prototype.splitToParts = function (left, right, pivot) {
         var l = left - 1;
         var r = right;
         while (true) {
@@ -33,10 +41,10 @@ var QuickSort = (function () {
         ArrayHelpers_1.swap(l, right, this.array); // restore pivot
         return l;
     };
-    return QuickSort;
+    return QuickSortRMP;
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = QuickSort;
+exports.default = QuickSortRMP;
 ;
 
-//# sourceMappingURL=QuickSort.js.map
+//# sourceMappingURL=QuickSortRMP.js.map

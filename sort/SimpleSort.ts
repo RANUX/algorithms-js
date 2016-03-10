@@ -56,8 +56,13 @@ export class InsertionSort implements isort.ISort {
     
     sort( a : any[],  compareFn?: any ) : any[]
     {
+        return this.insSort(a, 0, a.length-1, compareFn)
+    }
+    
+    insSort( a : any[], l, r, compareFn?: any ) : any[]
+    {
         var out, temp, inn;
-        for ( out = 1; out < a.length; out++) {
+        for ( out = l+1; out <= r; out++) {
             temp = a[out];
             inn = out;
             while (inn > 0 && a[inn-1] > temp) {
@@ -68,4 +73,5 @@ export class InsertionSort implements isort.ISort {
         }
         return a;
     }
+    
 }
