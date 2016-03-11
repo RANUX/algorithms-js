@@ -3,8 +3,7 @@ import { swap }  from '../helpers/ArrayHelpers'
 
 
 /**
- * QuickSortRMP (QuickSort Rightmost Pivot) good for random items in array. 
- * ( Best  N(logN) - random, worse O(N^2) - sorted arrays)
+ * QuickSortRMP (QuickSort Rightmost Pivot) good for random items in array. Performance O( N(logN) )
  * 
  * @export
  * @class QuickSort

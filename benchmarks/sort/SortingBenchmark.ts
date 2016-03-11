@@ -1,5 +1,4 @@
 import {ISort}  from "../../sort/ISort";
-import shuffle = require('knuth-shuffle');
 import { shallowCopy }  from '../../helpers/ArrayHelpers';
 import { getObjectName } from '../../helpers/ObjectHelpers';
 
@@ -26,8 +25,6 @@ export default class SortingBenchmark {
             this.unsortedNum[i] = this.getRandomInt(0, this.itemsCount);
         }
         
-        // randomize unsorted
-        shuffle.knuthShuffle(this.unsortedNum);
         
         this.sortedNum          = shallowCopy( this.unsortedNum ).sort( (a,b) =>  b-a );
         this.sortedNumReversed  = this.sortedNum.reverse();

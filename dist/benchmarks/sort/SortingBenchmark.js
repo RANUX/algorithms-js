@@ -1,4 +1,3 @@
-var shuffle = require('knuth-shuffle');
 var ArrayHelpers_1 = require('../../helpers/ArrayHelpers');
 var ObjectHelpers_1 = require('../../helpers/ObjectHelpers');
 var SortingBenchmark = (function () {
@@ -10,8 +9,6 @@ var SortingBenchmark = (function () {
         for (var i = 0; i < this.itemsCount; i++) {
             this.unsortedNum[i] = this.getRandomInt(0, this.itemsCount);
         }
-        // randomize unsorted
-        shuffle.knuthShuffle(this.unsortedNum);
         this.sortedNum = ArrayHelpers_1.shallowCopy(this.unsortedNum).sort(function (a, b) { return b - a; });
         this.sortedNumReversed = this.sortedNum.reverse();
     }
