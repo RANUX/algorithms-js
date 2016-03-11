@@ -1,6 +1,7 @@
 var ArrayHelpers_1 = require('../helpers/ArrayHelpers');
 /**
- * QuickSortRMP (QuickSort Rightmost Pivot) good for random items in array. Performance O( N(logN) )
+ * QuickSortRMP (QuickSort Rightmost Pivot) good for random items in array.
+ * ( Best  N(logN) - random, worse O(N^2) - sorted arrays)
  *
  * @export
  * @class QuickSort
@@ -19,9 +20,9 @@ var QuickSortRMP = (function () {
             return;
         else {
             var pivot = this.array[right]; // rightmost item
-            var randeIndex = this.splitToParts(left, right, pivot);
-            this.quickSortRightmostPivot(left, randeIndex - 1); // sort left side
-            this.quickSortRightmostPivot(randeIndex + 1, right); // sort right side
+            var rangeIndex = this.splitToParts(left, right, pivot);
+            this.quickSortRightmostPivot(left, rangeIndex - 1); // sort left side
+            this.quickSortRightmostPivot(rangeIndex + 1, right); // sort right side
         }
     };
     QuickSortRMP.prototype.splitToParts = function (left, right, pivot) {
