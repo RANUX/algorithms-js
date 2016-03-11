@@ -1,9 +1,10 @@
 import {ISort}  from "../../sort/ISort";
-import { shallowCopy }  from '../../helpers/ArrayHelpers';
+import { shallowCopy, checkSorted }  from '../../helpers/ArrayHelpers';
 import { getObjectName } from '../../helpers/ObjectHelpers';
 
 export default class SortingBenchmark {
     
+    public dumpWhenAssert : boolean = false;
     
     protected sorting           : ISort;
     protected sortedStr         : any[];
@@ -33,9 +34,11 @@ export default class SortingBenchmark {
     
     measureNumSortTime( a :any[] ) :number {
         var start = new Date().getTime();
+
         this.sorting.sort( a );
-        
         var end = new Date().getTime();
+        
+        console.assert( checkSorted( a, this.dumpWhenAssert ), 'Something wrong with sorting. Array shoud be sorted!' );
         return end - start;
     }
     

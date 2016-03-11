@@ -3,6 +3,7 @@ var ObjectHelpers_1 = require('../../helpers/ObjectHelpers');
 var SortingBenchmark = (function () {
     function SortingBenchmark(sortingObj, itemsCount) {
         if (itemsCount === void 0) { itemsCount = 100000; }
+        this.dumpWhenAssert = false;
         this.sorting = sortingObj;
         this.itemsCount = itemsCount;
         this.unsortedNum = new Array(this.itemsCount);
@@ -16,6 +17,7 @@ var SortingBenchmark = (function () {
         var start = new Date().getTime();
         this.sorting.sort(a);
         var end = new Date().getTime();
+        console.assert(ArrayHelpers_1.checkSorted(a, this.dumpWhenAssert), 'Something wrong with sorting. Array shoud be sorted!');
         return end - start;
     };
     SortingBenchmark.prototype.getRandomInt = function (min, max) {

@@ -87,5 +87,30 @@ function compareStrDesc(a, b) {
         return 0;
 }
 exports.compareStrDesc = compareStrDesc;
+function checkSorted(a, isDump) {
+    if (isDump === void 0) { isDump = false; }
+    var l = -1;
+    var r = a.length;
+    var pivotIndex = Math.floor(a.length / 2);
+    var pivot = a[pivotIndex];
+    //    while (true)
+    //    {
+    while (a[++l] <= pivot)
+        ; // nop
+    while (a[--r] >= pivot)
+        ; // nop
+    //        if ( l >= r || a[l-1] > pivot || a[r+1] < pivot )
+    //            break;
+    //    }
+    if (isDump) {
+        console.log('pivotIndex: ' + pivotIndex + '  pivot: ' + pivot);
+        console.log('l: ' + l + ' r: ' + r);
+        for (var i = 5; i >= -5; i--) {
+            console.log('i: ' + i + '  a[' + (l - i) + ']: ' + a[l - i] + '  a[' + (r + i) + ']: ' + a[r + i]);
+        }
+    }
+    return (a[l - 1] === a[r + 1]);
+}
+exports.checkSorted = checkSorted;
 
 //# sourceMappingURL=ArrayHelpers.js.map

@@ -9,6 +9,7 @@ var ShellSort = (function () {
         if (compareFn === void 0) { compareFn = function (a, b) { return (a > b); }; }
         // default is Knuth Gap Sequence
         // You can change to other sequence like: return this.shellSortGonnetAndBaezaSequence( a, compareFn);
+        //return this.shellSortGonnetAndBaezaSequence( a, compareFn);
         return this.shellSort(a, compareFn, this.forwardKnuthSequence, this.reverseKnuthSequence);
     };
     ShellSort.prototype.shellSortGonnetAndBaezaSequence = function (a, compareFn) {
@@ -30,13 +31,13 @@ var ShellSort = (function () {
                 a[inn] = temp;
             }
             hFloat = reverseSequence(hFloat);
-            h = Math.floor(hFloat);
+            h = Math.ceil(hFloat);
         }
         return a;
     };
     ShellSort.prototype.forwardKnuthSequence = function (arrayLen) {
         var h = 1;
-        var maxLen = Math.floor(arrayLen / 3);
+        var maxLen = arrayLen / 3;
         // Knuth Interval Gap Sequence
         while (h <= maxLen)
             h += 3 * h + 1; // (1, 4, 13, 40, 121, ... )
@@ -44,7 +45,7 @@ var ShellSort = (function () {
         return h;
     };
     ShellSort.prototype.reverseKnuthSequence = function (h) {
-        return Math.floor((h - 1) / 3); // (..., 121, 40, 13, 4, 1 )
+        return (h - 1) / 3; // (..., 121, 40, 13, 4, 1 )
     };
     ShellSort.prototype.forwardGonnetAndBaezaSequence = function (arrayLen) {
         var h = 1;

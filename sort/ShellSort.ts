@@ -11,8 +11,9 @@ export default class ShellSort implements ISort {
     {
         // default is Knuth Gap Sequence
         // You can change to other sequence like: return this.shellSortGonnetAndBaezaSequence( a, compareFn);
+        //return this.shellSortGonnetAndBaezaSequence( a, compareFn);
         return this.shellSort( a, compareFn, this.forwardKnuthSequence, this.reverseKnuthSequence );
-        
+
     }
     
     shellSortGonnetAndBaezaSequence( a : any[],  compareFn = ( a, b ) => (a > b) ) : any[]
@@ -25,7 +26,7 @@ export default class ShellSort implements ISort {
         var out, temp, inn;
         var hFloat = forwardSequence( a.length );
         var h = Math.floor( hFloat );            // round if sequences is floating
-        
+
         while ( h > 0 )
         {
             for ( out = h; out < a.length; out++) 
@@ -40,7 +41,8 @@ export default class ShellSort implements ISort {
             }
             
             hFloat = reverseSequence(hFloat);
-            h = Math.floor( hFloat );   
+            h = Math.ceil( hFloat );
+           
         }
         
         return a;
@@ -49,7 +51,7 @@ export default class ShellSort implements ISort {
     forwardKnuthSequence( arrayLen :number )
     {
         var h = 1;
-        var maxLen = Math.floor( arrayLen/3 );
+        var maxLen = arrayLen/3;
                                     // Knuth Interval Gap Sequence
         while ( h <= maxLen )       // h = 3*h + 1 
             h += 3*h + 1;           // (1, 4, 13, 40, 121, ... )
@@ -60,7 +62,7 @@ export default class ShellSort implements ISort {
     
     reverseKnuthSequence(h :number) :number
     {
-        return Math.floor( (h-1) / 3 ); // (..., 121, 40, 13, 4, 1 )
+        return (h-1) / 3; // (..., 121, 40, 13, 4, 1 )
     }
     
     forwardGonnetAndBaezaSequence( arrayLen :number)
