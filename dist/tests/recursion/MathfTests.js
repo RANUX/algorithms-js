@@ -4,7 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
-var Mathf_1 = require('../../recursion/Mathf');
+var Mathf_1 = require('../../helpers/Mathf');
 /**
 * MathfTests
 */

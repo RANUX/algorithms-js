@@ -6,7 +6,7 @@ import ahelp  = require('../../helpers/ArrayHelpers')
 export abstract class AbstractSortTests extends tsUnit.TestClass {
     
     protected unsortedStr       : any[] = [ "d", "ada", "csharp", "cpp", "db", "code", "smalltalk", "python", "cpp", "node", "js", "php", "z"];
-    protected unsortedNum       : any[] = [ 3, 4, 10, 1, 6, 8, 9, 39, 20, 18, 34, 11, 34];
+    protected unsortedNum       : any[] = [ 3, 4, 10, 1, 6, 78, 79, 79, 81, 8, 9, 11, 13, 15, 17, 84, 87, 8, 9, 39, 20, 18, 34, 11, 34];
     protected sorting           : isort.ISort;
     protected sortedStr         : any[];
     protected sortedStrReversed : any[];

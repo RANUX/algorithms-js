@@ -9,9 +9,9 @@ var Startup = (function () {
     Startup.main = function () {
         var sortBench = new SortingBenchmark_1.default(new ShellSort_1.default());
         sortBench.logMeasureRndNumsTime();
-        var sortBench = new SortingBenchmark_1.default(new QuickSortRMP_1.default());
+        sortBench = new SortingBenchmark_1.default(new QuickSortRMP_1.default());
         sortBench.logMeasureRndNumsTime();
-        var sortBench = new SortingBenchmark_1.default(new QuickSortM_1.default());
+        sortBench = new SortingBenchmark_1.default(new QuickSortM_1.default());
         sortBench.logMeasureRndNumsTime();
         sortBench = new SortingBenchmark_1.default(new SimpleSort_1.InsertionSort());
         sortBench.logMeasureRndNumsTime();

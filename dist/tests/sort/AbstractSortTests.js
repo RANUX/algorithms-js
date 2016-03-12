@@ -11,7 +11,7 @@ var AbstractSortTests = (function (_super) {
     function AbstractSortTests() {
         _super.apply(this, arguments);
         this.unsortedStr = ["d", "ada", "csharp", "cpp", "db", "code", "smalltalk", "python", "cpp", "node", "js", "php", "z"];
-        this.unsortedNum = [3, 4, 10, 1, 6, 8, 9, 39, 20, 18, 34, 11, 34];
+        this.unsortedNum = [3, 4, 10, 1, 6, 78, 79, 79, 81, 8, 9, 11, 13, 15, 17, 84, 87, 8, 9, 39, 20, 18, 34, 11, 34];
     }
     AbstractSortTests.prototype.setUp = function () {
         this.sorting = this.createSorting();

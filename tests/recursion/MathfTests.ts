@@ -1,5 +1,5 @@
 import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
-import Mathf from '../../recursion/Mathf'
+import Mathf from '../../helpers/Mathf'
 /**
 * MathfTests
 */
