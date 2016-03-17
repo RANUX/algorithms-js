@@ -14,6 +14,6 @@
     "knuth-shuffle": "latest",
     "tsunit.external": "latest",
     "vinyl-fs": "latest"
-  } 
-  
+  },
+  "dependencies": {}
 }

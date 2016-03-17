@@ -1,15 +1,15 @@
 /**
  * TreeNode
  */
-export default class TreeNode<T> {
+export default class TNode<T> {
     public value : T;
     
-    private smaller : TreeNode<T>;
-    private larger  : TreeNode<T>;
-    private parent  : TreeNode<T>;
+    public  smaller : TNode<T>;
+    public  larger  : TNode<T>;
+    public  parent  : TNode<T>;
     
     
-    constructor(value:T, smaller:TreeNode<T>=null, larger:TreeNode<T>=null) {
+    constructor(value:T, smaller:TNode<T>=null, larger:TNode<T>=null) {
         this.value = value;
         this.smaller = smaller;
         this.larger  = larger;
@@ -26,9 +26,9 @@ export default class TreeNode<T> {
      *
      * @return The minimum.
      */
-    min () : TreeNode<T>
+    min () : TNode<T>
     {
-        var node:TreeNode<T> = this;
+        var node:TNode<T> = this;
         
         while (node.smaller != null )
             node = node.smaller;
@@ -41,9 +41,9 @@ export default class TreeNode<T> {
      *
      * @return The maximum.
      */
-    max () : TreeNode<T>
+    max () : TNode<T>
     {
-        var node:TreeNode<T> = this;
+        var node:TNode<T> = this;
         
         while (node.larger != null )
             node = node.larger;
@@ -56,12 +56,12 @@ export default class TreeNode<T> {
      *
      * @return The successor; or <code>null</code>.
      */
-    successor() : TreeNode<T>
+    successor() : TNode<T>
     {
         if ( this.larger != null )
             return this.larger.min();
             
-        var node:TreeNode<T> = this;
+        var node:TNode<T> = this;
         
         while ( node.isLarger() )
             node = node.parent;
@@ -74,12 +74,12 @@ export default class TreeNode<T> {
      *
      * @return The predecessor; or <code>null</code>.
      */
-    predecessor() : TreeNode<T>
+    predecessor() : TNode<T>
     {
         if ( this.smaller != null )
             return this.smaller.max();
             
-        var node:TreeNode<T> = this;
+        var node:TNode<T> = this;
         
         while ( node.isSmaller() )
             node = node.parent;
@@ -117,7 +117,7 @@ export default class TreeNode<T> {
         return this._size(this);
     }
     
-    private _size(node : TreeNode<T>) : number
+    private _size(node : TNode<T>) : number
     {
         if ( node == null )
             return 0;
@@ -137,11 +137,38 @@ export default class TreeNode<T> {
     }
     
     
-    private _height(node : TreeNode<T>) : number
+    private _height(node : TNode<T>) : number
     {
         if ( node == null )
             return 0;
             
         return 1 + Math.max( this._height( node.larger ), this._height( node.smaller ) );
+    }
+    
+    equals( other : TNode<T>) : boolean
+    {
+        return this.value === other.value && this.equalsSmaller(other.smaller) && this.equalsLarger(other.larger);
+    }
+    
+    /**
+     * Recursively determines if the smaller node is equal to another.
+     *
+     * @param other The othe node with which to compare.
+     * @return <code>true</code> if equal; otherwise <code>false</code>.
+     */
+    equalsSmaller(other : TNode<T>) : boolean
+    {
+        return this.smaller == null && other == null || this.smaller != null && this.smaller.equals(other);
+    }
+
+    /**
+     * Recursively determines if the larger node is equal to another.
+     *
+     * @param other The othe node with which to compare.
+     * @return <code>true</code> if equal; otherwise <code>false</code>.
+     */
+    equalsLarger(other : TNode<T>) : boolean
+    {
+        return this.larger == null && other == null || this.larger != null && this.larger.equals(other);
     }
 }

@@ -1,36 +1,31 @@
-import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
-import TreeNode from '../../btrees/TreeNode';
-
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
+var TNode_1 = require('../../btrees/TNode');
+var ObjectHelpers_1 = require('../../helpers/ObjectHelpers');
 /**
 * TreeNodeTests
 */
-export class TreeNodeTests extends tsUnit.TestClass {
-
-
-    private A : TreeNode<string>;
-    private D : TreeNode<string>;
-    private F : TreeNode<string>;
-    private H : TreeNode<string>;
-    private I : TreeNode<string>;
-    private K : TreeNode<string>;
-    private L : TreeNode<string>;
-    private M : TreeNode<string>;
-    private P : TreeNode<string>;
-    
-    setUp() {
-        this.A = new TreeNode<string>("A");                     //          I
-        this.H = new TreeNode<string>("H");                     //       D......L
-        this.K = new TreeNode<string>("K");                     //     A...F   K..M
-        this.P = new TreeNode<string>("P");                     //         H       P
-        this.F = new TreeNode<string>("F", null, this.H);
-        this.M = new TreeNode<string>("M", null, this.P);
-        this.D = new TreeNode<string>("D", this.A, this.F);
-        this.L = new TreeNode<string>("L", this.K, this.M);
-        this.I = new TreeNode<string>("I", this.D, this.L);
+var TreeNodeTests = (function (_super) {
+    __extends(TreeNodeTests, _super);
+    function TreeNodeTests() {
+        _super.apply(this, arguments);
     }
-
-    testMinimum() {
-         
+    TreeNodeTests.prototype.setUp = function () {
+        this.A = new TNode_1.default("A"); //          I
+        this.H = new TNode_1.default("H"); //       D......L
+        this.K = new TNode_1.default("K"); //     A...F   K..M
+        this.P = new TNode_1.default("P"); //         H       P
+        this.F = new TNode_1.default("F", null, this.H);
+        this.M = new TNode_1.default("M", null, this.P);
+        this.D = new TNode_1.default("D", this.A, this.F);
+        this.L = new TNode_1.default("L", this.K, this.M);
+        this.I = new TNode_1.default("I", this.D, this.L);
+    };
+    TreeNodeTests.prototype.testMinimum = function () {
         this.areIdentical(this.A, this.A.min());
         this.areIdentical(this.A, this.D.min());
         this.areIdentical(this.F, this.F.min());
@@ -40,9 +35,8 @@ export class TreeNodeTests extends tsUnit.TestClass {
         this.areIdentical(this.K, this.L.min());
         this.areIdentical(this.M, this.M.min());
         this.areIdentical(this.P, this.P.min());
-    }
-
-    testMaximum() {
+    };
+    TreeNodeTests.prototype.testMaximum = function () {
         this.areIdentical(this.A, this.A.max());
         this.areIdentical(this.H, this.D.max());
         this.areIdentical(this.H, this.F.max());
@@ -52,9 +46,8 @@ export class TreeNodeTests extends tsUnit.TestClass {
         this.areIdentical(this.P, this.L.max());
         this.areIdentical(this.P, this.M.max());
         this.areIdentical(this.P, this.P.max());
-    }
-
-    testSuccessor() {
+    };
+    TreeNodeTests.prototype.testSuccessor = function () {
         this.areIdentical(this.D, this.A.successor());
         this.areIdentical(this.F, this.D.successor());
         this.areIdentical(this.H, this.F.successor());
@@ -63,11 +56,10 @@ export class TreeNodeTests extends tsUnit.TestClass {
         this.areIdentical(this.L, this.K.successor());
         this.areIdentical(this.M, this.L.successor());
         this.areIdentical(this.P, this.M.successor());
-        this.isTrue( this.P.successor() == null );
-    }
-
-    testPredecessor() {
-        this.isTrue( this.A.predecessor() == null );
+        this.isTrue(this.P.successor() == null);
+    };
+    TreeNodeTests.prototype.testPredecessor = function () {
+        this.isTrue(this.A.predecessor() == null);
         this.areIdentical(this.A, this.D.predecessor());
         this.areIdentical(this.D, this.F.predecessor());
         this.areIdentical(this.F, this.H.predecessor());
@@ -76,9 +68,8 @@ export class TreeNodeTests extends tsUnit.TestClass {
         this.areIdentical(this.K, this.L.predecessor());
         this.areIdentical(this.L, this.M.predecessor());
         this.areIdentical(this.M, this.P.predecessor());
-    }
-
-    testIsSmaller() {
+    };
+    TreeNodeTests.prototype.testIsSmaller = function () {
         this.isTrue(this.A.isSmaller());
         this.isTrue(this.D.isSmaller());
         this.isFalse(this.F.isSmaller());
@@ -88,9 +79,8 @@ export class TreeNodeTests extends tsUnit.TestClass {
         this.isFalse(this.L.isSmaller());
         this.isFalse(this.M.isSmaller());
         this.isFalse(this.P.isSmaller());
-    }
-
-    testIsLarger() {
+    };
+    TreeNodeTests.prototype.testIsLarger = function () {
         this.isFalse(this.A.isLarger());
         this.isFalse(this.D.isLarger());
         this.isTrue(this.F.isLarger());
@@ -100,9 +90,8 @@ export class TreeNodeTests extends tsUnit.TestClass {
         this.isTrue(this.L.isLarger());
         this.isTrue(this.M.isLarger());
         this.isTrue(this.P.isLarger());
-    }
-
-    testSize() {
+    };
+    TreeNodeTests.prototype.testSize = function () {
         this.areIdentical(1, this.A.size());
         this.areIdentical(4, this.D.size());
         this.areIdentical(2, this.F.size());
@@ -112,9 +101,8 @@ export class TreeNodeTests extends tsUnit.TestClass {
         this.areIdentical(4, this.L.size());
         this.areIdentical(2, this.M.size());
         this.areIdentical(1, this.P.size());
-    }
-
-    testHeight() {
+    };
+    TreeNodeTests.prototype.testHeight = function () {
         this.areNotIdentical(0, this.A.height());
         this.areNotIdentical(2, this.D.height());
         this.areNotIdentical(1, this.F.height());
@@ -124,30 +112,31 @@ export class TreeNodeTests extends tsUnit.TestClass {
         this.areNotIdentical(2, this.L.height());
         this.areNotIdentical(1, this.M.height());
         this.areNotIdentical(0, this.P.height());
-    }
+    };
+    TreeNodeTests.prototype.testEquals = function () {
+        var a = new TNode_1.default("A");
+        var h = new TNode_1.default("H");
+        var k = new TNode_1.default("K");
+        var p = new TNode_1.default("P");
+        var f = new TNode_1.default("F", null, h);
+        var m = new TNode_1.default("M", null, p);
+        var d = new TNode_1.default("D", a, f);
+        var l = new TNode_1.default("L", k, m);
+        var i = new TNode_1.default("I", d, l);
+        this.isTrue(ObjectHelpers_1.isEqual(a, this.A));
+        this.isTrue(ObjectHelpers_1.isEqual(d, this.D));
+        this.isTrue(ObjectHelpers_1.isEqual(f, this.F));
+        this.isTrue(ObjectHelpers_1.isEqual(h, this.H));
+        this.isTrue(ObjectHelpers_1.isEqual(i, this.I));
+        this.isTrue(ObjectHelpers_1.isEqual(k, this.K));
+        this.isTrue(ObjectHelpers_1.isEqual(l, this.L));
+        this.isTrue(ObjectHelpers_1.isEqual(m, this.M));
+        this.isTrue(ObjectHelpers_1.isEqual(p, this.P));
+        this.isFalse(ObjectHelpers_1.isEqual(this.I, null));
+        this.isFalse(ObjectHelpers_1.isEqual(this.F, this.D));
+    };
+    return TreeNodeTests;
+})(tsUnit.TestClass);
+exports.TreeNodeTests = TreeNodeTests;
 
-    testEquals() {
-        var a = new TreeNode("A");
-        var h = new TreeNode("H");
-        var k = new TreeNode("K");
-        var p = new TreeNode("P");
-        var f = new TreeNode("F", null, h);
-        var m = new TreeNode("M", null, p);
-        var d = new TreeNode("D", a, f);
-        var l = new TreeNode("L", k, m);
-        var i = new TreeNode("I", d, l);
-
-        this.areNotIdentical(a, this.A);
-        this.areNotIdentical(d, this.D);
-        this.areNotIdentical(f, this.F);
-        this.areNotIdentical(h, this.H);
-        this.areNotIdentical(i, this.I);
-        this.areNotIdentical(k, this.K);
-        this.areNotIdentical(l, this.L);
-        this.areNotIdentical(m, this.M);
-        this.areNotIdentical(p, this.P);
-
-        this.isFalse(this.I == null );
-        this.isFalse(this.F == this.D);
-    }
-}
+//# sourceMappingURL=TNodeTests.js.map
