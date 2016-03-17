@@ -1,5 +1,31 @@
 import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
-import { isEqual } from '../../helpers/ObjectHelpers';
+import { equal } from '../../helpers/ObjectHelpers';
+
+/**
+ * TestFoo
+ */
+class TestFoo {
+    
+    private val : number;
+    
+    constructor(val :number) {
+        this.val = val;
+    }
+    
+    equals( other : TestFoo )
+    {
+        return this.val === other.val;
+    }
+    
+    set Value(value: number) {
+
+        if (value === undefined) throw 'Please supply time interval';
+        this.val = value;
+
+    }
+}
+
+
 /**
 * ObjectHelpersTests
 */
@@ -7,32 +33,32 @@ export class ObjectHelpersTests extends tsUnit.TestClass {
 
     testIsEqual()
     {
-        this.isFalse(isEqual({}, null));
-        this.isFalse(isEqual({}, undefined));
+        this.isFalse(equal({}, null));
+        this.isFalse(equal({}, undefined));
 
-        this.isTrue(isEqual('hi','hi'));
-        this.isTrue(isEqual(5,5));
-        this.isFalse(isEqual(5,10));
-        this.isFalse(isEqual(1,'1'));
+        this.isTrue(equal('hi','hi'));
+        this.isTrue(equal(5,5));
+        this.isFalse(equal(5,10));
+        this.isFalse(equal(1,'1'));
 
-        this.isTrue(isEqual([],[]));
-        this.isTrue(isEqual([1,2],[1,2]));
-        this.isFalse(isEqual([1,2],[2,1]));
-        this.isFalse(isEqual([1,2],[1,2,3]));
+        this.isTrue(equal([],[]));
+        this.isTrue(equal([1,2],[1,2]));
+        this.isFalse(equal([1,2],[2,1]));
+        this.isFalse(equal([1,2],[1,2,3]));
 
-        this.isTrue(isEqual(new Date("2011-03-31"), new Date("2011-03-31")));
-        this.isFalse(isEqual(new Date("2011-03-31"), new Date("1970-01-01")));
+        this.isTrue(equal(new Date("2011-03-31"), new Date("2011-03-31")));
+        this.isFalse(equal(new Date("2011-03-31"), new Date("1970-01-01")));
 
-        this.isTrue(isEqual({},{}));
-        this.isTrue(isEqual({a:1,b:2},{a:1,b:2}));
-        this.isTrue(isEqual({a:1,b:2},{b:2,a:1}));
-        this.isFalse(isEqual({a:1,b:2},{a:1,b:3}));
+        this.isTrue(equal({},{}));
+        this.isTrue(equal({a:1,b:2},{a:1,b:2}));
+        this.isTrue(equal({a:1,b:2},{b:2,a:1}));
+        this.isFalse(equal({a:1,b:2},{a:1,b:3}));
 
-        this.isTrue(isEqual({1:{name:"mhc",age:28}, 2:{name:"arb",age:26}},{1:{name:"mhc",age:28}, 2:{name:"arb",age:26}}));
-        this.isFalse(isEqual({1:{name:"mhc",age:28}, 2:{name:"arb",age:26}},{1:{name:"mhc",age:28}, 2:{name:"arb",age:27}}));
+        this.isTrue(equal({1:{name:"mhc",age:28}, 2:{name:"arb",age:26}},{1:{name:"mhc",age:28}, 2:{name:"arb",age:26}}));
+        this.isFalse(equal({1:{name:"mhc",age:28}, 2:{name:"arb",age:26}},{1:{name:"mhc",age:28}, 2:{name:"arb",age:27}}));
 
-        this.isFalse(isEqual(function(x){return x;},function(x){return x;}));
-        this.isFalse(isEqual(function(x){return x;},function(y){return y+2;}));
+        this.isFalse(equal(function(x){return x;},function(x){return x;}));
+        this.isFalse(equal(function(x){return x;},function(y){return y+2;}));
 
         var a = {a: 'text', b:[0,1]};
         var b = {a: 'text', b:[0,1]};
@@ -65,14 +91,25 @@ export class ObjectHelpersTests extends tsUnit.TestClass {
         var k = {a: 'text', b: null};
         var l = {a: 'text', b: undefined};
 
-        this.isTrue(isEqual(a,b));
-        this.isFalse(isEqual(a,c));
-        this.isFalse(isEqual(c,d));
-        this.isFalse(isEqual(a,e));
-        this.isFalse(isEqual(f,g));
-        this.isFalse(isEqual(h,g));
-        this.isFalse(isEqual(i,j));
-        this.isFalse(isEqual(d,k));
-        this.isFalse(isEqual(k,l));
+        this.isTrue(equal(a,b));
+        this.isFalse(equal(a,c));
+        this.isFalse(equal(c,d));
+        this.isFalse(equal(a,e));
+        this.isFalse(equal(f,g));
+        this.isFalse(equal(h,g));
+        this.isFalse(equal(i,j));
+        this.isFalse(equal(d,k));
+        this.isFalse(equal(k,l));
+    }
+    
+    testExtendedObjectsEquality()
+    {
+        var foo1 = new TestFoo(10);
+        var foo2 = new TestFoo(10);
+        
+        this.isTrue( equal(foo1, foo2) );
+        
+        foo2.Value = 1234;
+        this.isFalse( equal(foo1,foo2) );
     }
 }

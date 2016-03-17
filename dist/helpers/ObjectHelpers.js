@@ -46,7 +46,7 @@ var ObjectCompare = (function () {
         }
         for (var i in a) {
             if (b.hasOwnProperty(i)) {
-                if (!isEqual(a[i], b[i]))
+                if (!equal(a[i], b[i]))
                     return false;
             }
             else {
@@ -67,7 +67,7 @@ var ObjectCompare = (function () {
         if (a.length !== b.length)
             return false;
         for (var i = 0; i < a.length; i++) {
-            if (!isEqual(a[i], b[i]))
+            if (!equal(a[i], b[i]))
                 return false;
         }
         ;
@@ -93,7 +93,7 @@ _equal['regexp'] = function (a, b) {
  * @param b {any}
  * @return {boolean} Are equal?
  */
-function isEqual(a, b) {
+function equal(a, b) {
     if (a !== b) {
         var atype = ObjectCompare.whatis(a), btype = ObjectCompare.whatis(b);
         if (atype === btype)
@@ -102,7 +102,7 @@ function isEqual(a, b) {
     }
     return true;
 }
-exports.isEqual = isEqual;
+exports.equal = equal;
 ;
 
 //# sourceMappingURL=ObjectHelpers.js.map

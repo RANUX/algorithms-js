@@ -6,6 +6,27 @@ var __extends = (this && this.__extends) || function (d, b) {
 var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
 var ObjectHelpers_1 = require('../../helpers/ObjectHelpers');
 /**
+ * TestFoo
+ */
+var TestFoo = (function () {
+    function TestFoo(val) {
+        this.val = val;
+    }
+    TestFoo.prototype.equals = function (other) {
+        return this.val === other.val;
+    };
+    Object.defineProperty(TestFoo.prototype, "Value", {
+        set: function (value) {
+            if (value === undefined)
+                throw 'Please supply time interval';
+            this.val = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return TestFoo;
+})();
+/**
 * ObjectHelpersTests
 */
 var ObjectHelpersTests = (function (_super) {
@@ -14,26 +35,26 @@ var ObjectHelpersTests = (function (_super) {
         _super.apply(this, arguments);
     }
     ObjectHelpersTests.prototype.testIsEqual = function () {
-        this.isFalse(ObjectHelpers_1.isEqual({}, null));
-        this.isFalse(ObjectHelpers_1.isEqual({}, undefined));
-        this.isTrue(ObjectHelpers_1.isEqual('hi', 'hi'));
-        this.isTrue(ObjectHelpers_1.isEqual(5, 5));
-        this.isFalse(ObjectHelpers_1.isEqual(5, 10));
-        this.isFalse(ObjectHelpers_1.isEqual(1, '1'));
-        this.isTrue(ObjectHelpers_1.isEqual([], []));
-        this.isTrue(ObjectHelpers_1.isEqual([1, 2], [1, 2]));
-        this.isFalse(ObjectHelpers_1.isEqual([1, 2], [2, 1]));
-        this.isFalse(ObjectHelpers_1.isEqual([1, 2], [1, 2, 3]));
-        this.isTrue(ObjectHelpers_1.isEqual(new Date("2011-03-31"), new Date("2011-03-31")));
-        this.isFalse(ObjectHelpers_1.isEqual(new Date("2011-03-31"), new Date("1970-01-01")));
-        this.isTrue(ObjectHelpers_1.isEqual({}, {}));
-        this.isTrue(ObjectHelpers_1.isEqual({ a: 1, b: 2 }, { a: 1, b: 2 }));
-        this.isTrue(ObjectHelpers_1.isEqual({ a: 1, b: 2 }, { b: 2, a: 1 }));
-        this.isFalse(ObjectHelpers_1.isEqual({ a: 1, b: 2 }, { a: 1, b: 3 }));
-        this.isTrue(ObjectHelpers_1.isEqual({ 1: { name: "mhc", age: 28 }, 2: { name: "arb", age: 26 } }, { 1: { name: "mhc", age: 28 }, 2: { name: "arb", age: 26 } }));
-        this.isFalse(ObjectHelpers_1.isEqual({ 1: { name: "mhc", age: 28 }, 2: { name: "arb", age: 26 } }, { 1: { name: "mhc", age: 28 }, 2: { name: "arb", age: 27 } }));
-        this.isFalse(ObjectHelpers_1.isEqual(function (x) { return x; }, function (x) { return x; }));
-        this.isFalse(ObjectHelpers_1.isEqual(function (x) { return x; }, function (y) { return y + 2; }));
+        this.isFalse(ObjectHelpers_1.equal({}, null));
+        this.isFalse(ObjectHelpers_1.equal({}, undefined));
+        this.isTrue(ObjectHelpers_1.equal('hi', 'hi'));
+        this.isTrue(ObjectHelpers_1.equal(5, 5));
+        this.isFalse(ObjectHelpers_1.equal(5, 10));
+        this.isFalse(ObjectHelpers_1.equal(1, '1'));
+        this.isTrue(ObjectHelpers_1.equal([], []));
+        this.isTrue(ObjectHelpers_1.equal([1, 2], [1, 2]));
+        this.isFalse(ObjectHelpers_1.equal([1, 2], [2, 1]));
+        this.isFalse(ObjectHelpers_1.equal([1, 2], [1, 2, 3]));
+        this.isTrue(ObjectHelpers_1.equal(new Date("2011-03-31"), new Date("2011-03-31")));
+        this.isFalse(ObjectHelpers_1.equal(new Date("2011-03-31"), new Date("1970-01-01")));
+        this.isTrue(ObjectHelpers_1.equal({}, {}));
+        this.isTrue(ObjectHelpers_1.equal({ a: 1, b: 2 }, { a: 1, b: 2 }));
+        this.isTrue(ObjectHelpers_1.equal({ a: 1, b: 2 }, { b: 2, a: 1 }));
+        this.isFalse(ObjectHelpers_1.equal({ a: 1, b: 2 }, { a: 1, b: 3 }));
+        this.isTrue(ObjectHelpers_1.equal({ 1: { name: "mhc", age: 28 }, 2: { name: "arb", age: 26 } }, { 1: { name: "mhc", age: 28 }, 2: { name: "arb", age: 26 } }));
+        this.isFalse(ObjectHelpers_1.equal({ 1: { name: "mhc", age: 28 }, 2: { name: "arb", age: 26 } }, { 1: { name: "mhc", age: 28 }, 2: { name: "arb", age: 27 } }));
+        this.isFalse(ObjectHelpers_1.equal(function (x) { return x; }, function (x) { return x; }));
+        this.isFalse(ObjectHelpers_1.equal(function (x) { return x; }, function (y) { return y + 2; }));
         var a = { a: 'text', b: [0, 1] };
         var b = { a: 'text', b: [0, 1] };
         var c = { a: 'text', b: 0 };
@@ -62,15 +83,22 @@ var ObjectHelpersTests = (function (_super) {
         };
         var k = { a: 'text', b: null };
         var l = { a: 'text', b: undefined };
-        this.isTrue(ObjectHelpers_1.isEqual(a, b));
-        this.isFalse(ObjectHelpers_1.isEqual(a, c));
-        this.isFalse(ObjectHelpers_1.isEqual(c, d));
-        this.isFalse(ObjectHelpers_1.isEqual(a, e));
-        this.isFalse(ObjectHelpers_1.isEqual(f, g));
-        this.isFalse(ObjectHelpers_1.isEqual(h, g));
-        this.isFalse(ObjectHelpers_1.isEqual(i, j));
-        this.isFalse(ObjectHelpers_1.isEqual(d, k));
-        this.isFalse(ObjectHelpers_1.isEqual(k, l));
+        this.isTrue(ObjectHelpers_1.equal(a, b));
+        this.isFalse(ObjectHelpers_1.equal(a, c));
+        this.isFalse(ObjectHelpers_1.equal(c, d));
+        this.isFalse(ObjectHelpers_1.equal(a, e));
+        this.isFalse(ObjectHelpers_1.equal(f, g));
+        this.isFalse(ObjectHelpers_1.equal(h, g));
+        this.isFalse(ObjectHelpers_1.equal(i, j));
+        this.isFalse(ObjectHelpers_1.equal(d, k));
+        this.isFalse(ObjectHelpers_1.equal(k, l));
+    };
+    ObjectHelpersTests.prototype.testExtendedObjectsEquality = function () {
+        var foo1 = new TestFoo(10);
+        var foo2 = new TestFoo(10);
+        this.isTrue(ObjectHelpers_1.equal(foo1, foo2));
+        foo2.Value = 1234;
+        this.isFalse(ObjectHelpers_1.equal(foo1, foo2));
     };
     return ObjectHelpersTests;
 })(tsUnit.TestClass);

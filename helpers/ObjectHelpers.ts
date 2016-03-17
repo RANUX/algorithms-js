@@ -57,7 +57,7 @@ class ObjectCompare
         
         for (var i in a) {
             if (b.hasOwnProperty(i)) {
-                if (!isEqual(a[i], b[i])) return false;
+                if (!equal(a[i], b[i])) return false;
             } else {
                 return false;
             }
@@ -77,7 +77,7 @@ class ObjectCompare
         if (a.length !== b.length)
             return false;
         for (var i = 0; i < a.length; i++){
-            if(!isEqual(a[i], b[i])) return false;
+            if(!equal(a[i], b[i])) return false;
         };
         return true;
     };
@@ -106,7 +106,7 @@ _equal['regexp'] = function(a, b) {
  * @param b {any}
  * @return {boolean} Are equal?
  */
-export function isEqual(a, b) {
+export function equal(a, b) {
     if (a !== b) {
         var atype = ObjectCompare.whatis(a), btype = ObjectCompare.whatis(b);
 

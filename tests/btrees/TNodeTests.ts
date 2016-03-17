@@ -1,6 +1,6 @@
 import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
 import TNode from '../../btrees/TNode';
-import { isEqual } from '../../helpers/ObjectHelpers';
+import { equal } from '../../helpers/ObjectHelpers';
 
 /**
 * TreeNodeTests
@@ -138,17 +138,17 @@ export class TreeNodeTests extends tsUnit.TestClass {
         var l = new TNode("L", k, m);
         var i = new TNode("I", d, l);
 
-        this.isTrue(isEqual( a, this.A ));
-        this.isTrue(isEqual( d, this.D ));
-        this.isTrue(isEqual( f, this.F ));
-        this.isTrue(isEqual( h, this.H ));
-        this.isTrue(isEqual( i, this.I ));
-        this.isTrue(isEqual( k, this.K ));
-        this.isTrue(isEqual( l, this.L ));
-        this.isTrue(isEqual( m, this.M ));
-        this.isTrue(isEqual( p, this.P ));
+        this.isTrue(equal( a, this.A ));
+        this.isTrue(equal( d, this.D ));
+        this.isTrue(equal( f, this.F ));
+        this.isTrue(equal( h, this.H ));
+        this.isTrue(equal( i, this.I ));
+        this.isTrue(equal( k, this.K ));
+        this.isTrue(equal( l, this.L ));
+        this.isTrue(equal( m, this.M ));
+        this.isTrue(equal( p, this.P ));
 
-        this.isFalse( isEqual( this.I, null ));
-        this.isFalse( isEqual( this.F, this.D ));
+        this.isFalse( equal( this.I, null ));
+        this.isFalse( equal( this.F, this.D ));
     }
 }

@@ -1,7 +1,7 @@
 import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
 import TNode from '../../btrees/TNode';
 import BinarySearchTree from '../../btrees/BinarySearchTree';
-import { isEqual } from '../../helpers/ObjectHelpers';
+import { equal } from '../../helpers/ObjectHelpers';
 /**
 * BinarySearchTreeTests
 */
@@ -47,20 +47,20 @@ export class BinarySearchTreeTests extends tsUnit.TestClass {
 
 
     testInsert() {
-        this.isTrue(isEqual( this.root, this.tree.root));
+        this.isTrue(equal( this.root, this.tree.root));
         
     }
 
     testSearch() {
-        this.isTrue( isEqual( this.A, this.tree.search(this.A.value) ));
-        this.isTrue( isEqual( this.D, this.tree.search(this.D.value) ));
-        this.isTrue( isEqual( this.F, this.tree.search(this.F.value) ));
-        this.isTrue( isEqual( this.H, this.tree.search(this.H.value) ));
-        this.isTrue( isEqual( this.I, this.tree.search(this.I.value) ));
-        this.isTrue( isEqual( this.K, this.tree.search(this.K.value) ));
-        this.isTrue( isEqual( this.L, this.tree.search(this.L.value) ));
-        this.isTrue( isEqual( this.M, this.tree.search(this.M.value) ));
-        this.isTrue( isEqual( this.P, this.tree.search(this.P.value) ));
+        this.isTrue( equal( this.A, this.tree.search(this.A.value) ));
+        this.isTrue( equal( this.D, this.tree.search(this.D.value) ));
+        this.isTrue( equal( this.F, this.tree.search(this.F.value) ));
+        this.isTrue( equal( this.H, this.tree.search(this.H.value) ));
+        this.isTrue( equal( this.I, this.tree.search(this.I.value) ));
+        this.isTrue( equal( this.K, this.tree.search(this.K.value) ));
+        this.isTrue( equal( this.L, this.tree.search(this.L.value) ));
+        this.isTrue( equal( this.M, this.tree.search(this.M.value) ));
+        this.isTrue( equal( this.P, this.tree.search(this.P.value) ));
 
         this.isTrue(this.tree.search("UNKNOWN") == null);
     }

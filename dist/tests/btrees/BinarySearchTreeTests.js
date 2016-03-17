@@ -38,18 +38,18 @@ var BinarySearchTreeTests = (function (_super) {
         this.tree.insert(this.P.value);
     };
     BinarySearchTreeTests.prototype.testInsert = function () {
-        this.isTrue(ObjectHelpers_1.isEqual(this.root, this.tree.root));
+        this.isTrue(ObjectHelpers_1.equal(this.root, this.tree.root));
     };
     BinarySearchTreeTests.prototype.testSearch = function () {
-        this.isTrue(ObjectHelpers_1.isEqual(this.A, this.tree.search(this.A.value)));
-        this.isTrue(ObjectHelpers_1.isEqual(this.D, this.tree.search(this.D.value)));
-        this.isTrue(ObjectHelpers_1.isEqual(this.F, this.tree.search(this.F.value)));
-        this.isTrue(ObjectHelpers_1.isEqual(this.H, this.tree.search(this.H.value)));
-        this.isTrue(ObjectHelpers_1.isEqual(this.I, this.tree.search(this.I.value)));
-        this.isTrue(ObjectHelpers_1.isEqual(this.K, this.tree.search(this.K.value)));
-        this.isTrue(ObjectHelpers_1.isEqual(this.L, this.tree.search(this.L.value)));
-        this.isTrue(ObjectHelpers_1.isEqual(this.M, this.tree.search(this.M.value)));
-        this.isTrue(ObjectHelpers_1.isEqual(this.P, this.tree.search(this.P.value)));
+        this.isTrue(ObjectHelpers_1.equal(this.A, this.tree.search(this.A.value)));
+        this.isTrue(ObjectHelpers_1.equal(this.D, this.tree.search(this.D.value)));
+        this.isTrue(ObjectHelpers_1.equal(this.F, this.tree.search(this.F.value)));
+        this.isTrue(ObjectHelpers_1.equal(this.H, this.tree.search(this.H.value)));
+        this.isTrue(ObjectHelpers_1.equal(this.I, this.tree.search(this.I.value)));
+        this.isTrue(ObjectHelpers_1.equal(this.K, this.tree.search(this.K.value)));
+        this.isTrue(ObjectHelpers_1.equal(this.L, this.tree.search(this.L.value)));
+        this.isTrue(ObjectHelpers_1.equal(this.M, this.tree.search(this.M.value)));
+        this.isTrue(ObjectHelpers_1.equal(this.P, this.tree.search(this.P.value)));
         this.isTrue(this.tree.search("UNKNOWN") == null);
     };
     return BinarySearchTreeTests;
