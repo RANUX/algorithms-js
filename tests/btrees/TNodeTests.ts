@@ -151,4 +151,12 @@ export class TreeNodeTests extends tsUnit.TestClass {
         this.isFalse( equal( this.I, null ));
         this.isFalse( equal( this.F, this.D ));
     }
+    
+    testInOrderTraversal()
+    {
+        var ordered = ['A','D','F','H','I','K','L','M','P'];
+        var result = [];
+        this.I.traverseInOrder( ( node :TNode<string> ) => result.push(node.value) );
+        this.areCollectionsIdentical( ordered, result );
+    }
 }

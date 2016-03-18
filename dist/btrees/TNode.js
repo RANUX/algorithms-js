@@ -105,7 +105,7 @@ var TNode = (function () {
         return 1 + Math.max(this._height(node.larger), this._height(node.smaller));
     };
     TNode.prototype.equals = function (other) {
-        return this.value === other.value && this.equalsSmaller(other.smaller) && this.equalsLarger(other.larger);
+        return other && this.value === other.value && this.equalsSmaller(other.smaller) && this.equalsLarger(other.larger);
     };
     /**
      * Recursively determines if the smaller node is equal to another.
@@ -124,6 +124,16 @@ var TNode = (function () {
      */
     TNode.prototype.equalsLarger = function (other) {
         return this.larger == null && other == null || this.larger != null && this.larger.equals(other);
+    };
+    TNode.prototype.traverseInOrder = function (fn) {
+        this.traverseInOrderAny(this, fn);
+    };
+    TNode.prototype.traverseInOrderAny = function (node, fn) {
+        if (node != null) {
+            this.traverseInOrderAny(node.smaller, fn);
+            fn(node);
+            this.traverseInOrderAny(node.larger, fn);
+        }
     };
     return TNode;
 })();

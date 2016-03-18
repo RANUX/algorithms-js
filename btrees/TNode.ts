@@ -147,7 +147,7 @@ export default class TNode<T> {
     
     equals( other : TNode<T>) : boolean
     {
-        return this.value === other.value && this.equalsSmaller(other.smaller) && this.equalsLarger(other.larger);
+        return other && this.value === other.value && this.equalsSmaller(other.smaller) && this.equalsLarger(other.larger);
     }
     
     /**
@@ -170,5 +170,20 @@ export default class TNode<T> {
     equalsLarger(other : TNode<T>) : boolean
     {
         return this.larger == null && other == null || this.larger != null && this.larger.equals(other);
+    }
+        
+    traverseInOrder(fn)
+    {
+        this.traverseInOrderAny(this, fn);
+    }
+    
+    traverseInOrderAny(node:TNode<T>, fn) : any
+    {
+        if ( node != null )
+        {
+            this.traverseInOrderAny( node.smaller, fn );
+            fn( node );
+            this.traverseInOrderAny( node.larger, fn );
+        }
     }
 }

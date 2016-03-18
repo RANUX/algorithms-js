@@ -22,10 +22,10 @@ export class BinarySearchTreeTests extends tsUnit.TestClass {
 
 
     setUp() {
-        this.A = new TNode("A");
-        this.H = new TNode("H");
-        this.K = new TNode("K");
-        this.P = new TNode("P");
+        this.A = new TNode("A");                        //          I
+        this.H = new TNode("H");                        //       D......L
+        this.K = new TNode("K");                        //     A...F   K..M
+        this.P = new TNode("P");                        //         H       P
         this.F = new TNode("F", null, this.H);
         this.M = new TNode("M", null, this.P);
         this.D = new TNode("D", this.A, this.F);
@@ -48,7 +48,6 @@ export class BinarySearchTreeTests extends tsUnit.TestClass {
 
     testInsert() {
         this.isTrue(equal( this.root, this.tree.root));
-        
     }
 
     testSearch() {
@@ -65,40 +64,42 @@ export class BinarySearchTreeTests extends tsUnit.TestClass {
         this.isTrue(this.tree.search("UNKNOWN") == null);
     }
 
-    // testDeleteLeafTNode() {
-    //     TNode deleted = this.tree.delete(H.getValue());
-    //     assertNotNull(deleted);
-    //     this.areIdentical(H.getValue(), deleted.getValue());
+    testDeleteLeafNode() {
+        var deleted = this.tree.delete(this.H.value);
+        this.isTrue( equal( deleted, this.H ));
+        
+        this.F.larger = null;
+        this.isTrue( equal( this.root, this.tree.root) );
+    }
 
-    //     F.setLarger(null);
-    //     this.areIdentical(Root, this.tree.getRoot());
-    // }
+    testDeleteTNodeWithOneChild() {
+        var deleted = this.tree.delete(this.M.value);
+        this.isTrue( deleted != null );
+        
+        this.isTrue( equal( this.M, deleted ));
 
-    // testDeleteTNodeWithOneChild() {
-    //     TNode deleted = this.tree.delete(M.getValue());
-    //     assertNotNull(deleted);
-    //     this.areIdentical(M.getValue(), deleted.getValue());
+        this.L.larger = this.P;
+        this.isTrue( equal( this.root, this.tree.root) );
+    }
 
-    //     L.setLarger(P);
-    //     this.areIdentical(Root, this.tree.getRoot());
-    // }
+    testDeleteTNodeWithTwoChildren() {
+        var deleted = this.tree.delete(this.I.value);
+        this.isTrue( deleted != null );
+        
+        this.areIdentical( this.I.value, deleted.value);
+        
+        this.I.value = this.K.value;
+        this.L.smaller = null;
+        this.isTrue( equal( this.root, this.tree.root) );
+    }
 
-    // testDeleteTNodeWithTwoChildren() {
-    //     TNode deleted = this.tree.delete(I.getValue());
-    //     assertNotNull(deleted);
-    //     this.areIdentical(I.getValue(), deleted.getValue());
-
-    //     I.setValue(K.getValue());
-    //     L.setSmaller(null);
-    //     this.areIdentical(Root, this.tree.getRoot());
-    // }
-
-    // testDeleteRootTNodeUntilTreeIsEmpty() {
-    //     while (this.tree.getRoot() != null) {
-    //         Object key = this.tree.getRoot().getValue();
-    //         TNode deleted = this.tree.delete(key);
-    //         assertNotNull(deleted);
-    //         this.areIdentical(key, deleted.getValue());
-    //     }
-    // }
+    testDeleteRootTNodeUntilTreeIsEmpty() {
+        while (this.tree.root != null) {
+            var key     = this.tree.root.value;
+            var deleted = this.tree.delete(key);
+            
+            this.isTrue( deleted != null );
+            this.areIdentical(key, deleted.value);
+        }
+    }
 }

@@ -16,10 +16,10 @@ var BinarySearchTreeTests = (function (_super) {
         _super.apply(this, arguments);
     }
     BinarySearchTreeTests.prototype.setUp = function () {
-        this.A = new TNode_1.default("A");
-        this.H = new TNode_1.default("H");
-        this.K = new TNode_1.default("K");
-        this.P = new TNode_1.default("P");
+        this.A = new TNode_1.default("A"); //          I
+        this.H = new TNode_1.default("H"); //       D......L
+        this.K = new TNode_1.default("K"); //     A...F   K..M
+        this.P = new TNode_1.default("P"); //         H       P
         this.F = new TNode_1.default("F", null, this.H);
         this.M = new TNode_1.default("M", null, this.P);
         this.D = new TNode_1.default("D", this.A, this.F);
@@ -51,6 +51,35 @@ var BinarySearchTreeTests = (function (_super) {
         this.isTrue(ObjectHelpers_1.equal(this.M, this.tree.search(this.M.value)));
         this.isTrue(ObjectHelpers_1.equal(this.P, this.tree.search(this.P.value)));
         this.isTrue(this.tree.search("UNKNOWN") == null);
+    };
+    BinarySearchTreeTests.prototype.testDeleteLeafNode = function () {
+        var deleted = this.tree.delete(this.H.value);
+        this.isTrue(ObjectHelpers_1.equal(deleted, this.H));
+        this.F.larger = null;
+        this.isTrue(ObjectHelpers_1.equal(this.root, this.tree.root));
+    };
+    BinarySearchTreeTests.prototype.testDeleteTNodeWithOneChild = function () {
+        var deleted = this.tree.delete(this.M.value);
+        this.isTrue(deleted != null);
+        this.isTrue(ObjectHelpers_1.equal(this.M, deleted));
+        this.L.larger = this.P;
+        this.isTrue(ObjectHelpers_1.equal(this.root, this.tree.root));
+    };
+    BinarySearchTreeTests.prototype.testDeleteTNodeWithTwoChildren = function () {
+        var deleted = this.tree.delete(this.I.value);
+        this.isTrue(deleted != null);
+        this.areIdentical(this.I.value, deleted.value);
+        this.I.value = this.K.value;
+        this.L.smaller = null;
+        this.isTrue(ObjectHelpers_1.equal(this.root, this.tree.root));
+    };
+    BinarySearchTreeTests.prototype.testDeleteRootTNodeUntilTreeIsEmpty = function () {
+        while (this.tree.root != null) {
+            var key = this.tree.root.value;
+            var deleted = this.tree.delete(key);
+            this.isTrue(deleted != null);
+            this.areIdentical(key, deleted.value);
+        }
     };
     return BinarySearchTreeTests;
 })(tsUnit.TestClass);

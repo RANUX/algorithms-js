@@ -135,6 +135,12 @@ var TreeNodeTests = (function (_super) {
         this.isFalse(ObjectHelpers_1.equal(this.I, null));
         this.isFalse(ObjectHelpers_1.equal(this.F, this.D));
     };
+    TreeNodeTests.prototype.testInOrderTraversal = function () {
+        var ordered = ['A', 'D', 'F', 'H', 'I', 'K', 'L', 'M', 'P'];
+        var result = [];
+        this.I.traverseInOrder(function (node) { return result.push(node.value); });
+        this.areCollectionsIdentical(ordered, result);
+    };
     return TreeNodeTests;
 })(tsUnit.TestClass);
 exports.TreeNodeTests = TreeNodeTests;
