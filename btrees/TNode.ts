@@ -147,6 +147,7 @@ export default class TNode<T> {
     
     equals( other : TNode<T>) : boolean
     {
+        //console.log('isEqual( ' +this.value + ' ' + other.value + ') ' + (this.value === other.value));
         return other && this.value === other.value && this.equalsSmaller(other.smaller) && this.equalsLarger(other.larger);
     }
     
@@ -158,7 +159,7 @@ export default class TNode<T> {
      */
     equalsSmaller(other : TNode<T>) : boolean
     {
-        return this.smaller == null && other == null || this.smaller != null && this.smaller.equals(other);
+        return this.smaller === null && other === null || this.smaller !== null && this.smaller.equals(other);
     }
 
     /**
@@ -169,7 +170,7 @@ export default class TNode<T> {
      */
     equalsLarger(other : TNode<T>) : boolean
     {
-        return this.larger == null && other == null || this.larger != null && this.larger.equals(other);
+        return this.larger === null && other === null || this.larger !== null && this.larger.equals(other);
     }
         
     traverseInOrder(fn)
@@ -186,4 +187,54 @@ export default class TNode<T> {
             this.traverseInOrderAny( node.larger, fn );
         }
     }
+    
+    public dump()
+    {
+        var globalStack = [];
+        globalStack.push(this);
+        var nBlanks = 32;
+        var isRowEmpty = false;
+        console.log("......................................................................");
+        
+        while(isRowEmpty==false)
+        {
+            var localStack = [];
+            var output = '';
+            
+            isRowEmpty = true;
+
+            for(var j=0; j<nBlanks; j++)
+                output += ' ';
+
+            while(globalStack.length > 0)
+            {
+                var temp:TNode<T> = globalStack.pop();
+                
+                if(temp != null)
+                {
+                    output += temp.value;
+                    localStack.push(temp.smaller);
+                    localStack.push(temp.larger);
+
+                    if(temp.smaller != null || temp.larger != null)
+                        isRowEmpty = false;
+                }
+                else
+                {
+                    output += "--";
+                    localStack.push(null);
+                    localStack.push(null);
+                }
+                for(var j=0; j< nBlanks*2-2; j++)
+                    output += ' ';
+            }  // end while globalStack not empty
+            console.log(output);
+            nBlanks /= 2;
+            
+            while(localStack.length > 0)
+                globalStack.push( localStack.pop() );
+            }  // end while isRowEmpty is false
+        console.log("......................................................................");
+    }
+     
 }

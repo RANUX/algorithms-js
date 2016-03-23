@@ -1,5 +1,5 @@
 var mq = require("../queues/CircularQueue");
-var qp = require("../queues/PriorityQueue");
+var PriorityQueue_1 = require("../queues/PriorityQueue");
 var lq = require("../queues/LinkedQueue");
 var shuffle = require('knuth-shuffle');
 var QueueExamples = (function () {
@@ -7,7 +7,7 @@ var QueueExamples = (function () {
         this.data = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
         this.dataNums = [6, 7, 2, 0, 1, 9, 5, 7, 10];
         this.cQueue = new mq.CircularQueue(8);
-        this.priorQ = new qp.PriorityQueue();
+        this.priorQ = new PriorityQueue_1.default();
         this.lQueue = new lq.LinkedQueue();
     }
     QueueExamples.prototype.logCircularQueue = function () {

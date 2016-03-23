@@ -105,6 +105,7 @@ var TNode = (function () {
         return 1 + Math.max(this._height(node.larger), this._height(node.smaller));
     };
     TNode.prototype.equals = function (other) {
+        //console.log('isEqual( ' +this.value + ' ' + other.value + ') ' + (this.value === other.value));
         return other && this.value === other.value && this.equalsSmaller(other.smaller) && this.equalsLarger(other.larger);
     };
     /**
@@ -114,7 +115,7 @@ var TNode = (function () {
      * @return <code>true</code> if equal; otherwise <code>false</code>.
      */
     TNode.prototype.equalsSmaller = function (other) {
-        return this.smaller == null && other == null || this.smaller != null && this.smaller.equals(other);
+        return this.smaller === null && other === null || this.smaller !== null && this.smaller.equals(other);
     };
     /**
      * Recursively determines if the larger node is equal to another.
@@ -123,7 +124,7 @@ var TNode = (function () {
      * @return <code>true</code> if equal; otherwise <code>false</code>.
      */
     TNode.prototype.equalsLarger = function (other) {
-        return this.larger == null && other == null || this.larger != null && this.larger.equals(other);
+        return this.larger === null && other === null || this.larger !== null && this.larger.equals(other);
     };
     TNode.prototype.traverseInOrder = function (fn) {
         this.traverseInOrderAny(this, fn);
@@ -134,6 +135,42 @@ var TNode = (function () {
             fn(node);
             this.traverseInOrderAny(node.larger, fn);
         }
+    };
+    TNode.prototype.dump = function () {
+        var globalStack = [];
+        globalStack.push(this);
+        var nBlanks = 32;
+        var isRowEmpty = false;
+        console.log("......................................................................");
+        while (isRowEmpty == false) {
+            var localStack = [];
+            var output = '';
+            isRowEmpty = true;
+            for (var j = 0; j < nBlanks; j++)
+                output += ' ';
+            while (globalStack.length > 0) {
+                var temp = globalStack.pop();
+                if (temp != null) {
+                    output += temp.value;
+                    localStack.push(temp.smaller);
+                    localStack.push(temp.larger);
+                    if (temp.smaller != null || temp.larger != null)
+                        isRowEmpty = false;
+                }
+                else {
+                    output += "--";
+                    localStack.push(null);
+                    localStack.push(null);
+                }
+                for (var j = 0; j < nBlanks * 2 - 2; j++)
+                    output += ' ';
+            } // end while globalStack not empty
+            console.log(output);
+            nBlanks /= 2;
+            while (localStack.length > 0)
+                globalStack.push(localStack.pop());
+        } // end while isRowEmpty is false
+        console.log("......................................................................");
     };
     return TNode;
 })();

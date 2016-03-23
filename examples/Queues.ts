@@ -1,5 +1,5 @@
 import * as mq  from "../queues/CircularQueue";
-import * as qp from "../queues/PriorityQueue";
+import PriorityQueue from "../queues/PriorityQueue";
 import * as lq from "../queues/LinkedQueue";
 import shuffle = require('knuth-shuffle');
 
@@ -9,7 +9,7 @@ export class QueueExamples {
     data           : any[] = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
     dataNums       : any[] = [6, 7, 2, 0, 1, 9, 5, 7, 10];
     cQueue         :   mq.CircularQueue = new mq.CircularQueue(8);
-    priorQ         :   qp.PriorityQueue = new qp.PriorityQueue();
+    priorQ         :   PriorityQueue = new PriorityQueue();
     lQueue         :   lq.LinkedQueue   = new lq.LinkedQueue();
     
     logCircularQueue () {

@@ -3,7 +3,7 @@ import * as iqm from "../queues/IQueue";
 /**
  * PriorityQueue
  */
-export class PriorityQueue implements iqm.IQueue {
+export default class PriorityQueue implements iqm.IQueue {
     
     qArray  : any[];
     nItems  : number;
@@ -13,7 +13,7 @@ export class PriorityQueue implements iqm.IQueue {
         this.clear();
     }
     
-    enqueue(value : any) {
+    enqueue(value : any, compareFn = (val, aItem) => val > aItem) {
         var j;
         
         if ( this.nItems == 0)                          // if no items, insert in 0
@@ -24,7 +24,7 @@ export class PriorityQueue implements iqm.IQueue {
         {                                               // if items
             for( j=this.nItems-1; j>=0; j-- )           // start at end,
             {
-                if( value > this.qArray[j] )            // if new value larger,
+                if( compareFn(value, this.qArray[j] ) )            // if new value larger,
                     this.qArray[j+1] = this.qArray[j];  // shift upward
                 else                                    // if smaller,
                     break;                              // done shifting
@@ -47,7 +47,7 @@ export class PriorityQueue implements iqm.IQueue {
     
     
     size() : number {
-        return 0;
+        return this.nItems;
     }
     
     isEmpty() : boolean {
@@ -69,5 +69,6 @@ export class PriorityQueue implements iqm.IQueue {
         }
         return this.qArray[0];
     }
+    
     
 }

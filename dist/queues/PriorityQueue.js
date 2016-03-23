@@ -5,14 +5,15 @@ var PriorityQueue = (function () {
     function PriorityQueue() {
         this.clear();
     }
-    PriorityQueue.prototype.enqueue = function (value) {
+    PriorityQueue.prototype.enqueue = function (value, compareFn) {
+        if (compareFn === void 0) { compareFn = function (val, aItem) { return val > aItem; }; }
         var j;
         if (this.nItems == 0) {
             this.qArray[this.nItems++] = value;
         }
         else {
             for (j = this.nItems - 1; j >= 0; j--) {
-                if (value > this.qArray[j])
+                if (compareFn(value, this.qArray[j]))
                     this.qArray[j + 1] = this.qArray[j]; // shift upward
                 else
                     break; // done shifting
@@ -29,7 +30,7 @@ var PriorityQueue = (function () {
         this.qArray = [];
     };
     PriorityQueue.prototype.size = function () {
-        return 0;
+        return this.nItems;
     };
     PriorityQueue.prototype.isEmpty = function () {
         return (this.nItems == 0);
@@ -48,6 +49,7 @@ var PriorityQueue = (function () {
     };
     return PriorityQueue;
 })();
-exports.PriorityQueue = PriorityQueue;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = PriorityQueue;
 
 //# sourceMappingURL=PriorityQueue.js.map
