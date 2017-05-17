@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * PriorityQueue
  */
@@ -48,8 +50,7 @@ var PriorityQueue = (function () {
         return this.qArray[0];
     };
     return PriorityQueue;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = PriorityQueue;
 
 //# sourceMappingURL=PriorityQueue.js.map

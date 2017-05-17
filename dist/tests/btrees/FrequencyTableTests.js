@@ -1,18 +1,25 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
-var ObjectHelpers_1 = require('../../helpers/ObjectHelpers');
-var FrequencyTable_1 = require('../../btrees/FrequencyTable');
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var tsUnit = require("../../node_modules/tsunit.external/tsUnit");
+var ObjectHelpers_1 = require("../../helpers/ObjectHelpers");
+var FrequencyTable_1 = require("../../btrees/FrequencyTable");
 /**
 * FrequencyTableTests
 */
 var FrequencyTableTests = (function (_super) {
     __extends(FrequencyTableTests, _super);
     function FrequencyTableTests() {
-        _super.apply(this, arguments);
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     FrequencyTableTests.prototype.setUp = function () {
         var str = "beep boop beer!";
@@ -32,7 +39,7 @@ var FrequencyTableTests = (function (_super) {
         this.isTrue(ObjectHelpers_1.equal(expTable, this.ftable.frequencies));
     };
     return FrequencyTableTests;
-})(tsUnit.TestClass);
+}(tsUnit.TestClass));
 exports.FrequencyTableTests = FrequencyTableTests;
 
 //# sourceMappingURL=FrequencyTableTests.js.map

@@ -70,6 +70,7 @@ export class PostfixEval {
                     
             }
         }
-        return stack.length > 0 ? stack[0] : 0;
+
+        return stack.length > 0 ? stack[0] : (num ? parseFloat(num) : 0);
     }
 }

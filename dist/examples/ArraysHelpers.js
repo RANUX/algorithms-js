@@ -1,5 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var helpers = require("../helpers/ArrayHelpers");
-var shuffle = require('knuth-shuffle');
+var shuffle = require("knuth-shuffle");
 var ArrayHelpersExamples = (function () {
     function ArrayHelpersExamples() {
         this.data1 = ["a", "b", "c", "d"];
@@ -20,7 +22,7 @@ var ArrayHelpersExamples = (function () {
         console.log("Array after rm duplicates: " + data);
     };
     return ArrayHelpersExamples;
-})();
+}());
 exports.ArrayHelpersExamples = ArrayHelpersExamples;
 
 //# sourceMappingURL=ArraysHelpers.js.map

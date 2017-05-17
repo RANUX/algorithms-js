@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ffl = require("../lists/FirstLastList");
 /**
  * LinkedStack
@@ -29,7 +31,7 @@ var LinkedStack = (function () {
         return (this.list.size() == 0);
     };
     return LinkedStack;
-})();
+}());
 exports.LinkedStack = LinkedStack;
 
 //# sourceMappingURL=LinkedStack.js.map

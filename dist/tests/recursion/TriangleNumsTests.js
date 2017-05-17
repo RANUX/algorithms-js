@@ -1,17 +1,24 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
-var TriangleNums_1 = require('../../recursion/TriangleNums');
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var tsUnit = require("../../node_modules/tsunit.external/tsUnit");
+var TriangleNums_1 = require("../../recursion/TriangleNums");
 /**
 * TriangleNumsTests
 */
 var TriangleNumsTests = (function (_super) {
     __extends(TriangleNumsTests, _super);
     function TriangleNumsTests() {
-        _super.apply(this, arguments);
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     TriangleNumsTests.prototype.setUp = function () {
         this.tn = new TriangleNums_1.default();
@@ -31,7 +38,7 @@ var TriangleNumsTests = (function (_super) {
         this.areIdentical(15, this.tn.triangleRecursive(5));
     };
     return TriangleNumsTests;
-})(tsUnit.TestClass);
+}(tsUnit.TestClass));
 exports.TriangleNumsTests = TriangleNumsTests;
 
 //# sourceMappingURL=TriangleNumsTests.js.map

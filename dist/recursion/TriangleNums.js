@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var stk = require("../stacks/ArrayStack");
 var Steps;
 (function (Steps) {
@@ -16,7 +18,7 @@ var Params = (function () {
         this.nextStep = nextStep;
     }
     return Params;
-})();
+}());
 /**
  * TriangleNums
  */
@@ -65,8 +67,7 @@ var TriangleNums = (function () {
         return result;
     };
     return TriangleNums;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = TriangleNums;
 
 //# sourceMappingURL=TriangleNums.js.map

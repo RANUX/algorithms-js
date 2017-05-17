@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ffl = require("../lists/FirstLastList");
 /**
  * LinkedQueue based on LinkedList
@@ -28,7 +30,7 @@ var LinkedQueue = (function () {
         return this.list.peekLast().data;
     };
     return LinkedQueue;
-})();
+}());
 exports.LinkedQueue = LinkedQueue;
 
 //# sourceMappingURL=LinkedQueue.js.map

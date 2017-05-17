@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * CircularQueue ( other name Circular buffer)
  */
@@ -49,7 +51,7 @@ var CircularQueue = (function () {
         return this.qArray[this.rear];
     };
     return CircularQueue;
-})();
+}());
 exports.CircularQueue = CircularQueue;
 
 //# sourceMappingURL=CircularQueue.js.map

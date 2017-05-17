@@ -1,22 +1,29 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
-var ObjectHelpers_1 = require('../../helpers/ObjectHelpers');
-var FrequencyTable_1 = require('../../btrees/FrequencyTable');
-var HuffmanTree_1 = require('../../btrees/HuffmanTree');
-var TNode_1 = require('../../btrees/TNode');
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var tsUnit = require("../../node_modules/tsunit.external/tsUnit");
+var ObjectHelpers_1 = require("../../helpers/ObjectHelpers");
+var HuffmanTree_1 = require("../../btrees/HuffmanTree");
+var TNode_1 = require("../../btrees/TNode");
 /**
 * HuffmanTreeTests
 */
 var HuffmanTreeTests = (function (_super) {
     __extends(HuffmanTreeTests, _super);
     function HuffmanTreeTests() {
-        _super.apply(this, arguments);
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     HuffmanTreeTests.prototype.setUp = function () {
+        this.str = "beep boop beer!";
         this.SP_010 = new TNode_1.default(' ');
         this.P_011 = new TNode_1.default('p');
         this.empty01 = new TNode_1.default(null, this.SP_010, this.P_011);
@@ -30,9 +37,7 @@ var HuffmanTreeTests = (function (_super) {
         this.E_11 = new TNode_1.default('e');
         this.empty1 = new TNode_1.default(null, this.empty10, this.E_11);
         this.root = new TNode_1.default(null, this.empty0, this.empty1);
-        this.ftable = new FrequencyTable_1.default("beep boop beer!");
-        this.ftable.build();
-        this.tree = new HuffmanTree_1.default(this.ftable.frequencies);
+        this.tree = new HuffmanTree_1.default(this.str);
     };
     HuffmanTreeTests.prototype.buildTreeTest = function () {
         this.tree.build();
@@ -53,8 +58,12 @@ var HuffmanTreeTests = (function (_super) {
             this.isTrue(ObjectHelpers_1.equal({ 'node': new TNode_1.default(key), 'frequency': expTable[key] }, this.tree.descFreqQueue.dequeue()));
         }
     };
+    HuffmanTreeTests.prototype.testDecode = function () {
+        this.tree.build();
+        console.log(this.tree.decode());
+    };
     return HuffmanTreeTests;
-})(tsUnit.TestClass);
+}(tsUnit.TestClass));
 exports.HuffmanTreeTests = HuffmanTreeTests;
 
 //# sourceMappingURL=HuffmanTreeTests.js.map

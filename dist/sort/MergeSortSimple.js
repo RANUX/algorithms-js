@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var h = require("../helpers/ArrayHelpers");
 /**
  * MergeSortSimple unoptimized version of Merge Sort Algorithm
@@ -47,8 +49,7 @@ var MergeSortSimple = (function () {
         return result;
     };
     return MergeSortSimple;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = MergeSortSimple;
 
 //# sourceMappingURL=MergeSortSimple.js.map

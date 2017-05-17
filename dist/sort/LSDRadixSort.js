@@ -1,4 +1,6 @@
-var Mathf_1 = require('../helpers/Mathf');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Mathf_1 = require("../helpers/Mathf");
 var LSDRadixSort = (function () {
     function LSDRadixSort() {
     }
@@ -30,8 +32,7 @@ var LSDRadixSort = (function () {
         return arr;
     };
     return LSDRadixSort;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = LSDRadixSort;
 ;
 

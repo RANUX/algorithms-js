@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 ////////////////////////////////////////////////////////////////
 var Element = (function () {
     // -------------------------------------------------------------
@@ -19,7 +21,7 @@ var Element = (function () {
         return JSON.stringify(this);
     };
     return Element;
-})(); // end class Element
+}()); // end class Element
 ////////////////////////////////////////////////////////////////
 /**
  * Doubly LinkedList
@@ -269,7 +271,7 @@ var LinkedList = (function () {
         return JSON.stringify(this);
     };
     return LinkedList;
-})();
+}());
 exports.LinkedList = LinkedList;
 
 //# sourceMappingURL=LinkedList.js.map

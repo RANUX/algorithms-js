@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Anagram
  */
@@ -47,8 +49,7 @@ var Anagram = (function () {
         //console.log(this.chars);
     };
     return Anagram;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = Anagram;
 
 //# sourceMappingURL=Anagram.js.map

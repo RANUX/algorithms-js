@@ -1,6 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var fs = require("fs");
 var path = require("path");
-var tsUnit = require('../node_modules/tsunit.external/tsUnit');
+var tsUnit = require("../node_modules/tsunit.external/tsUnit");
 function getTapResults(result) {
     var newLine = '\r\n';
     var template = '1..' + (result.passes.length + result.errors.length).toString() + newLine;

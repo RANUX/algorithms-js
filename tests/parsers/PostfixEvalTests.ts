@@ -9,6 +9,11 @@ export class PostfixEvalTests extends tsUnit.TestClass {
         var postfix = this.postfix.eval("");
         this.areIdentical(0, postfix);
     }
+
+    testEval_Number() {
+        var postfix = this.postfix.eval("4");
+        this.areIdentical(4, postfix);
+    }
     
     testEval_Expression() {
         var result = this.postfix.eval("3;4;5;+*6;1;2;+/-");

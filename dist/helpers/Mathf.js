@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Mathf
  */
@@ -39,8 +41,7 @@ var Mathf = (function () {
         return r;
     };
     return Mathf;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = Mathf;
 
 //# sourceMappingURL=Mathf.js.map

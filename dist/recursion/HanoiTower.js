@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * HanoiTowers
  */
@@ -45,8 +47,7 @@ var HanoiTower = (function () {
         this.solveRecursive(nDisks - 1, tmp, src, dst); // move tmp disk to dst
     };
     return HanoiTower;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = HanoiTower;
 
 //# sourceMappingURL=HanoiTower.js.map

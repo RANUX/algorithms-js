@@ -1,7 +1,9 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var mq = require("../queues/CircularQueue");
 var PriorityQueue_1 = require("../queues/PriorityQueue");
 var lq = require("../queues/LinkedQueue");
-var shuffle = require('knuth-shuffle');
+var shuffle = require("knuth-shuffle");
 var QueueExamples = (function () {
     function QueueExamples() {
         this.data = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
@@ -78,7 +80,7 @@ var QueueExamples = (function () {
         console.log("is Queue Empty: " + this.lQueue.isEmpty());
     };
     return QueueExamples;
-})();
+}());
 exports.QueueExamples = QueueExamples;
 
 //# sourceMappingURL=Queues.js.map

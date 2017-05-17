@@ -29,9 +29,12 @@ export class HuffmanTreeTests extends tsUnit.TestClass {
     
     ftable : FrequencyTable;
     tree   : HuffmanTree<string>;
+    str    : string;
     
     setUp()
     {
+        this.str = "beep boop beer!";
+        
         this.SP_010     = new TNode(' ');
         this.P_011      = new TNode('p');
         this.empty01    = new TNode( null, this.SP_010, this.P_011 );
@@ -51,9 +54,8 @@ export class HuffmanTreeTests extends tsUnit.TestClass {
         
         this.root  = new TNode( null, this.empty0, this.empty1 );
         
-        this.ftable = new FrequencyTable("beep boop beer!");
-        this.ftable.build();
-        this.tree = new HuffmanTree<string>( this.ftable.frequencies );
+        
+        this.tree = new HuffmanTree<string>( this.str );
     }
 
     buildTreeTest()
@@ -82,5 +84,11 @@ export class HuffmanTreeTests extends tsUnit.TestClass {
             this.isTrue( equal( { 'node' : new TNode(key), 'frequency' : expTable[ key ] }, this.tree.descFreqQueue.dequeue() ));
         }
        
+    }
+    
+    testDecode()
+    {
+        this.tree.build();
+        console.log(this.tree.decode());
     }
 }

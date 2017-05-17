@@ -1,4 +1,6 @@
-var ArrayHelpers_1 = require('../helpers/ArrayHelpers');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ArrayHelpers_1 = require("../helpers/ArrayHelpers");
 /**
  * QuickSortRMP (QuickSort Rightmost Pivot) good for random items in array.
  * ( Best  N(logN) - random, worse O(N^2) - sorted arrays)
@@ -42,8 +44,7 @@ var QuickSortRMP = (function () {
         return l;
     };
     return QuickSortRMP;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = QuickSortRMP;
 ;
 

@@ -6,13 +6,14 @@
     "url": "https://github.com/ranux/algorithms-js"
   },
   "devDependencies": {
-    "gulp": "latest",
-    "gulp-typescript": "latest",
-    "gulp-sourcemaps": "latest",
-    "merge2": "latest",
     "del": "latest",
+    "gulp": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-typescript": "latest",
     "knuth-shuffle": "latest",
+    "merge2": "latest",
     "tsunit.external": "latest",
+    "typescript": "^2.3.2",
     "vinyl-fs": "latest"
   },
   "dependencies": {}

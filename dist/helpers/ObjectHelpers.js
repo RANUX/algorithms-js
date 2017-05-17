@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function getObjectName(obj) {
     var funcNameRegex = /function (.{1,})\(/;
     var results = (funcNameRegex).exec((obj).constructor.toString());
@@ -75,7 +77,7 @@ var ObjectCompare = (function () {
     };
     ;
     return ObjectCompare;
-})();
+}());
 var _equal = {};
 _equal['array'] = ObjectCompare.compareArrays;
 _equal['object'] = ObjectCompare.compareObjects;

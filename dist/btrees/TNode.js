@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * TreeNode
  */
@@ -173,8 +175,7 @@ var TNode = (function () {
         console.log("......................................................................");
     };
     return TNode;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = TNode;
 
 //# sourceMappingURL=TNode.js.map

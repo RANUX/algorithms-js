@@ -68,6 +68,7 @@ export default class KnapsackProblemLight {
         else if ( goalW > this.weights[i] ) {                 // if not enought 
             this.stack.push( this.weights[i] );
             var w = this.solveRecursive( goalW-this.weights[i], i+1);   // go to next weight
+            
             if ( !w )
                 return this.stack.pop();
         }

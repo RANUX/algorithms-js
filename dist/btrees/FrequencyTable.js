@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var FrequencyTable = (function () {
     function FrequencyTable(text) {
         this.frequencies = {};
@@ -18,8 +20,7 @@ var FrequencyTable = (function () {
         }
     };
     return FrequencyTable;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = FrequencyTable;
 ;
 

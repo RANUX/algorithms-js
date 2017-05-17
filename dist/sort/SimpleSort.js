@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Simple sort algorithms. Complexity O(N^2)
  */
@@ -21,7 +23,7 @@ var BubbleSort = (function () {
         return a;
     };
     return BubbleSort;
-})();
+}());
 exports.BubbleSort = BubbleSort;
 /**
  * SelectionSort
@@ -45,7 +47,7 @@ var SelectionSort = (function () {
         return a;
     };
     return SelectionSort;
-})();
+}());
 exports.SelectionSort = SelectionSort;
 /**
  * InsertionSort
@@ -70,7 +72,7 @@ var InsertionSort = (function () {
         return a;
     };
     return InsertionSort;
-})();
+}());
 exports.InsertionSort = InsertionSort;
 
 //# sourceMappingURL=SimpleSort.js.map

@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * MergeSort optimized
  */
@@ -38,8 +40,7 @@ var MergeSort = (function () {
             this.array[lowBound + j] = resultArray[j];
     };
     return MergeSort;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = MergeSort;
 
 //# sourceMappingURL=MergeSort.js.map

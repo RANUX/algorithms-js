@@ -1,17 +1,24 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
-var KnapsackProblemLight_1 = require('../../recursion/KnapsackProblemLight');
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var tsUnit = require("../../node_modules/tsunit.external/tsUnit");
+var KnapsackProblemLight_1 = require("../../recursion/KnapsackProblemLight");
 /**
 * KnapsackProblemLightTests
 */
 var KnapsackProblemLightTests = (function (_super) {
     __extends(KnapsackProblemLightTests, _super);
     function KnapsackProblemLightTests() {
-        _super.apply(this, arguments);
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     KnapsackProblemLightTests.prototype.setUp = function () {
     };
@@ -36,7 +43,7 @@ var KnapsackProblemLightTests = (function (_super) {
         this.areCollectionsIdentical([10, 6], knapasack.solve(16));
     };
     return KnapsackProblemLightTests;
-})(tsUnit.TestClass);
+}(tsUnit.TestClass));
 exports.KnapsackProblemLightTests = KnapsackProblemLightTests;
 
 //# sourceMappingURL=KnapsackProblemLightTests.js.map

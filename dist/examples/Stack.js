@@ -1,6 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var stack = require("../stacks/ArrayStack");
 var lstk = require("../stacks/LinkedStack");
-var shuffle = require('knuth-shuffle');
+var shuffle = require("knuth-shuffle");
 var StackExample = (function () {
     function StackExample() {
         this.data = ["da", "csharp", "cpp", "db", "python", "cpp", "node", "js"];
@@ -28,7 +30,7 @@ var StackExample = (function () {
         console.log("Empty Stack: " + stack.length() + " " + stack.toString());
     };
     return StackExample;
-})();
+}());
 exports.StackExample = StackExample;
 
 //# sourceMappingURL=Stack.js.map

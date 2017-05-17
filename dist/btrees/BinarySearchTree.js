@@ -1,4 +1,6 @@
-var TNode_1 = require('./TNode');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var TNode_1 = require("./TNode");
 /**
  * A binary search tree without balancing.
  *
@@ -88,8 +90,7 @@ var BinarySearchTree = (function () {
         return current;
     };
     return BinarySearchTree;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = BinarySearchTree;
 ;
 

@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var i2p = require("../parsers/Infix2Postfix");
 var epm = require("../parsers/PostfixEval");
 var EvalExprExample = (function () {
@@ -13,7 +15,7 @@ var EvalExprExample = (function () {
         console.log(str1 + ' = ' + result);
     };
     return EvalExprExample;
-})();
+}());
 exports.EvalExprExample = EvalExprExample;
 
 //# sourceMappingURL=EvalExprExample.js.map

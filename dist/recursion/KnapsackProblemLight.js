@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ahelp = require("../helpers/ArrayHelpers");
 /**
  * KnapsackProblemLight only weights without prices.
@@ -65,8 +67,7 @@ var KnapsackProblemLight = (function () {
         //console.log('goalW: ' + goalW + ' i: ' + i + ' stack: ' + this.stack);
     };
     return KnapsackProblemLight;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = KnapsackProblemLight;
 
 //# sourceMappingURL=KnapsackProblemLight.js.map

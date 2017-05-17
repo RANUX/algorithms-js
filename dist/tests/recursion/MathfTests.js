@@ -1,17 +1,24 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
-var Mathf_1 = require('../../helpers/Mathf');
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var tsUnit = require("../../node_modules/tsunit.external/tsUnit");
+var Mathf_1 = require("../../helpers/Mathf");
 /**
 * MathfTests
 */
 var MathfTests = (function (_super) {
     __extends(MathfTests, _super);
     function MathfTests() {
-        _super.apply(this, arguments);
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     MathfTests.prototype.setUp = function () {
     };
@@ -38,7 +45,7 @@ var MathfTests = (function (_super) {
         this.areIdentical(3125, Mathf_1.default.pow(5, 5));
     };
     return MathfTests;
-})(tsUnit.TestClass);
+}(tsUnit.TestClass));
 exports.MathfTests = MathfTests;
 
 //# sourceMappingURL=MathfTests.js.map

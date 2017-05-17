@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * ShellSort based on Knuth Gap Sequence
  * ShellSort analysis with sequences you can find here http://www.cs.princeton.edu/~rs/shell/paperF.pdf
@@ -58,8 +60,7 @@ var ShellSort = (function () {
         return (11 * h + 1) / 16;
     };
     return ShellSort;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = ShellSort;
 ;
 

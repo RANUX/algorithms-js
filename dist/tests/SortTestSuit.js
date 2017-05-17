@@ -1,4 +1,6 @@
-var tsUnit = require('../node_modules/tsunit.external/tsUnit');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var tsUnit = require("../node_modules/tsunit.external/tsUnit");
 var utils = require("./utils");
 var fs = require("fs");
 var path = require("path");
@@ -14,7 +16,6 @@ function runTests() {
         }
     });
 }
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = runTests;
 runTests();
 

@@ -1,5 +1,7 @@
-var ArrayHelpers_1 = require('../helpers/ArrayHelpers');
-var SimpleSort_1 = require('./SimpleSort');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ArrayHelpers_1 = require("../helpers/ArrayHelpers");
+var SimpleSort_1 = require("./SimpleSort");
 /**
  * QuickSortM (QuickSort Median). ( N(logN) in most cases )
  *
@@ -78,8 +80,7 @@ var QuickSortM = (function () {
         }
     };
     return QuickSortM;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = QuickSortM;
 
 //# sourceMappingURL=QuickSortM.js.map

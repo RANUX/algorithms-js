@@ -1,8 +1,15 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
 ////////////////////////////////////////////////////////////////
 var LinkElem = (function () {
     /**
@@ -16,8 +23,8 @@ var LinkElem = (function () {
         return JSON.stringify(this);
     };
     return LinkElem;
-})();
-exports.LinkElem = LinkElem; // end class Element
+}()); // end class Element
+exports.LinkElem = LinkElem;
 ////////////////////////////////////////////////////////////////
 /**
  * FirstLastList linked list realization.
@@ -189,8 +196,8 @@ var FirstLastList = (function () {
         return (current != null) ? i : -1;
     };
     return FirstLastList;
-})();
-exports.FirstLastList = FirstLastList; // end class FirstLastList
+}()); // end class FirstLastList
+exports.FirstLastList = FirstLastList;
 ////////////////////////////////////////////////////////////////
 /**
  * SortedFirstLastList linked list realization.
@@ -198,7 +205,7 @@ exports.FirstLastList = FirstLastList; // end class FirstLastList
 var SortedFirstLastList = (function (_super) {
     __extends(SortedFirstLastList, _super);
     function SortedFirstLastList() {
-        _super.apply(this, arguments);
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     SortedFirstLastList.prototype.insertFirst = function (value) {
         var newElem = new LinkElem(value);
@@ -218,8 +225,8 @@ var SortedFirstLastList = (function (_super) {
         this._size++;
     };
     return SortedFirstLastList;
-})(FirstLastList);
-exports.SortedFirstLastList = SortedFirstLastList; // end class FirstLastList
+}(FirstLastList)); // end class FirstLastList
+exports.SortedFirstLastList = SortedFirstLastList;
 //////////////////////////////////////////////////////////////// 
 
 //# sourceMappingURL=FirstLastList.js.map

@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Converts infix numerical expression to postfix
  */
@@ -83,7 +85,7 @@ var Infix2Postfix = (function () {
         } // end while
     };
     return Infix2Postfix;
-})();
+}());
 exports.Infix2Postfix = Infix2Postfix;
 
 //# sourceMappingURL=Infix2Postfix.js.map

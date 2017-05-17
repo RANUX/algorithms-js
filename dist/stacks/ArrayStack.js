@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * ArrayStack implements IStack
  */
@@ -40,7 +42,7 @@ var ArrayStack = (function () {
         return "Top: " + this.top + " Stack content: " + aStr;
     };
     return ArrayStack;
-})();
+}());
 exports.ArrayStack = ArrayStack;
 
 //# sourceMappingURL=ArrayStack.js.map

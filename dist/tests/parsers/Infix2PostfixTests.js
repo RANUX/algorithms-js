@@ -1,15 +1,23 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var tsUnit = require('../../node_modules/tsunit.external/tsUnit');
-var i2p = require('../../parsers/Infix2Postfix');
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var tsUnit = require("../../node_modules/tsunit.external/tsUnit");
+var i2p = require("../../parsers/Infix2Postfix");
 var Infix2PostfixTests = (function (_super) {
     __extends(Infix2PostfixTests, _super);
     function Infix2PostfixTests() {
-        _super.apply(this, arguments);
-        this.inf2Pstfx = new i2p.Infix2Postfix();
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.inf2Pstfx = new i2p.Infix2Postfix();
+        return _this;
     }
     Infix2PostfixTests.prototype.testConvert_Empty = function () {
         var postfix = this.inf2Pstfx.convert("");
@@ -66,7 +74,7 @@ var Infix2PostfixTests = (function (_super) {
         this.areIdentical("203;50;40;+*10;7;*4;+;*", postfix, "INFIX: " + infix);
     };
     return Infix2PostfixTests;
-})(tsUnit.TestClass);
+}(tsUnit.TestClass));
 exports.Infix2PostfixTests = Infix2PostfixTests;
 
 //# sourceMappingURL=Infix2PostfixTests.js.map

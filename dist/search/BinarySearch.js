@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * BinarySearch find index of value in sorted array
  */
@@ -31,8 +33,7 @@ var BinarySearch = (function () {
         }
     };
     return BinarySearch;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = BinarySearch;
 
 //# sourceMappingURL=BinarySearch.js.map

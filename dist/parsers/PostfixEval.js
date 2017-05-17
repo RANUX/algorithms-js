@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * EvalPostfix
  */
@@ -42,10 +44,10 @@ var PostfixEval = (function () {
                     num += ch;
             }
         }
-        return stack.length > 0 ? stack[0] : 0;
+        return stack.length > 0 ? stack[0] : (num ? parseFloat(num) : 0);
     };
     return PostfixEval;
-})();
+}());
 exports.PostfixEval = PostfixEval;
 
 //# sourceMappingURL=PostfixEval.js.map

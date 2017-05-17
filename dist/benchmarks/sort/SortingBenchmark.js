@@ -1,5 +1,7 @@
-var ArrayHelpers_1 = require('../../helpers/ArrayHelpers');
-var ObjectHelpers_1 = require('../../helpers/ObjectHelpers');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ArrayHelpers_1 = require("../../helpers/ArrayHelpers");
+var ObjectHelpers_1 = require("../../helpers/ObjectHelpers");
 var SortingBenchmark = (function () {
     function SortingBenchmark(sortingObj, itemsCount) {
         if (itemsCount === void 0) { itemsCount = 100000; }
@@ -27,8 +29,7 @@ var SortingBenchmark = (function () {
         console.log('[' + ObjectHelpers_1.getObjectName(this.sorting) + ' ]' + ' Sorting ' + this.itemsCount + ' random nums execution time: ' + this.measureNumSortTime(this.unsortedNum) + ' ms');
     };
     return SortingBenchmark;
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
+}());
 exports.default = SortingBenchmark;
 ;
 
