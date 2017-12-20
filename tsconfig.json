@@ -3,9 +3,10 @@
          "emitDecoratorMetadata": true, 
          "experimentalDecorators": true,
          "module": "commonjs", 
-         "target": "es5",
+         "target": "es6",
          "outDir": "dist",
-         "declaration": true
+         "declaration": true,
+         "lib": ["es5", "es6", "dom"]
      },
      "exclude": [
          "node_modules",

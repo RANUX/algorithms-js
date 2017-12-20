@@ -12,7 +12,7 @@
     "gulp-typescript": "latest",
     "knuth-shuffle": "latest",
     "merge2": "latest",
-    "tsunit.external": "latest",
+    "ts-unit": "^1.0.1",
     "typescript": "latest",
     "vinyl-fs": "latest"
   },

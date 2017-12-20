@@ -1,4 +1,4 @@
-import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
+import * as tsUnit from '../../node_modules/ts-unit';
 import i2p = require('../../parsers/Infix2Postfix');
 
 export class Infix2PostfixTests extends tsUnit.TestClass {

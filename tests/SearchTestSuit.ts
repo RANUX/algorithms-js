@@ -1,4 +1,4 @@
-import tsUnit = require('../node_modules/tsunit.external/tsUnit');
+import tsUnit = require('../node_modules/ts-unit');
 import utils = require("./utils");
 import fs   = require("fs");
 import path = require("path");

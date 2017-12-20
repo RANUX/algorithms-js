@@ -1,4 +1,4 @@
-import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
+import * as tsUnit from '../../node_modules/ts-unit';
 import * as lists  from "../../lists/IList";
 import shuffle = require('knuth-shuffle');
 

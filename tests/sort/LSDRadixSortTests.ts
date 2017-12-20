@@ -1,4 +1,4 @@
-import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
+import * as tsUnit from '../../node_modules/ts-unit';
 import shuffle = require('knuth-shuffle');
 import LSDRadixSort  from "../../sort/LSDRadixSort";
 import { shallowCopy } from '../../helpers/ArrayHelpers';

@@ -1,4 +1,4 @@
-import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
+import * as tsUnit from '../../node_modules/ts-unit';
 import * as isort  from "../../sort/ISort";
 import shuffle = require('knuth-shuffle');
 import ahelp  = require('../../helpers/ArrayHelpers')

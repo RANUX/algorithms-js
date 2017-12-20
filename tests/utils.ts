@@ -1,6 +1,6 @@
 import fs   = require("fs");
 import path = require("path");
-import tsUnit = require('../node_modules/tsunit.external/tsUnit');
+import tsUnit = require('../node_modules/ts-unit');
 
 export function getTapResults(result) {
     var newLine = '\r\n';

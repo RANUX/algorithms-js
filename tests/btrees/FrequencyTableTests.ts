@@ -1,4 +1,4 @@
-import * as tsUnit from '../../node_modules/tsunit.external/tsUnit';
+import * as tsUnit from '../../node_modules/ts-unit';
 import { equal } from '../../helpers/ObjectHelpers';
 import FrequencyTable from '../../btrees/FrequencyTable';
 import PriorityQueue  from '../../queues/PriorityQueue';
