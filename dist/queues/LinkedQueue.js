@@ -1,43 +1,35 @@
-import * as iqm from "./IQueue";
-import ffl = require("../lists/FirstLastList");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const ffl = require("../lists/FirstLastList");
 /**
  * LinkedQueue based on LinkedList
  */
-export class LinkedQueue implements iqm.IQueue {
-    
-    private list : ffl.FirstLastList;
-    
+class LinkedQueue {
     constructor() {
         this.list = new ffl.FirstLastList();
     }
-    
-    enqueue(value : any) {
+    enqueue(value) {
         this.list.push(value);
     }
-    
-    dequeue() : any {
+    dequeue() {
         return this.list.shift();
     }
-    
     clear() {
         this.list.clear();
     }
-    
-    size() : number {
+    size() {
         return this.list.size();
     }
-
-    isEmpty() : boolean {
+    isEmpty() {
         return (this.list.size() == 0);
     }
-
-    peekFront() : any {
+    peekFront() {
         return this.list.peekFirst().data;
     }
-
-    peekRear()  : any {
+    peekRear() {
         return this.list.peekLast().data;
     }
-
-
 }
+exports.LinkedQueue = LinkedQueue;
+
+//# sourceMappingURL=LinkedQueue.js.map

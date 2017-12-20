@@ -10,6 +10,7 @@ npm install                # set up all dependencies
 npm install -g typescript  # Only if you dont have tsc!
 npm install tsd -g
 tsd install                # install tsd files ( see tsd.json )
+npm install tslint -g      # install tslint
 tsc                        # build
 node dist/Main.js          # run
 ```

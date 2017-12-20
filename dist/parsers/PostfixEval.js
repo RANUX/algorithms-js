@@ -1,51 +1,29 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * EvalPostfix
  */
-export class PostfixEval {
-    
-/**
- * Eval postfix:	345+*612+/-
- * 
-    In  Stack
---------------
-    3	3
-    4	3,4
-    5	3,4,5
-    +	3,9
-    *	27
-    6	27,6
-    1	27,6,1
-    2	27,6,1,2
-    +	27,6,3
-    /	27,2
-    -	25
----------------
- */
-
-    op : Object;
-    
+class PostfixEval {
     constructor() {
         this.op = {
-            '+' : ( a:number, b:number ) => {
+            '+': (a, b) => {
                 return a + b;
             },
-            '-' : ( a:number, b:number ) => {
+            '-': (a, b) => {
                 return a - b;
             },
-            '*' : ( a:number, b:number ) => {
+            '*': (a, b) => {
                 return a * b;
             },
-            '/' : ( a:number, b:number ) => {
+            '/': (a, b) => {
                 return a / b;
             }
-        }
+        };
     }
-    eval(expr : string, separator = ';') : number {
-        var stack  = [];
-        var num    = '';
-        
-        for (var i = 0; i < expr.length; i++)    // for each char
-        {    
+    eval(expr, separator = ';') {
+        var stack = [];
+        var num = '';
+        for (var i = 0; i < expr.length; i++) {
             var ch = expr.charAt(i).toLowerCase();
             switch (ch) {
                 case '+':
@@ -55,7 +33,7 @@ export class PostfixEval {
                     const val1 = stack.pop();
                     const val2 = stack.pop();
                     // compute expression and push ansver to stack
-                    stack.push( this.op[ch](val2, val1) );
+                    stack.push(this.op[ch](val2, val1));
                     break;
                 case separator:
                     if (num) {
@@ -65,10 +43,11 @@ export class PostfixEval {
                     break;
                 default:
                     num += ch;
-                    
             }
         }
-
         return stack.length > 0 ? stack[0] : (num ? parseFloat(num) : 0);
     }
 }
+exports.PostfixEval = PostfixEval;
+
+//# sourceMappingURL=PostfixEval.js.map

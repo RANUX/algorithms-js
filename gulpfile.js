@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
@@ -11,12 +11,12 @@ var tsProject = ts.createProject('tsconfig.json');
 
 
 gulp.task('symlink', function () {
-  return vfs.src('./node_modules', {followSymlinks: false})
-  .pipe(vfs.symlink('dist'));
+    return vfs.src('./node_modules', {followSymlinks: false})
+    .pipe(vfs.symlink('dist'));
 });
 
 gulp.task('build-debug', function() {
-    del.sync("dist");
+    del.sync('dist');
 
     var tsResult = tsProject.src()
         .pipe(sourcemaps.init())   
@@ -28,7 +28,7 @@ gulp.task('build-debug', function() {
         // tsResult.dts
         //     .pipe(gulp.dest('dist')),
         tsResult.js
-            .pipe(sourcemaps.write("./", { sourceRoot: __dirname }))
+            .pipe(sourcemaps.write('./', { sourceRoot: __dirname }))
             .pipe(gulp.dest('dist'))
     ]);
 });
