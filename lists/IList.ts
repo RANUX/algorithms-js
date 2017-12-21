@@ -1,5 +1,4 @@
-export interface IList
-{
+export interface IList {
     /**
      * Inserts a value into the list at a specified position. The size of the list will increase by one.
      *
@@ -8,53 +7,44 @@ export interface IList
      * @throws RangeError if the specified position falls outside the range
      *                                   (index < 0 || index >= size()).
      */
-     insert(index : number, value : any);
+     insert(index: number, value: any);
 
     /**
      * Retrieve and delete first element of the list
-     * 
+     *
      * @returns {*} (description)
      */
-    shift() : any;
-    
+    shift(): any;
+
     /**
      * Adds a value to the end of the list. The size of the list will increase by one.
      *
      * @param value The value to be added.
      */
-     push(value : any);
-     
-     /**
+     push(value: any);
+
+    /**
      * Insert value at start of the list
-     * 
+     *
      * @param {*} value any
      * @return new list size
      */
-    unshift(value: any) : number;
-    
-    /**
-     * Remove value at start of the list
-     * 
-     * @param {*} value any
-     * @return removed item
-     */
-    shift() : any;
-    
+     unshift(value: any): number;
+
     /**
      * Remove value at end of the list
-     * 
+     *
      * @param {*} value any
      * @return removed item
      */
-    pop() : any;
-    
-    
+    pop(): any;
+
     /**
      * Peek a value from end of the list without remove
      *
      * @param value.
      */
-    peek() : any;
+    peek(): any;
 
     /**
      * Deletes the value from a specified position in the list. The size of the list will decrease by one.
@@ -64,7 +54,7 @@ export interface IList
      * @throws RangeError if the specified position falls outside the range
      *                                   (index < 0 || index >= size()).
      */
-    delete(index: number) : any;
+    delete(index: number): any;
 
     /**
      * Deletes all elements from the list. The size of the list will be reset to zero (0).
@@ -80,7 +70,7 @@ export interface IList
      * @throws RangeError if the specified position falls outside the range
      *                                   (index < 0 || index >= size()).
      */
-    set(index : number, value : any) : any;
+    set(index: number, value: any): any;
 
     /**
      * Obtains the value from a specified position in the List.
@@ -90,7 +80,7 @@ export interface IList
      * @throws RangeError if the specified position falls outside the range
      *                                   (index < 0 || index >= size()).
      */
-    get(index : number) : any;
+    get(index: number): any;
 
     /**
      * Obtains the position of the first occurrence of a specified value within a list.
@@ -98,7 +88,7 @@ export interface IList
      * @param value The value for which the index is required.
      * @return The position (0, 1, 2...) of the first occurrence of value; otherwise -1.
      */
-    indexOf(value : any) : number;
+    indexOf(value: any): number;
 
     /**
      * Determines if the list contains a specified value.
@@ -106,19 +96,19 @@ export interface IList
      * @param value The value for which to search.
      * @return <code>true</code> if the value is found; otherwise <code>false</code>.
      */
-    contains(value : any) : boolean;
+    contains(value: any): boolean;
 
     /**
      * Obtains the number of elements in the list.
      *
      * @return The number of elements in the list.
      */
-    size() : number;
+    size(): number;
 
     /**
      * Determines if the list is empty or not.
      *
      * @return <code>true</code> if the list is empty (<code>size() == 0</code>); otherwise returns <code>false</code>.
      */
-    isEmpty() : boolean;
+    isEmpty(): boolean;
 }

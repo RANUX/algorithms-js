@@ -28,18 +28,19 @@ class ArrayStack {
         return this.length();
     }
     isEmpty() {
-        return this.top == -1;
+        return this.top === -1;
     }
     toString() {
-        if (this.isEmpty())
-            return "Top: -1: Stack content: []";
-        var aStr = "[";
-        for (var i = 0; i <= this.top; i++) {
-            aStr += this.a[i] + ", ";
+        if (this.isEmpty()) {
+            return 'Top: -1: Stack content: []';
+        }
+        let aStr = '[';
+        for (let i = 0; i <= this.top; i++) {
+            aStr += this.a[i] + ', ';
         }
         aStr = aStr.slice(0, aStr.length - 2);
-        aStr += "]";
-        return "Top: " + this.top + " Stack content: " + aStr;
+        aStr += ']';
+        return 'Top: ' + this.top + ' Stack content: ' + aStr;
     }
 }
 exports.ArrayStack = ArrayStack;

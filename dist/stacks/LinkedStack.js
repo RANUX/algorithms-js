@@ -28,7 +28,7 @@ class LinkedStack {
         return this.length();
     }
     isEmpty() {
-        return (this.list.size() == 0);
+        return (this.list.size() === 0);
     }
 }
 exports.LinkedStack = LinkedStack;

@@ -1,46 +1,37 @@
-import istack = require("./IStack");
-import ffl = require("../lists/FirstLastList");
+import ffl = require('../lists/FirstLastList');
+import istack = require('./IStack');
 
 /**
  * LinkedStack
  */
 export class LinkedStack implements istack.IStack {
-    
-    private list : ffl.FirstLastList;
-    
+
+    private list: ffl.FirstLastList;
 
     constructor() {
         this.list = new ffl.FirstLastList();
     }
-    
-    push(value: any) : number 
-    {
+
+    push(value: any): number {
         this.list.insertFirst( value );
         return this.list.size();
     }
-    pop() : any 
-    {
+    pop(): any {
         return this.list.deleteFirst();
     }
-    peek() : any
-    {
+    peek(): any {
         return this.list.peekFirst().data;
     }
-    clear() : void 
-    {
+    clear(): void {
         this.list.clear();
     }
-    length() : number 
-    {
+    length(): number {
         return this.list.size();
     }
-    size() : number 
-    {
+    size(): number {
         return this.length();
     }
-    isEmpty() : boolean 
-    {
-        return (this.list.size() == 0);
+    isEmpty(): boolean {
+        return (this.list.size() === 0);
     }
-
 }
